@@ -15,23 +15,36 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create default permissions
+        Permission::create(['name' => 'list files']);
+        Permission::create(['name' => 'view files']);
+        Permission::create(['name' => 'create files']);
+        Permission::create(['name' => 'update files']);
+        Permission::create(['name' => 'delete files']);
+
+        // Create user role and assign existing permissions
+        $currentPermissions = Permission::all();
+        $userRole = Role::create(['name' => 'user']);
+        $userRole->givePermissionTo($currentPermissions);
+
+        // Create area-admin exclusive permissions
         Permission::create(['name' => 'list areas']);
         Permission::create(['name' => 'view areas']);
         Permission::create(['name' => 'create areas']);
         Permission::create(['name' => 'update areas']);
         Permission::create(['name' => 'delete areas']);
 
-        Permission::create(['name' => 'list categories']);
-        Permission::create(['name' => 'view categories']);
-        Permission::create(['name' => 'create categories']);
-        Permission::create(['name' => 'update categories']);
-        Permission::create(['name' => 'delete categories']);
 
-        Permission::create(['name' => 'list files']);
-        Permission::create(['name' => 'view files']);
-        Permission::create(['name' => 'create files']);
-        Permission::create(['name' => 'update files']);
-        Permission::create(['name' => 'delete files']);
+        Permission::create(['name' => 'list users']);
+        Permission::create(['name' => 'view users']);
+        Permission::create(['name' => 'create users']);
+        Permission::create(['name' => 'update users']);
+        Permission::create(['name' => 'delete users']);
+
+
+        // Create user role and assign existing permissions
+        $currentPermissions = Permission::all();
+        $userRole = Role::create(['name' => 'area-admin']);
+        $userRole->givePermissionTo($currentPermissions);
 
         Permission::create(['name' => 'list typeareas']);
         Permission::create(['name' => 'view typeareas']);
@@ -39,10 +52,11 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update typeareas']);
         Permission::create(['name' => 'delete typeareas']);
 
-        // Create user role and assign existing permissions
-        $currentPermissions = Permission::all();
-        $userRole = Role::create(['name' => 'user']);
-        $userRole->givePermissionTo($currentPermissions);
+        Permission::create(['name' => 'list categories']);
+        Permission::create(['name' => 'view categories']);
+        Permission::create(['name' => 'create categories']);
+        Permission::create(['name' => 'update categories']);
+        Permission::create(['name' => 'delete categories']);
 
         // Create admin exclusive permissions
         Permission::create(['name' => 'list roles']);
@@ -56,12 +70,6 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'create permissions']);
         Permission::create(['name' => 'update permissions']);
         Permission::create(['name' => 'delete permissions']);
-
-        Permission::create(['name' => 'list users']);
-        Permission::create(['name' => 'view users']);
-        Permission::create(['name' => 'create users']);
-        Permission::create(['name' => 'update users']);
-        Permission::create(['name' => 'delete users']);
 
         // Create admin role and assign all permissions
         $allPermissions = Permission::all();

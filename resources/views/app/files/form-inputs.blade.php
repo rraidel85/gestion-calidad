@@ -42,7 +42,7 @@
         </x-inputs.select>
     </x-inputs.group>
 
-    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('super-admin'))
+    @if(\Illuminate\Support\Facades\Auth::user()->hasRole(['super-admin']))
         <x-inputs.group class="col-sm-12">
             <x-inputs.number
                 name="access_level"
