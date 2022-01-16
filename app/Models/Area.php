@@ -15,13 +15,18 @@ class Area extends Model
 
     protected $searchableFields = ['*'];
 
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
-
     public function typeArea()
     {
         return $this->belongsTo(TypeArea::class);
+    }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

@@ -31,6 +31,12 @@
                             @can('view-any', App\Models\Area::class)
                             <a class="dropdown-item" href="{{ route('areas.index') }}">Areas</a>
                             @endcan
+                            @can('view-any', App\Models\File::class)
+                            <a class="dropdown-item" href="{{ route('files.index') }}">Files</a>
+                            @endcan
+                            @can('view-any', App\Models\Category::class)
+                            <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
+                            @endcan
                         </div>
 
                     </li>

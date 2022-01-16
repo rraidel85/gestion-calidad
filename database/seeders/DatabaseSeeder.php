@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionsSeeder::class);
 
         $this->call(AreaSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(FileSeeder::class);
         $this->call(TypeAreaSeeder::class);
         $this->call(UserSeeder::class);
     }

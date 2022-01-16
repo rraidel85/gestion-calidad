@@ -4,8 +4,6 @@ namespace Tests\Feature\Api;
 
 use App\Models\User;
 
-use App\Models\Area;
-
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -56,7 +54,6 @@ class UserTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
-        unset($data['area_id']);
 
         $this->assertDatabaseHas('users', $data);
 
@@ -70,12 +67,9 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $area = Area::factory()->create();
-
         $data = [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
-            'area_id' => $area->id,
         ];
 
         $data['password'] = \Str::random('8');
@@ -84,7 +78,6 @@ class UserTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
-        unset($data['area_id']);
 
         $data['id'] = $user->id;
 

@@ -21,6 +21,18 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update areas']);
         Permission::create(['name' => 'delete areas']);
 
+        Permission::create(['name' => 'list categories']);
+        Permission::create(['name' => 'view categories']);
+        Permission::create(['name' => 'create categories']);
+        Permission::create(['name' => 'update categories']);
+        Permission::create(['name' => 'delete categories']);
+
+        Permission::create(['name' => 'list files']);
+        Permission::create(['name' => 'view files']);
+        Permission::create(['name' => 'create files']);
+        Permission::create(['name' => 'update files']);
+        Permission::create(['name' => 'delete files']);
+
         Permission::create(['name' => 'list typeareas']);
         Permission::create(['name' => 'view typeareas']);
         Permission::create(['name' => 'create typeareas']);

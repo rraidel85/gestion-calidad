@@ -33,45 +33,56 @@ class AreaUsersTest extends TestCase
     public function it_gets_area_users()
     {
         $area = Area::factory()->create();
-        $users = User::factory()
-            ->count(2)
-            ->create([
-                'area_id' => $area->id,
-            ]);
+        $user = User::factory()->create();
+
+        $area->users()->attach($user);
 
         $response = $this->getJson(route('api.areas.users.index', $area));
 
-        $response->assertOk()->assertSee($users[0]->name);
+        $response->assertOk()->assertSee($user->name);
     }
 
     /**
      * @test
      */
-    public function it_stores_the_area_users()
+    public function it_can_attach_users_to_area()
     {
         $area = Area::factory()->create();
-        $data = User::factory()
-            ->make([
-                'area_id' => $area->id,
-            ])
-            ->toArray();
-        $data['password'] = \Str::random('8');
+        $user = User::factory()->create();
 
         $response = $this->postJson(
-            route('api.areas.users.store', $area),
-            $data
+            route('api.areas.users.store', [$area, $user])
         );
 
-        unset($data['password']);
-        unset($data['email_verified_at']);
-        unset($data['area_id']);
+        $response->assertNoContent();
 
-        $this->assertDatabaseHas('users', $data);
+        $this->assertTrue(
+            $area
+                ->users()
+                ->where('users.id', $user->id)
+                ->exists()
+        );
+    }
 
-        $response->assertStatus(201)->assertJsonFragment($data);
+    /**
+     * @test
+     */
+    public function it_can_detach_users_from_area()
+    {
+        $area = Area::factory()->create();
+        $user = User::factory()->create();
 
-        $user = User::latest('id')->first();
+        $response = $this->deleteJson(
+            route('api.areas.users.store', [$area, $user])
+        );
 
-        $this->assertEquals($area->id, $user->area_id);
+        $response->assertNoContent();
+
+        $this->assertFalse(
+            $area
+                ->users()
+                ->where('users.id', $user->id)
+                ->exists()
+        );
     }
 }

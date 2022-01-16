@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignsToUsersTable extends Migration
+class AddForeignsToAreaUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,18 @@ class AddForeignsToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('area_user', function (Blueprint $table) {
             $table
                 ->foreign('area_id')
                 ->references('id')
                 ->on('areas')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
+
+            $table
+                ->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
         });
@@ -30,8 +37,9 @@ class AddForeignsToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('area_user', function (Blueprint $table) {
             $table->dropForeign(['area_id']);
+            $table->dropForeign(['user_id']);
         });
     }
 }

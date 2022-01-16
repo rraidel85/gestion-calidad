@@ -18,7 +18,7 @@ class User extends Authenticatable
     use Searchable;
     use HasApiTokens;
 
-    protected $fillable = ['name', 'email', 'password', 'area_id'];
+    protected $fillable = ['name', 'email', 'password'];
 
     protected $searchableFields = ['*'];
 
@@ -28,9 +28,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function area()
+    public function files()
     {
-        return $this->belongsTo(Area::class);
+        return $this->hasMany(File::class);
+    }
+
+    public function areas()
+    {
+        return $this->belongsToMany(Area::class);
     }
 
     public function isSuperAdmin()

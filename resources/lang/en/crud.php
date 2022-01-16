@@ -60,6 +60,34 @@ return [
         ],
     ],
 
+    'files' => [
+        'name' => 'Files',
+        'index_title' => 'Files List',
+        'new_title' => 'New File',
+        'create_title' => 'Create File',
+        'edit_title' => 'Edit File',
+        'show_title' => 'Show File',
+        'inputs' => [
+            'name' => 'Name',
+            'file' => 'File',
+            'category_id' => 'Category',
+            'area_id' => 'Area',
+            'user_id' => 'User',
+        ],
+    ],
+
+    'categories' => [
+        'name' => 'Categories',
+        'index_title' => 'Categories List',
+        'new_title' => 'New Category',
+        'create_title' => 'Create Category',
+        'edit_title' => 'Edit Category',
+        'show_title' => 'Show Category',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',
