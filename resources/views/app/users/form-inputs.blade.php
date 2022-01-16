@@ -48,14 +48,22 @@
         <x-inputs.select name="areas[]" label="Area" required multiple>
             @php $selected = old('area_id', ($editing ? $user->area_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Area</option>
-            @foreach($areas as $area)
-                <option
-                    value="{{ $area->id }}" {{ $editing && $user->areas->contains($area) ? 'selected' : '' }}
-                >{{ $area->name }}</option>
-            @endforeach
+            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('super-admin'))
+                @foreach($areas as $area)
+                    <option
+                        value="{{ $area->id }}" {{ $editing && $user->areas->contains($area) ? 'selected' : '' }}
+                    >{{ $area->name }}</option>
+                @endforeach
+            @else
+                @foreach(\Illuminate\Support\Facades\Auth::user()->areas as $area)
+                    <option
+                        value="{{ $area->id }}" {{ $editing && $user->areas->contains($area) ? 'selected' : '' }}
+                    >{{ $area->name }}</option>
+                @endforeach
+            @endif
         </x-inputs.select>
     </x-inputs.group>
-
+    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('super-admin'))
     <div class="form-group col-sm-12 mt-4">
         <h4>Assign @lang('crud.roles.name')</h4>
 
@@ -72,6 +80,8 @@
             </div>
         @endforeach
     </div>
-
+    @else
+        <input type="hidden" name="roles[]" value="{{$roles[0]->id}}">
+    @endif
 
 </div>
