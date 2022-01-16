@@ -34,6 +34,32 @@ return [
         ],
     ],
 
+    'type_areas' => [
+        'name' => 'Type Areas',
+        'index_title' => 'TypeAreas List',
+        'new_title' => 'New Type area',
+        'create_title' => 'Create TypeArea',
+        'edit_title' => 'Edit TypeArea',
+        'show_title' => 'Show TypeArea',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+
+    'areas' => [
+        'name' => 'Areas',
+        'index_title' => 'Areas List',
+        'new_title' => 'New Area',
+        'create_title' => 'Create Area',
+        'edit_title' => 'Edit Area',
+        'show_title' => 'Show Area',
+        'inputs' => [
+            'name' => 'Name',
+            'description' => 'Description',
+            'type_area_id' => 'Type Area',
+        ],
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',

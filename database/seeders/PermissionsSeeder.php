@@ -15,6 +15,17 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create default permissions
+        Permission::create(['name' => 'list areas']);
+        Permission::create(['name' => 'view areas']);
+        Permission::create(['name' => 'create areas']);
+        Permission::create(['name' => 'update areas']);
+        Permission::create(['name' => 'delete areas']);
+
+        Permission::create(['name' => 'list typeareas']);
+        Permission::create(['name' => 'view typeareas']);
+        Permission::create(['name' => 'create typeareas']);
+        Permission::create(['name' => 'update typeareas']);
+        Permission::create(['name' => 'delete typeareas']);
 
         // Create user role and assign existing permissions
         $currentPermissions = Permission::all();

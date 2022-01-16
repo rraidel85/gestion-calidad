@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TypeAreaController;
 use App\Http\Controllers\PermissionController;
 
 /*
@@ -32,4 +34,6 @@ Route::prefix('/')
         Route::resource('permissions', PermissionController::class);
 
         Route::resource('users', UserController::class);
+        Route::resource('type-areas', TypeAreaController::class);
+        Route::resource('areas', AreaController::class);
     });

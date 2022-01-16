@@ -25,6 +25,12 @@
                             @can('view-any', App\Models\User::class)
                             <a class="dropdown-item" href="{{ route('users.index') }}">Users</a>
                             @endcan
+                            @can('view-any', App\Models\TypeArea::class)
+                            <a class="dropdown-item" href="{{ route('type-areas.index') }}">Type Areas</a>
+                            @endcan
+                            @can('view-any', App\Models\Area::class)
+                            <a class="dropdown-item" href="{{ route('areas.index') }}">Areas</a>
+                            @endcan
                         </div>
 
                     </li>
