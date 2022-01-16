@@ -39,7 +39,7 @@
                 name="level"
                 label="Level"
                 value="{{ old('level', ($editing ? $user->level : '')) }}"
-                max="{{\Illuminate\Support\Facades\Auth::user()->level}}"
+                max="10"
                 placeholder="Level"
                 required
             ></x-inputs.number>

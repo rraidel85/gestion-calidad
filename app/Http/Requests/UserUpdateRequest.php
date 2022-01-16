@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -31,7 +32,7 @@ class UserUpdateRequest extends FormRequest
                 Rule::unique('users', 'email')->ignore($this->user),
                 'email',
             ],
-            'level' => ['required', 'numeric', 'min:1', 'max:10'],
+            'level' => ['required', 'numeric', 'min:1', 'max:' . Auth::user()->level],
             'areas' => 'array',
             'roles' => 'array',
         ];
