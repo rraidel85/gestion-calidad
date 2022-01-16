@@ -26,6 +26,7 @@ class FileStoreRequest extends FormRequest
             'name' => ['required', 'max:255', 'string'],
             'file' => ['nullable', 'file'],
             'category_id' => ['required', 'exists:categories,id'],
+            'access_level' => ['required', 'numeric'],
             'area_id' => ['required', 'exists:areas,id'],
             'user_id' => ['required', 'exists:users,id'],
         ];

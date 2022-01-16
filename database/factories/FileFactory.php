@@ -24,6 +24,7 @@ class FileFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'access_level' => $this->faker->randomNumber(0),
             'area_id' => \App\Models\Area::factory(),
             'user_id' => \App\Models\User::factory(),
             'category_id' => \App\Models\Category::factory(),

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
@@ -30,6 +31,8 @@ class UserUpdateRequest extends FormRequest
                 Rule::unique('users', 'email')->ignore($this->user),
                 'email',
             ],
+            'level' => ['required', 'numeric', 'min:1', 'max:10'],
+            'areas' => 'array',
             'roles' => 'array',
         ];
     }

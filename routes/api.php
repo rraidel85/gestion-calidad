@@ -2,17 +2,17 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\FileController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TypeAreaController;
 use App\Http\Controllers\Api\CategoryController;
-use App\Http\Controllers\Api\UserFilesController;
-use App\Http\Controllers\Api\UserAreasController;
 use App\Http\Controllers\Api\AreaFilesController;
 use App\Http\Controllers\Api\AreaUsersController;
+use App\Http\Controllers\Api\UserFilesController;
+use App\Http\Controllers\Api\UserAreasController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\TypeAreaAreasController;
 use App\Http\Controllers\Api\CategoryFilesController;
@@ -41,32 +41,6 @@ Route::name('api.')
     ->group(function () {
         Route::apiResource('roles', RoleController::class);
         Route::apiResource('permissions', PermissionController::class);
-
-        Route::apiResource('users', UserController::class);
-
-        // User Files
-        Route::get('/users/{user}/files', [
-            UserFilesController::class,
-            'index',
-        ])->name('users.files.index');
-        Route::post('/users/{user}/files', [
-            UserFilesController::class,
-            'store',
-        ])->name('users.files.store');
-
-        // User Areas
-        Route::get('/users/{user}/areas', [
-            UserAreasController::class,
-            'index',
-        ])->name('users.areas.index');
-        Route::post('/users/{user}/areas/{area}', [
-            UserAreasController::class,
-            'store',
-        ])->name('users.areas.store');
-        Route::delete('/users/{user}/areas/{area}', [
-            UserAreasController::class,
-            'destroy',
-        ])->name('users.areas.destroy');
 
         Route::apiResource('type-areas', TypeAreaController::class);
 
@@ -119,4 +93,30 @@ Route::name('api.')
             CategoryFilesController::class,
             'store',
         ])->name('categories.files.store');
+
+        Route::apiResource('users', UserController::class);
+
+        // User Files
+        Route::get('/users/{user}/files', [
+            UserFilesController::class,
+            'index',
+        ])->name('users.files.index');
+        Route::post('/users/{user}/files', [
+            UserFilesController::class,
+            'store',
+        ])->name('users.files.store');
+
+        // User Areas
+        Route::get('/users/{user}/areas', [
+            UserAreasController::class,
+            'index',
+        ])->name('users.areas.index');
+        Route::post('/users/{user}/areas/{area}', [
+            UserAreasController::class,
+            'store',
+        ])->name('users.areas.store');
+        Route::delete('/users/{user}/areas/{area}', [
+            UserAreasController::class,
+            'destroy',
+        ])->name('users.areas.destroy');
     });

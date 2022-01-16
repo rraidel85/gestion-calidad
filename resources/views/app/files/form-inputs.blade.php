@@ -42,6 +42,19 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
+        <x-inputs.number
+            name="access_level"
+            label="Access Level"
+            value="{{ old('access_level', ($editing ? $file->access_level : '')) }}"
+            min="1"
+            max="10"
+            step="1"
+            placeholder="Access Level"
+            required
+        ></x-inputs.number>
+    </x-inputs.group>
+
+    <x-inputs.group class="col-sm-12">
         <x-inputs.select name="area_id" label="Area" required>
             @php $selected = old('area_id', ($editing ? $file->area_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Area</option>

@@ -29,6 +29,10 @@
                     <span>{{ optional($file->category)->name ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
+                    <h5>@lang('crud.files.inputs.access_level')</h5>
+                    <span>{{ $file->access_level ?? '-' }}</span>
+                </div>
+                <div class="mb-4">
                     <h5>@lang('crud.files.inputs.area_id')</h5>
                     <span>{{ optional($file->area)->name ?? '-' }}</span>
                 </div>

@@ -43,6 +43,7 @@ class AreaFilesController extends Controller
             'name' => ['required', 'max:255', 'string'],
             'file' => ['nullable', 'file'],
             'category_id' => ['required', 'exists:categories,id'],
+            'access_level' => ['required', 'numeric'],
             'user_id' => ['required', 'exists:users,id'],
         ]);
 

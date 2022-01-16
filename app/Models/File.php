@@ -11,7 +11,14 @@ class File extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'file', 'area_id', 'user_id', 'category_id'];
+    protected $fillable = [
+        'name',
+        'file',
+        'area_id',
+        'user_id',
+        'category_id',
+        'access_level',
+    ];
 
     protected $searchableFields = ['*'];
 

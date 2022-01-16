@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -38,7 +39,9 @@ class UserController extends Controller
 
         $roles = Role::get();
 
-        return view('app.users.create', compact('roles'));
+        $areas = Area::all();
+
+        return view('app.users.create', compact('roles', 'areas'));
     }
 
     /**
@@ -56,6 +59,7 @@ class UserController extends Controller
         $user = User::create($validated);
 
         $user->syncRoles($request->roles);
+        $user->areas()->sync($validated['areas']);
 
         return redirect()
             ->route('users.edit', $user)
@@ -85,7 +89,9 @@ class UserController extends Controller
 
         $roles = Role::get();
 
-        return view('app.users.edit', compact('user', 'roles'));
+        $areas = Area::all();
+
+        return view('app.users.edit', compact('user', 'roles', 'areas'));
     }
 
     /**
@@ -107,6 +113,7 @@ class UserController extends Controller
         $user->update($validated);
 
         $user->syncRoles($request->roles);
+        $user->areas()->sync($validated['areas']);//Eliminar antes de sync
 
         return redirect()
             ->route('users.edit', $user)

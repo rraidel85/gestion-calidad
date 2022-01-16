@@ -57,6 +57,9 @@
                             <th class="text-left">
                                 @lang('crud.users.inputs.email')
                             </th>
+                            <th class="text-left">
+                                @lang('crud.users.inputs.level')
+                            </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
                             </th>
@@ -67,6 +70,7 @@
                         <tr>
                             <td>{{ $user->name ?? '-' }}</td>
                             <td>{{ $user->email ?? '-' }}</td>
+                            <td>{{ $user->level ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"
@@ -111,7 +115,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="3">
+                            <td colspan="4">
                                 @lang('crud.common.no_items_found')
                             </td>
                         </tr>
@@ -119,7 +123,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3">{!! $users->render() !!}</td>
+                            <td colspan="4">{!! $users->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>

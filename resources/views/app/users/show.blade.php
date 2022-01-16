@@ -20,6 +20,10 @@
                     <h5>@lang('crud.users.inputs.email')</h5>
                     <span>{{ $user->email ?? '-' }}</span>
                 </div>
+                <div class="mb-4">
+                    <h5>@lang('crud.users.inputs.level')</h5>
+                    <span>{{ $user->level ?? '-' }}</span>
+                </div>
             </div>
 
             <div class="mt-4">
