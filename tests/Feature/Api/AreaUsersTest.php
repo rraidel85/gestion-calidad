@@ -33,56 +33,44 @@ class AreaUsersTest extends TestCase
     public function it_gets_area_users()
     {
         $area = Area::factory()->create();
-        $user = User::factory()->create();
-
-        $area->users()->attach($user);
+        $users = User::factory()
+            ->count(2)
+            ->create([
+                'area_id' => $area->id,
+            ]);
 
         $response = $this->getJson(route('api.areas.users.index', $area));
 
-        $response->assertOk()->assertSee($user->name);
+        $response->assertOk()->assertSee($users[0]->name);
     }
 
     /**
      * @test
      */
-    public function it_can_attach_users_to_area()
+    public function it_stores_the_area_users()
     {
         $area = Area::factory()->create();
-        $user = User::factory()->create();
+        $data = User::factory()
+            ->make([
+                'area_id' => $area->id,
+            ])
+            ->toArray();
+        $data['password'] = \Str::random('8');
 
         $response = $this->postJson(
-            route('api.areas.users.store', [$area, $user])
+            route('api.areas.users.store', $area),
+            $data
         );
 
-        $response->assertNoContent();
+        unset($data['password']);
+        unset($data['email_verified_at']);
 
-        $this->assertTrue(
-            $area
-                ->users()
-                ->where('users.id', $user->id)
-                ->exists()
-        );
-    }
+        $this->assertDatabaseHas('users', $data);
 
-    /**
-     * @test
-     */
-    public function it_can_detach_users_from_area()
-    {
-        $area = Area::factory()->create();
-        $user = User::factory()->create();
+        $response->assertStatus(201)->assertJsonFragment($data);
 
-        $response = $this->deleteJson(
-            route('api.areas.users.store', [$area, $user])
-        );
+        $user = User::latest('id')->first();
 
-        $response->assertNoContent();
-
-        $this->assertFalse(
-            $area
-                ->users()
-                ->where('users.id', $user->id)
-                ->exists()
-        );
+        $this->assertEquals($area->id, $user->area_id);
     }
 }

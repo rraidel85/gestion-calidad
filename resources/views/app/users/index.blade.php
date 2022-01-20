@@ -58,7 +58,7 @@
                                 @lang('crud.users.inputs.email')
                             </th>
                             <th class="text-left">
-                                @lang('crud.users.inputs.level')
+                                @lang('crud.users.inputs.area_id')
                             </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
@@ -70,7 +70,7 @@
                         <tr>
                             <td>{{ $user->name ?? '-' }}</td>
                             <td>{{ $user->email ?? '-' }}</td>
-                            <td>{{ $user->level ?? '-' }}</td>
+                            <td>{{ optional($user->area)->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"

@@ -57,7 +57,6 @@ return [
             'name' => 'Name',
             'file' => 'File',
             'category_id' => 'Category',
-            'access_level' => 'Access Level',
             'area_id' => 'Area',
             'user_id' => 'User',
         ],
@@ -86,7 +85,7 @@ return [
             'name' => 'Name',
             'email' => 'Email',
             'password' => 'Password',
-            'level' => 'Level',
+            'area_id' => 'Area',
         ],
     ],
 

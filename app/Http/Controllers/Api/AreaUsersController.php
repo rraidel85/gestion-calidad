@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Models\Area;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Resources\UserResource;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UserCollection;
 
 class AreaUsersController extends Controller
@@ -32,30 +34,24 @@ class AreaUsersController extends Controller
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Area $area
-     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Area $area, User $user)
+    public function store(Request $request, Area $area)
     {
-        $this->authorize('update', $area);
+        $this->authorize('create', User::class);
 
-        $area->users()->syncWithoutDetaching([$user->id]);
+        $validated = $request->validate([
+            'name' => ['required', 'max:255', 'string'],
+            'email' => ['required', 'unique:users,email', 'email'],
+            'password' => ['required'],
+        ]);
 
-        return response()->noContent();
-    }
+        $validated['password'] = Hash::make($validated['password']);
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Area $area
-     * @param \App\Models\User $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request, Area $area, User $user)
-    {
-        $this->authorize('update', $area);
+        $user = $area->users()->create($validated);
 
-        $area->users()->detach($user);
+        $user->syncRoles($request->roles);
 
-        return response()->noContent();
+        return new UserResource($user);
     }
 }

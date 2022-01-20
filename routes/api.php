@@ -12,7 +12,6 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\AreaFilesController;
 use App\Http\Controllers\Api\AreaUsersController;
 use App\Http\Controllers\Api\UserFilesController;
-use App\Http\Controllers\Api\UserAreasController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\TypeAreaAreasController;
 use App\Http\Controllers\Api\CategoryFilesController;
@@ -71,14 +70,10 @@ Route::name('api.')
             AreaUsersController::class,
             'index',
         ])->name('areas.users.index');
-        Route::post('/areas/{area}/users/{user}', [
+        Route::post('/areas/{area}/users', [
             AreaUsersController::class,
             'store',
         ])->name('areas.users.store');
-        Route::delete('/areas/{area}/users/{user}', [
-            AreaUsersController::class,
-            'destroy',
-        ])->name('areas.users.destroy');
 
         Route::apiResource('files', FileController::class);
 
@@ -105,18 +100,4 @@ Route::name('api.')
             UserFilesController::class,
             'store',
         ])->name('users.files.store');
-
-        // User Areas
-        Route::get('/users/{user}/areas', [
-            UserAreasController::class,
-            'index',
-        ])->name('users.areas.index');
-        Route::post('/users/{user}/areas/{area}', [
-            UserAreasController::class,
-            'store',
-        ])->name('users.areas.store');
-        Route::delete('/users/{user}/areas/{area}', [
-            UserAreasController::class,
-            'destroy',
-        ])->name('users.areas.destroy');
     });

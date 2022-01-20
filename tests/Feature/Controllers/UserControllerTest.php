@@ -4,6 +4,8 @@ namespace Tests\Feature\Controllers;
 
 use App\Models\User;
 
+use App\Models\Area;
+
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -111,10 +113,12 @@ class UserControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
+        $area = Area::factory()->create();
+
         $data = [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
-            'level' => $this->faker->randomNumber,
+            'area_id' => $area->id,
         ];
 
         $data['password'] = \Str::random('8');

@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,8 +27,7 @@ class UserStoreRequest extends FormRequest
             'name' => ['required', 'max:255', 'string'],
             'email' => ['required', 'unique:users,email', 'email'],
             'password' => ['required'],
-            'level' => ['required', 'numeric', 'min:1', 'max:'. Auth::user()->level],
-            'areas' => 'array',
+            'area_id' => ['required', 'exists:areas,id'],
             'roles' => 'array',
         ];
     }

@@ -73,7 +73,6 @@ class FileTest extends TestCase
 
         $data = [
             'name' => $this->faker->name,
-            'access_level' => $this->faker->randomNumber(0),
             'area_id' => $area->id,
             'user_id' => $user->id,
             'category_id' => $category->id,

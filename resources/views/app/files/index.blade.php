@@ -60,9 +60,6 @@
                             <th class="text-left">
                                 @lang('crud.files.inputs.category_id')
                             </th>
-                            <th class="text-right">
-                                @lang('crud.files.inputs.access_level')
-                            </th>
                             <th class="text-left">
                                 @lang('crud.files.inputs.area_id')
                             </th>
@@ -91,7 +88,6 @@
                             <td>
                                 {{ optional($file->category)->name ?? '-' }}
                             </td>
-                            <td>{{ $file->access_level ?? '-' }}</td>
                             <td>{{ optional($file->area)->name ?? '-' }}</td>
                             <td>{{ optional($file->user)->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
@@ -138,7 +134,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="7">
+                            <td colspan="6">
                                 @lang('crud.common.no_items_found')
                             </td>
                         </tr>
@@ -146,7 +142,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="7">{!! $files->render() !!}</td>
+                            <td colspan="6">{!! $files->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>

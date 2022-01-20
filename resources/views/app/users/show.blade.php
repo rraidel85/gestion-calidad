@@ -21,8 +21,8 @@
                     <span>{{ $user->email ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h5>@lang('crud.users.inputs.level')</h5>
-                    <span>{{ $user->level ?? '-' }}</span>
+                    <h5>@lang('crud.users.inputs.area_id')</h5>
+                    <span>{{ optional($user->area)->name ?? '-' }}</span>
                 </div>
             </div>
 

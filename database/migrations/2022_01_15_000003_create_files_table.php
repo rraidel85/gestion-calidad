@@ -20,7 +20,6 @@ class CreateFilesTable extends Migration
             $table->unsignedBigInteger('area_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
-            $table->integer('access_level');
 
             $table->timestamps();
         });

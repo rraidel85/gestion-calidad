@@ -4,6 +4,8 @@ namespace Tests\Feature\Api;
 
 use App\Models\User;
 
+use App\Models\Area;
+
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -67,10 +69,12 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
+        $area = Area::factory()->create();
+
         $data = [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
-            'level' => $this->faker->randomNumber,
+            'area_id' => $area->id,
         ];
 
         $data['password'] = \Str::random('8');
