@@ -21,9 +21,7 @@ use App\Http\Controllers\PermissionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FileController::class, 'index']);
 
 Auth::routes();
 

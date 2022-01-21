@@ -19,7 +19,7 @@ class FileController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', File::class);
+//        $this->authorize('view-any', File::class);
 
         $search = $request->get('search', '');
 
