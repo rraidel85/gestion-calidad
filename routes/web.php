@@ -21,7 +21,7 @@ use App\Http\Controllers\PermissionController;
 |
 */
 
-Route::get('/', [FileController::class, 'index']);
+Route::get('/', [FileController::class, 'index'])->middleware('auth');
 
 Auth::routes();
 
