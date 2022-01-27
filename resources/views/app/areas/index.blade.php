@@ -121,7 +121,7 @@
                         @empty
                         <tr>
                             <td colspan="4">
-                                Ningún articulo encontrado
+                                Ningún registro encontrado
                             </td>
                         </tr>
                         @endforelse

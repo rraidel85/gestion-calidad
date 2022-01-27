@@ -1,19 +1,20 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'GestionCalidad | Mostrar Roles')
+
+@section('content_header')
+    Mostrar Roles
+@stop
+
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">
-                <a href="{{ route('roles.index') }}" class="mr-4"
-                    ><i class="fas fa-arrow-left"></i
-                ></a>
-                @lang('crud.roles.show_title')
-            </h4>
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>@lang('crud.roles.inputs.name')</h5>
+                    <h5>Nombre</h5>
                     <span>{{ $role->name ?? '-' }}</span>
                 </div>
             </div>
@@ -21,12 +22,12 @@
             <div class="mt-4">
                 <a href="{{ route('roles.index') }}" class="btn btn-light">
                     <i class="fas fa-arrow-left"></i>
-                    @lang('crud.common.back')
+                    Volver
                 </a>
 
                 @can('create', App\Models\Role::class)
-                <a href="{{ route('roles.create') }}" class="btn btn-light">
-                    <i class="icon ion-md-add"></i> @lang('crud.common.create')
+                <a href="{{ route('roles.create') }}" class="btn btn-primary">
+                    <i class="icon ion-md-add"></i> Nuevo
                 </a>
                 @endcan
             </div>

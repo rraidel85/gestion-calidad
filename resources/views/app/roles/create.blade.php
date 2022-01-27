@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'GestionCalidad | Crear Roles')
+
+@section('content_header')
+    Crear Roles
+@stop
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">
-                <a href="{{ route('roles.index') }}" class="mr-4"
-                    ><i class="fas fa-arrow-left"></i
-                ></a>
-                @lang('crud.roles.create_title')
-            </h4>
 
             <x-form
                 method="POST"
@@ -21,12 +21,12 @@
                 <div class="mt-4">
                     <a href="{{ route('roles.index') }}" class="btn btn-light">
                         <i class="fas fa-arrow-left text-primary"></i>
-                        @lang('crud.common.back')
+                        Volver
                     </a>
 
                     <button type="submit" class="btn btn-primary float-right">
                         <i class="fas fa-save"></i>
-                        @lang('crud.common.create')
+                        Crear
                     </button>
                 </div>
             </x-form>
