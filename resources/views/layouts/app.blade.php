@@ -46,42 +46,6 @@
         
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
         
-        @stack('scripts')
         
-        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-        
-        @if (session()->has('success')) 
-        <script>
-            const notyf = new Notyf({dismissible: true})
-            notyf.success('{{ session('success') }}')
-        </script> 
-        @endif
-        
-        <script>
-            /* Simple Alpine Image Viewer */
-            function imageViewer(src = '') {
-                return {
-                    imageUrl: src,
-        
-                    refreshUrl() {
-                        this.imageUrl = this.$el.getAttribute("image-url")
-                    },
-        
-                    fileChosen(event) {
-                        this.fileToDataUrl(event, src => this.imageUrl = src)
-                    },
-        
-                    fileToDataUrl(event, callback) {
-                        if (! event.target.files.length) return
-        
-                        let file = event.target.files[0],
-                            reader = new FileReader()
-        
-                        reader.readAsDataURL(file)
-                        reader.onload = e => callback(e.target.result)
-                    },
-                }
-            }
-        </script>
     </body>
 </html>
