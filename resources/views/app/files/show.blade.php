@@ -46,7 +46,7 @@
 
                 @can('create', App\Models\File::class)
                 <a href="{{ route('files.create') }}" class="btn btn-primary">
-                    <i class="icon ion-md-add"></i> Crear nuevo
+                    <i class="icon ion-md-add"></i> Nuevo
                 </a>
                 @endcan
             </div>

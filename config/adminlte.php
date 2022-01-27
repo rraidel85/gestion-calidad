@@ -266,11 +266,6 @@ return [
             'url'  => 'categories',
             'icon' => 'fas fa-tag',
         ],
-        [
-            'text' => 'Tipos de areas',
-            'url'  => 'type-areas',
-            'icon' => 'fas fa-fw fa-user',
-        ],
         // ['header' => 'ADMINISTRACIÓN'],
         [
             'text' => 'Usuarios',
@@ -281,11 +276,6 @@ return [
             'text' => 'Roles',
             'url'  => 'roles',
             'icon' => 'fa fa-users'
-        ],
-        [
-            'text' => 'Permisos',
-            'url'  => 'permissions',
-            'icon' => 'fas fa-key'
         ],
         
         // [

@@ -21,7 +21,7 @@
                 @can('create', App\Models\Category::class)
                 <a
                     href="{{ route('categories.create') }}"
-                    class="btn btn-light"
+                    class="btn btn-primary"
                 >
                     <i class="icon ion-md-add"></i> Nuevo
                 </a>

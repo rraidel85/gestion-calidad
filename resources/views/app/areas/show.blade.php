@@ -34,7 +34,7 @@
 
                 @can('create', App\Models\Area::class)
                 <a href="{{ route('areas.create') }}" class="btn btn-primary">
-                    <i class="icon ion-md-add"></i> Crear
+                    <i class="icon ion-md-add"></i> Nuevo
                 </a>
                 @endcan
             </div>

@@ -1,12 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'GestionCalidad | Usuarios')
+
+@section('content_header')
+    <h1>Usuarios</h1>
+@stop
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">@lang('crud.users.index_title')</h4>
-            </div>
 
             <div class="searchbar mt-4 mb-5">
                 <div class="row">
@@ -40,7 +43,7 @@
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
-                            @lang('crud.common.create')
+                            Nuevo Usuario
                         </a>
                         @endcan
                     </div>
@@ -52,16 +55,16 @@
                     <thead>
                         <tr>
                             <th class="text-left">
-                                @lang('crud.users.inputs.name')
+                                Nombre
                             </th>
                             <th class="text-left">
-                                @lang('crud.users.inputs.email')
+                                Correo
                             </th>
                             <th class="text-left">
-                                @lang('crud.users.inputs.area_id')
+                                Area
                             </th>
                             <th class="text-center">
-                                @lang('crud.common.actions')
+                                Opciones
                             </th>
                         </tr>
                     </thead>
@@ -81,7 +84,7 @@
                                     <a href="{{ route('users.edit', $user) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-primary"
                                         >
                                             <i class="fas fa-edit"></i>
                                         </button>
@@ -90,7 +93,7 @@
                                     <a href="{{ route('users.show', $user) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-success"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
@@ -104,7 +107,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-light text-danger"
+                                            class="btn btn-danger"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -116,7 +119,7 @@
                         @empty
                         <tr>
                             <td colspan="4">
-                                @lang('crud.common.no_items_found')
+                                Ningún articulo encontrado
                             </td>
                         </tr>
                         @endforelse
