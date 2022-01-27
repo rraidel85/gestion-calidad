@@ -20,7 +20,7 @@
                     <h5>@lang('crud.files.inputs.file')</h5>
                     @if($file->file)
                     <a href="{{ \Storage::url($file->file) }}" target="blank"
-                        ><i class="icon ion-md-download"></i>&nbsp;Download</a
+                        ><i class="fa fa-download"></i>&nbsp;Download</a
                     >
                     @else - @endif
                 </div>

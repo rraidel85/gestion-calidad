@@ -1,12 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'GestionCalidad | Documentos')
+
+@section('content_header')
+    <h1>Documentos</h1>
+@stop
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">@lang('crud.files.index_title')</h4>
-            </div>
 
             <div class="searchbar mt-4 mb-5">
                 <div class="row">
@@ -27,7 +30,7 @@
                                         type="submit"
                                         class="btn btn-primary"
                                     >
-                                        <i class="icon ion-md-search"></i>
+                                        <i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
@@ -80,8 +83,8 @@
                                 <a
                                     href="{{ \Storage::url($file->file) }}"
                                     target="blank"
-                                    ><i class="icon ion-md-download"></i
-                                    >&nbsp;Download</a
+                                    ><i class="fa fa-download"></i
+                                    >&nbsp;Download</a 
                                 >
                                 @else - @endif
                             </td>
@@ -102,7 +105,7 @@
                                             type="button"
                                             class="btn btn-light"
                                         >
-                                            <i class="icon ion-md-create"></i>
+                                            <i class="fas fa-edit"></i> 
                                         </button>
                                     </a>
                                     @endcan @can('view', $file)
@@ -111,7 +114,7 @@
                                             type="button"
                                             class="btn btn-light"
                                         >
-                                            <i class="icon ion-md-eye"></i>
+                                            <i class="fas fa-eye"></i>
                                         </button>
                                     </a>
                                     @endcan @can('delete', $file)
@@ -125,7 +128,7 @@
                                             type="submit"
                                             class="btn btn-light text-danger"
                                         >
-                                            <i class="icon ion-md-trash"></i>
+                                            <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
                                     @endcan

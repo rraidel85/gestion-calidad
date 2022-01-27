@@ -83,7 +83,7 @@
                                             type="button"
                                             class="btn btn-light"
                                         >
-                                            <i class="icon ion-md-create"></i>
+                                            <i class="fas fa-edit"></i>
                                         </button>
                                     </a>
                                     @endcan @can('view', $user)
@@ -92,7 +92,7 @@
                                             type="button"
                                             class="btn btn-light"
                                         >
-                                            <i class="icon ion-md-eye"></i>
+                                            <i class="fas fa-eye"></i>
                                         </button>
                                     </a>
                                     @endcan @can('delete', $user)
@@ -106,7 +106,7 @@
                                             type="submit"
                                             class="btn btn-light text-danger"
                                         >
-                                            <i class="icon ion-md-trash"></i>
+                                            <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
                                     @endcan

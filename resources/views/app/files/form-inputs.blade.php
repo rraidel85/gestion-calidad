@@ -24,7 +24,7 @@
         @if($editing && $file->file)
         <div class="mt-2">
             <a href="{{ \Storage::url($file->file) }}" target="_blank"
-                ><i class="icon ion-md-download"></i>&nbsp;Download</a
+                ><i class="fa fa-download"></i>&nbsp;Download</a
             >
         </div>
         @endif @error('file') @include('components.inputs.partials.error')
