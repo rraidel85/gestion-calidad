@@ -29,7 +29,7 @@
                                         type="submit"
                                         class="btn btn-primary"
                                     >
-                                        <i class="icon ion-md-search"></i>
+                                        <i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>

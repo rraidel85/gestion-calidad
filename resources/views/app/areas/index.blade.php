@@ -1,12 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'GestionCalidad | Areas')
+
+@section('content_header')
+    <h1>Areas</h1>
+@stop
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">@lang('crud.areas.index_title')</h4>
-            </div>
 
             <div class="searchbar mt-4 mb-5">
                 <div class="row">
@@ -27,7 +30,7 @@
                                         type="submit"
                                         class="btn btn-primary"
                                     >
-                                        <i class="icon ion-md-search"></i>
+                                        <i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
@@ -40,7 +43,7 @@
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
-                            @lang('crud.common.create')
+                            Crear
                         </a>
                         @endcan
                     </div>
@@ -52,16 +55,16 @@
                     <thead>
                         <tr>
                             <th class="text-left">
-                                @lang('crud.areas.inputs.name')
+                                Nombre
                             </th>
                             <th class="text-left">
-                                @lang('crud.areas.inputs.description')
+                                Descripción
                             </th>
                             <th class="text-left">
-                                @lang('crud.areas.inputs.type_area_id')
+                                Tipo de Area
                             </th>
                             <th class="text-center">
-                                @lang('crud.common.actions')
+                                Opciones
                             </th>
                         </tr>
                     </thead>
@@ -83,7 +86,7 @@
                                     <a href="{{ route('areas.edit', $area) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-info"
                                         >
                                             <i class="fas fa-edit"></i>
                                         </button>
@@ -92,7 +95,7 @@
                                     <a href="{{ route('areas.show', $area) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-success"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
@@ -106,7 +109,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-light text-danger"
+                                            class="btn btn-danger"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -118,7 +121,7 @@
                         @empty
                         <tr>
                             <td colspan="4">
-                                @lang('crud.common.no_items_found')
+                                Ningún articulo encontrado
                             </td>
                         </tr>
                         @endforelse
