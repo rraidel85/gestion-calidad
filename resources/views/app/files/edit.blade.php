@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'GestionCalidad | Editar Documento')
+
+@section('content_header')
+    Editar documento
+@stop
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">
-                <a href="{{ route('files.index') }}" class="mr-4"
-                    ><i class="icon ion-md-arrow-back"></i
-                ></a>
-                @lang('crud.files.edit_title')
-            </h4>
 
             <x-form
                 method="PUT"
@@ -21,18 +21,13 @@
 
                 <div class="mt-4">
                     <a href="{{ route('files.index') }}" class="btn btn-light">
-                        <i class="icon ion-md-return-left text-primary"></i>
-                        @lang('crud.common.back')
-                    </a>
-
-                    <a href="{{ route('files.create') }}" class="btn btn-light">
-                        <i class="icon ion-md-add text-primary"></i>
-                        @lang('crud.common.create')
+                        <i class="fas fa-arrow-left text-primary"></i>
+                        Volver
                     </a>
 
                     <button type="submit" class="btn btn-primary float-right">
-                        <i class="icon ion-md-save"></i>
-                        @lang('crud.common.update')
+                        <i class="fas fa-save"></i>
+                        Actualizar
                     </button>
                 </div>
             </x-form>

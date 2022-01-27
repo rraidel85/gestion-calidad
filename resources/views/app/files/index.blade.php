@@ -43,7 +43,7 @@
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
-                            @lang('crud.common.create')
+                            Nuevo Documento
                         </a>
                         @endcan
                     </div>
@@ -55,22 +55,22 @@
                     <thead>
                         <tr>
                             <th class="text-left">
-                                @lang('crud.files.inputs.name')
+                                Nombre
                             </th>
                             <th class="text-left">
-                                @lang('crud.files.inputs.file')
+                                Archivo
                             </th>
                             <th class="text-left">
-                                @lang('crud.files.inputs.category_id')
+                                Categoría
                             </th>
                             <th class="text-left">
-                                @lang('crud.files.inputs.area_id')
+                                Area
                             </th>
                             <th class="text-left">
-                                @lang('crud.files.inputs.user_id')
+                                Creado por
                             </th>
                             <th class="text-center">
-                                @lang('crud.common.actions')
+                                Opciones
                             </th>
                         </tr>
                     </thead>
@@ -84,7 +84,7 @@
                                     href="{{ \Storage::url($file->file) }}"
                                     target="blank"
                                     ><i class="fa fa-download"></i
-                                    >&nbsp;Download</a 
+                                    >&nbsp;Descargar</a 
                                 >
                                 @else - @endif
                             </td>
@@ -103,7 +103,7 @@
                                     <a href="{{ route('files.edit', $file) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-info"
                                         >
                                             <i class="fas fa-edit"></i> 
                                         </button>
@@ -112,7 +112,7 @@
                                     <a href="{{ route('files.show', $file) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-success"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
@@ -126,7 +126,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-light text-danger"
+                                            class="btn btn-danger"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -138,7 +138,7 @@
                         @empty
                         <tr>
                             <td colspan="6">
-                                @lang('crud.common.no_items_found')
+                                Ningún articulo encontrado
                             </td>
                         </tr>
                         @endforelse

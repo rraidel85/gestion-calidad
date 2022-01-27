@@ -1,14 +1,18 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
+@section('title', 'GestionCalidad | Crear Documento')
+
+@section('content_header')
+    Crear documento
+@stop
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">
                 <a href="{{ route('files.index') }}" class="mr-4"
-                    ><i class="icon ion-md-arrow-back"></i
+                    ><i class="fas fa-arrow-left"></i 
                 ></a>
-                @lang('crud.files.create_title')
             </h4>
 
             <x-form
@@ -21,13 +25,13 @@
 
                 <div class="mt-4">
                     <a href="{{ route('files.index') }}" class="btn btn-light">
-                        <i class="icon ion-md-return-left text-primary"></i>
-                        @lang('crud.common.back')
+                        <i class="fas fa-arrow-left text-primary"></i>
+                        Volver
                     </a>
 
                     <button type="submit" class="btn btn-primary float-right">
-                        <i class="icon ion-md-save"></i>
-                        @lang('crud.common.create')
+                        <i class="fas fa-save"></i>
+                        Guardar
                     </button>
                 </div>
             </x-form>

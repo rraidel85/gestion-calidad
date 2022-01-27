@@ -4,18 +4,18 @@
     <x-inputs.group class="col-sm-12">
         <x-inputs.text
             name="name"
-            label="Name"
+            label="Nombre"
             value="{{ old('name', ($editing ? $file->name : '')) }}"
             maxlength="255"
-            placeholder="Name"
+            placeholder="Nombre"
             required
         ></x-inputs.text>
     </x-inputs.group>
 
-    o<x-inputs.group class="col-sm-12">
+    <x-inputs.group class="col-sm-12">
         <x-inputs.partials.label
             name="file"
-            label="File"
+            label="Archivo"
         ></x-inputs.partials.label
         ><br />
 
@@ -32,9 +32,9 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="category_id" label="Category" required>
+        <x-inputs.select name="category_id" label="Categoria" required>
             @php $selected = old('category_id', ($editing ? $file->category_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Category</option>
+            <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione la categoria</option>
             @foreach($categories as $value => $label)
             <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
             @endforeach
@@ -44,7 +44,7 @@
     <x-inputs.group class="col-sm-12">
         <x-inputs.select name="area_id" label="Area" required>
             @php $selected = old('area_id', ($editing ? $file->area_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Area</option>
+            <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el area</option>
             @foreach($areas as $value => $label)
             <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
             @endforeach
@@ -52,9 +52,9 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="user_id" label="User" required>
+        <x-inputs.select name="user_id" label="Usuario" required>
             @php $selected = old('user_id', ($editing ? $file->user_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
+            <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el usuario</option>
             @foreach($users as $value => $label)
             <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
             @endforeach
