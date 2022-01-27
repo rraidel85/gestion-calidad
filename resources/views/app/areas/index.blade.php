@@ -43,7 +43,7 @@
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
-                            Crear
+                            Nueva Area
                         </a>
                         @endcan
                     </div>

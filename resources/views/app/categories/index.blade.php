@@ -1,12 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'GestionCalidad | Categorías')
+
+@section('content_header')
+    <h1>Categorías</h1>
+@stop
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">@lang('crud.categories.index_title')</h4>
-            </div>
 
             <div class="searchbar mt-4 mb-5">
                 <div class="row">
@@ -40,7 +43,7 @@
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
-                            @lang('crud.common.create')
+                            Nueva Categoría
                         </a>
                         @endcan
                     </div>
@@ -52,10 +55,10 @@
                     <thead>
                         <tr>
                             <th class="text-left">
-                                @lang('crud.categories.inputs.name')
+                                Nombre
                             </th>
                             <th class="text-center">
-                                @lang('crud.common.actions')
+                                Opciones
                             </th>
                         </tr>
                     </thead>
@@ -75,7 +78,7 @@
                                     >
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-primary"
                                         >
                                             <i class="fas fa-edit"></i>
                                         </button>
@@ -86,7 +89,7 @@
                                     >
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-success"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
@@ -100,7 +103,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-light text-danger"
+                                            class="btn btn-danger"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -112,7 +115,7 @@
                         @empty
                         <tr>
                             <td colspan="2">
-                                @lang('crud.common.no_items_found')
+                                Ningún articulo encontrado
                             </td>
                         </tr>
                         @endforelse

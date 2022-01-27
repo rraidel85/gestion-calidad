@@ -4,16 +4,10 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">
-                <a href="{{ route('categories.index') }}" class="mr-4"
-                    ><i class="fas fa-arrow-left"></i
-                ></a>
-                @lang('crud.categories.show_title')
-            </h4>
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>@lang('crud.categories.inputs.name')</h5>
+                    <h5>Nombre</h5>
                     <span>{{ $category->name ?? '-' }}</span>
                 </div>
             </div>
@@ -21,7 +15,7 @@
             <div class="mt-4">
                 <a href="{{ route('categories.index') }}" class="btn btn-light">
                     <i class="fas fa-arrow-left"></i>
-                    @lang('crud.common.back')
+                    Volver
                 </a>
 
                 @can('create', App\Models\Category::class)
@@ -29,7 +23,7 @@
                     href="{{ route('categories.create') }}"
                     class="btn btn-light"
                 >
-                    <i class="icon ion-md-add"></i> @lang('crud.common.create')
+                    <i class="icon ion-md-add"></i> Nuevo
                 </a>
                 @endcan
             </div>
