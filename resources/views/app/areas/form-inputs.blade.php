@@ -4,10 +4,10 @@
     <x-inputs.group class="col-sm-12">
         <x-inputs.text
             name="name"
-            label="Name"
+            label="Nombre"
             value="{{ old('name', ($editing ? $area->name : '')) }}"
             maxlength="255"
-            placeholder="Name"
+            placeholder="Nombre"
             required
         ></x-inputs.text>
     </x-inputs.group>
@@ -15,7 +15,7 @@
     <x-inputs.group class="col-sm-12">
         <x-inputs.textarea
             name="description"
-            label="Description"
+            label="Descripcion"
             maxlength="255"
             required
             >{{ old('description', ($editing ? $area->description : ''))
@@ -24,9 +24,9 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="type_area_id" label="Type Area" required>
+        <x-inputs.select name="type_area_id" label="Tipo de Area" required>
             @php $selected = old('type_area_id', ($editing ? $area->type_area_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Type Area</option>
+            <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor selecciona el tipo de area</option>
             @foreach($typeAreas as $value => $label)
             <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
             @endforeach
