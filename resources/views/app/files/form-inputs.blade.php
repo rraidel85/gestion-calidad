@@ -8,6 +8,7 @@
             value="{{ old('name', ($editing ? $file->name : '')) }}"
             maxlength="255"
             placeholder="Nombre"
+            id="name"
             required
         ></x-inputs.text>
     </x-inputs.group>
@@ -19,7 +20,7 @@
         ></x-inputs.partials.label
         ><br />
 
-        <input type="file" name="file" id="file" class="form-control-file" />
+        <input type="file" onChange='changeNameInputValue()' name="file" id="file" class="form-control-file" />
 
         @if($editing && $file->file)
         <div class="mt-2">
