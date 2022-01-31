@@ -23,9 +23,7 @@ class FileController extends Controller
 
         $search = $request->get('search', '');
 
-        $files = File::search($search)
-            ->latest()
-            ->paginate(5);
+        $files = File::all();
 
         return view('app.files.index', compact('files', 'search'));
     }

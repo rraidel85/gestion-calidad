@@ -16,14 +16,13 @@
     <div class="card">
         <div class="card-body">
 
-            <div class="searchbar mt-4 mb-5">
-                <div class="row">
-                    
-                    <div class="col-md-6 text-right">
+            <div class="mb-2">
+                <div class="row father-create">
+                    <div class="text-right">
                         @can('create', App\Models\File::class)
                         <a
                             href="{{ route('files.create') }}"
-                            class="btn btn-primary"
+                            class="btn btn-primary create"
                         >
                             <i class="icon ion-md-add"></i>
                             Nuevo Documento
@@ -126,11 +125,6 @@
                         </tr>
                         @endforelse
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="6">{!! $files->render() !!}</td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
