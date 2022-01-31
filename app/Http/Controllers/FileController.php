@@ -143,4 +143,22 @@ class FileController extends Controller
             ->route('files.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+
+    
+    public function download($id)
+    {
+       $file =  File::findOrFail($id);
+
+       if(!$file->file){ 
+
+            return abort(404);     
+       }
+       
+       
+       $extension = pathinfo($file->file, PATHINFO_EXTENSION);
+
+       return Storage::download($file->file,$file->name.'.'.$extension); 
+       
+    }
 }

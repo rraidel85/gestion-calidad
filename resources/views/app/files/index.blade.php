@@ -76,6 +76,7 @@
                     </thead>
                     <tbody>
                         @forelse($files as $file)
+<<<<<<< HEAD
                         <tr>
                             <td>{{ $file->name ?? '-' }}</td>
                             <td>
@@ -104,6 +105,17 @@
                                         <button
                                             type="button"
                                             class="btn btn-info"
+=======
+                            <tr>
+                                <td>{{ $file->name ?? '-' }}</td>
+                                <td>
+                                    @if($file->file)
+                                        <a
+                                            href="{{ route('files.download', $file->id) }}"
+                                            target="blank"
+                                        ><i class="icon ion-md-download"></i
+                                            >&nbsp;Download</a
+>>>>>>> 9b45d42 (Change download way creating a 'download' method in FileController)
                                         >
                                             <i class="fas fa-edit"></i> 
                                         </button>

@@ -39,3 +39,6 @@ Route::prefix('/')
         Route::resource('categories', CategoryController::class);
         Route::resource('users', UserController::class);
     });
+
+
+Route::get('/files/{id}/download', [FileController::class, 'download'])->name('files.download');
