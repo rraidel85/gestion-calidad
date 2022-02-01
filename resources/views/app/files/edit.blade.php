@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Editar Documento')
+@section('title', 'Editar Documento')
 
 @section('content_header')
     Editar documento

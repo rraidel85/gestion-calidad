@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Crear Categoría')
+@section('title', 'Crear Categoría')
 
 @section('content_header')
     Crear Categoría

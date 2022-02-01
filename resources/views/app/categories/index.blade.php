@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Categorías')
+@section('title', 'Categorías')
 
 @section('content_header')
     <h1>Categorías</h1>

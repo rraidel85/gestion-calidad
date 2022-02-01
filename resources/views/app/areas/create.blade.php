@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Crear Area')
+@section('title', 'Crear Area')
 
 @section('content_header')
     Crear Area

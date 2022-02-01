@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Documentos')
+@section('title', 'Documentos')
 
 @section('content_header')
     <h1>Documentos</h1>

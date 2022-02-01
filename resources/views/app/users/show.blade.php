@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Mostrar Usuario')
+@section('title', 'Mostrar Usuario')
 
 @section('content_header')
     Mostrar Usuario

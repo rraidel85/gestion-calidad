@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Crear Documento')
+@section('title', 'Crear Documento')
 
 @section('content_header')
     Crear documento

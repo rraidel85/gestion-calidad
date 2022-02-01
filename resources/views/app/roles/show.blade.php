@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Mostrar Roles')
+@section('title', 'Mostrar Roles')
 
 @section('content_header')
     Mostrar Roles

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Crear ')
+@section('title', 'Crear Usuario')
 
 @section('content_header')
     Crear Usuario

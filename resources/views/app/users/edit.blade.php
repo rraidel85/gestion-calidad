@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Editar Usuario')
+@section('title', 'Editar Usuario')
 
 @section('content_header')
     Editar Usuario
