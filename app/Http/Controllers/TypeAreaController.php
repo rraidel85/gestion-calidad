@@ -117,7 +117,7 @@ class TypeAreaController extends Controller
     {
         $this->authorize('view-any', TypeArea::class);
 
-        $type_areas = TypeArea::all();
+        $type_areas = TypeArea::with('areas')->get();
         
         return view('app.type_areas.area_select', compact('type_areas'));
     }
