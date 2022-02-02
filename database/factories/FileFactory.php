@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Area;
 use App\Models\File;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,10 +25,8 @@ class FileFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'area_id' => \App\Models\Area::factory(),
-            'user_id' => \App\Models\User::factory(),
-            'category_id' => \App\Models\Category::factory(),
+            'name' => $this->faker->sentence(5),
+            'user_id' => rand(1, User::count()),
         ];
     }
 }

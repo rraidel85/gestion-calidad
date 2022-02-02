@@ -2,9 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Area;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -26,9 +28,9 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->email,
             'email_verified_at' => now(),
-            'password' => \Hash::make('password'),
+            'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
-            'area_id' => \App\Models\Area::factory(),
+            'area_id' => rand(1, Area::count()),
         ];
     }
 

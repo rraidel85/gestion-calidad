@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Area;
+use App\Models\TypeArea;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,9 +24,9 @@ class AreaFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'description' => $this->faker->sentence(15),
-            'type_area_id' => \App\Models\TypeArea::factory(),
+            'name' => $this->faker->word(),
+            'description' => $this->faker->sentence(10),
+            'type_area_id' => rand(1, TypeArea::count())
         ];
     }
 }

@@ -14,6 +14,10 @@ class TypeAreaSeeder extends Seeder
      */
     public function run()
     {
+        TypeArea::create([
+            'name' => 'Administracion'
+        ]);
+
         TypeArea::factory()
             ->count(5)
             ->create();
