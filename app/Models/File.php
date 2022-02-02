@@ -25,8 +25,10 @@ class File extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class,
+        'categories_files', 'file_id', 'category_id'
+        );
     }
 }

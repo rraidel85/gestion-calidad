@@ -28,12 +28,6 @@ class AddForeignsToFilesTable extends Migration
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
-            $table
-                ->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
         });
     }
 

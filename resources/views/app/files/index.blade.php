@@ -43,9 +43,6 @@
                                 Archivo
                             </th>
                             <th class="text-left">
-                                Categoría
-                            </th>
-                            <th class="text-left">
                                 Area
                             </th>
                             <th class="text-left">
@@ -69,9 +66,6 @@
                                     >&nbsp;Descargar</a 
                                 >
                                 @else - @endif
-                            </td>
-                            <td>
-                                {{ optional($file->category)->name ?? '-' }}
                             </td>
                             <td>{{ optional($file->area)->name ?? '-' }}</td>
                             <td>{{ optional($file->user)->name ?? '-' }}</td>

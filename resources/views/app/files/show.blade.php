@@ -23,11 +23,12 @@
                         ><i class="fa fa-download"></i>&nbsp;Download</a
                     >
                     @else - @endif
-                </div>
+                {{-- Aqui irian todas las categorias del archivo --}}
+                {{-- </div>
                 <div class="mb-4">
                     <h5>Categoria</h5>
                     <span>{{ optional($file->category)->name ?? '-' }}</span>
-                </div>
+                </div> --}}
                 <div class="mb-4">
                     <h5>Area</h5>
                     <span>{{ optional($file->area)->name ?? '-' }}</span>

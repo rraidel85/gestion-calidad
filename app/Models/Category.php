@@ -17,6 +17,8 @@ class Category extends Model
 
     public function files()
     {
-        return $this->hasMany(File::class);
+        return $this->belongsToMany(File::class,
+        'categories_files', 'category_id', 'file_id'
+        );
     }
 }
