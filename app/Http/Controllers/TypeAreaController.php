@@ -111,4 +111,14 @@ class TypeAreaController extends Controller
             ->route('type-areas.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+
+    public function area_select()
+    {
+        $this->authorize('view-any', TypeArea::class);
+
+        $type_areas = TypeArea::all();
+        
+        return view('app.type_areas.area_select', compact('type_areas'));
+    }
 }

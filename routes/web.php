@@ -43,3 +43,5 @@ Route::prefix('/')
 
 
 Route::get('/files/{id}/download', [FileController::class, 'download'])->name('files.download');
+
+Route::get('/area_select', [TypeAreaController::class, 'area_select'])->name('area_select');

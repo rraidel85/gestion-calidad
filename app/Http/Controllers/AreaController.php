@@ -116,4 +116,5 @@ class AreaController extends Controller
             ->route('areas.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
 }
