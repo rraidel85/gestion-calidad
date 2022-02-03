@@ -45,3 +45,33 @@ Route::prefix('/')
 Route::get('/files/{id}/download', [FileController::class, 'download'])->name('files.download');
 
 Route::get('/area_select', [TypeAreaController::class, 'area_select'])->name('area_select');
+
+//------------------------------------------
+
+// use App\Models\Area;
+// use App\Models\User;
+// use App\Models\TypeArea;
+// use App\Models\File;
+// use App\Models\Category;
+// use Barryvdh\Debugbar\Facades\Debugbar;
+// use Illuminate\Database\Eloquent\Builder;
+// use Illuminate\Support\Facades\DB;
+
+// Route::get('/test', function(){
+//     //Route made just for testing database queries 
+
+//     $categoriesToFilter = [7,5,2];
+
+//     //Returns each file that has associated all the categories listed by parameters
+//     $eloquent = File::whereHas('categories', function (Builder $query) use($categoriesToFilter){
+//         $query->whereIn('categories.id',$categoriesToFilter)
+//         ->groupBy('file_id')
+//         ->havingRaw('COUNT(category_id) = ?', [count($categoriesToFilter)]);
+//     })->get()->toArray();
+    
+//     Debugbar::info($eloquent);
+//     // $q_builder = DB::table('areas')->get();
+//     // Debugbar::info($q_builder);
+    
+//     return view('welcome');
+// });
