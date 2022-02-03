@@ -16,26 +16,14 @@ class CategoryFileSeeder extends Seeder
      */
     public function run()
     {
-        // $categories = Category::all()->shuffle();    
-        // $files = File::pluck('id')->shuffle()->all();//reordering and converting collection to array
         
-        
-        // $files_copia = $files;
-
-        // for ($i = 0; $i < $categories->count(); $i++) {
-        //     for ($j = 0; $j < 3; $j++) {
-        //         $categories[$i]->files()->attach(array_pop($files_copia));  
-        //    }  
-        //    $files_copia = $files;
-        // }
-
-        
-        $files = File::all()->shuffle();    
-        $categories = Category::pluck('id')->shuffle()->all();//reordering and converting collection to array
+        $files = File::all()->shuffle();  //Get all files and reorder them  
+        $categories = Category::pluck('id')->shuffle()->all();//Reordering and converting category collection to array
         
         
         $categories_copia = $categories;
 
+        //For all files attach 3 random categories to each of them
         for ($i = 0; $i < $files->count(); $i++) {
             for ($j = 0; $j < 3; $j++) {
                 $files[$i]->categories()->attach(array_pop($categories_copia));  
