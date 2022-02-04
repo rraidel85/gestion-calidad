@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -15,29 +16,11 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create default permissions
-        Permission::create(['name' => 'list areas']);
-        Permission::create(['name' => 'view areas']);
-        Permission::create(['name' => 'create areas']);
-        Permission::create(['name' => 'update areas']);
-        Permission::create(['name' => 'delete areas']);
-
-        Permission::create(['name' => 'list categories']);
-        Permission::create(['name' => 'view categories']);
-        Permission::create(['name' => 'create categories']);
-        Permission::create(['name' => 'update categories']);
-        Permission::create(['name' => 'delete categories']);
-
         Permission::create(['name' => 'list files']);
         Permission::create(['name' => 'view files']);
         Permission::create(['name' => 'create files']);
         Permission::create(['name' => 'update files']);
         Permission::create(['name' => 'delete files']);
-
-        Permission::create(['name' => 'list typeareas']);
-        Permission::create(['name' => 'view typeareas']);
-        Permission::create(['name' => 'create typeareas']);
-        Permission::create(['name' => 'update typeareas']);
-        Permission::create(['name' => 'delete typeareas']);
 
         // Create 'Usuario General' role and assign existing permissions
         $currentPermissions = Permission::all();
@@ -58,6 +41,24 @@ class PermissionsSeeder extends Seeder
 
 
         // Create admin exclusive permissions
+        Permission::create(['name' => 'list areas']);
+        Permission::create(['name' => 'view areas']);
+        Permission::create(['name' => 'create areas']);
+        Permission::create(['name' => 'update areas']);
+        Permission::create(['name' => 'delete areas']);
+
+        Permission::create(['name' => 'list categories']);
+        Permission::create(['name' => 'view categories']);
+        Permission::create(['name' => 'create categories']);
+        Permission::create(['name' => 'update categories']);
+        Permission::create(['name' => 'delete categories']);
+        
+        Permission::create(['name' => 'list typeareas']);
+        Permission::create(['name' => 'view typeareas']);
+        Permission::create(['name' => 'create typeareas']);
+        Permission::create(['name' => 'update typeareas']);
+        Permission::create(['name' => 'delete typeareas']);
+
         Permission::create(['name' => 'list roles']);
         Permission::create(['name' => 'view roles']);
         Permission::create(['name' => 'create roles']);
@@ -75,7 +76,7 @@ class PermissionsSeeder extends Seeder
         $adminRole = Role::create(['name' => 'Administrador']);
         $adminRole->givePermissionTo($allPermissions);
 
-        $user = \App\Models\User::whereEmail('admin@admin.com')->first();
+        $user = User::whereEmail('admin@admin.com')->first();
 
         if ($user) {
             $user->assignRole($adminRole);
