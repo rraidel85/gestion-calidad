@@ -84,7 +84,7 @@
                                             <i class="fas fa-edit"></i> 
                                         </button>
                                     </a>
-                                    @endcan @can('view', $file)
+                                    @endcan 
                                     <a href="{{ route('files.show', $file) }}">
                                         <button
                                             type="button"
@@ -93,7 +93,7 @@
                                             <i class="fas fa-eye"></i>
                                         </button>
                                     </a>
-                                    @endcan @can('delete', $file)
+                                    @can('delete', $file)
                                     <form
                                         action="{{ route('files.destroy', $file) }}"
                                         method="POST"

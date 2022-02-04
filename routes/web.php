@@ -22,12 +22,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [FileController::class, 'index'])->middleware('auth');
+Route::get('/', [FileController::class, 'index']);
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+
+Route::resource('files', FileController::class);
 Route::prefix('/')
     ->middleware('auth')
     ->group(function () {
@@ -36,7 +38,6 @@ Route::prefix('/')
 
         Route::resource('type-areas', TypeAreaController::class);
         Route::resource('areas', AreaController::class);
-        Route::resource('files', FileController::class);
         Route::resource('categories', CategoryController::class);
         Route::resource('users', UserController::class);
     });

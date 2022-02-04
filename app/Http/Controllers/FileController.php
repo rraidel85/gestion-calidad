@@ -13,6 +13,12 @@ use App\Http\Requests\FileUpdateRequest;
 
 class FileController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index','show');
+    }
+
     /**
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
