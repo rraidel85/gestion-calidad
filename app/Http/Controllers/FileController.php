@@ -19,13 +19,11 @@ class FileController extends Controller
      */
     public function index(Request $request)
     {
-//        $this->authorize('view-any', File::class);
-
-        $search = $request->get('search', '');
+    //    $this->authorize('view-any', File::class);
 
         $files = File::all();
 
-        return view('app.files.index', compact('files', 'search'));
+        return view('app.files.index', compact('files'));
     }
 
     /**
@@ -59,10 +57,10 @@ class FileController extends Controller
             $validated['file'] = $request->file('file')->store('public');
         }
 
-        $file = File::create($validated);
+        File::create($validated);
 
         return redirect()
-            ->route('files.edit', $file)
+            ->route('files.index')
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -73,7 +71,7 @@ class FileController extends Controller
      */
     public function show(Request $request, File $file)
     {
-        $this->authorize('view', $file);
+        // $this->authorize('view', $file);
 
         return view('app.files.show', compact('file'));
     }
@@ -152,7 +150,6 @@ class FileController extends Controller
 
             return abort(404);     
        }
-       
        
        $extension = pathinfo($file->file, PATHINFO_EXTENSION);
 

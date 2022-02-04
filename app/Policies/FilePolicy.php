@@ -16,9 +16,9 @@ class FilePolicy
      * @param  App\Models\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user)
     {
-        return $user->hasPermissionTo('list files');
+        return optional($user)->hasPermissionTo('list files');
     }
 
     /**
@@ -53,7 +53,15 @@ class FilePolicy
      */
     public function update(User $user, File $model)
     {
-        return $user->hasPermissionTo('update files');
+        if($user->hasRole('Jefe de Area') && $user->area_id == $model->area_id){
+            return true;
+        }
+        elseif($user->hasRole('Usuario General') && $user->id == $model->user_id){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
@@ -65,7 +73,15 @@ class FilePolicy
      */
     public function delete(User $user, File $model)
     {
-        return $user->hasPermissionTo('delete files');
+        if($user->hasRole('Jefe de Area') && $user->area_id == $model->area_id){
+            return true;
+        }
+        elseif($user->hasRole('Usuario General') && $user->id == $model->user_id){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
@@ -77,7 +93,7 @@ class FilePolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete files');
+        return false;
     }
 
     /**
