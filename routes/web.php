@@ -46,7 +46,9 @@ Route::get('/files/{id}/download', [FileController::class, 'download'])->name('f
 
 Route::get('/area_select', [TypeAreaController::class, 'area_select'])->name('area_select');
 
-//------------------------------------------
+
+
+//---------Test Area------------ 
 
 // use App\Models\Area;
 // use App\Models\User;

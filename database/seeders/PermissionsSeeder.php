@@ -39,10 +39,23 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update typeareas']);
         Permission::create(['name' => 'delete typeareas']);
 
-        // Create user role and assign existing permissions
+        // Create 'Usuario General' role and assign existing permissions
         $currentPermissions = Permission::all();
-        $userRole = Role::create(['name' => 'user']);
+        $userRole = Role::create(['name' => 'Usuario General']);
         $userRole->givePermissionTo($currentPermissions);
+
+
+        Permission::create(['name' => 'list users']);
+        Permission::create(['name' => 'view users']);
+        Permission::create(['name' => 'create users']);
+        Permission::create(['name' => 'update users']);
+        Permission::create(['name' => 'delete users']);
+
+        // Create 'Jefe de Area' role and assign existing permissions
+        $currentPermissions = Permission::all();
+        $userRole = Role::create(['name' => 'Jefe de Area']);
+        $userRole->givePermissionTo($currentPermissions);
+
 
         // Create admin exclusive permissions
         Permission::create(['name' => 'list roles']);
@@ -57,15 +70,9 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update permissions']);
         Permission::create(['name' => 'delete permissions']);
 
-        Permission::create(['name' => 'list users']);
-        Permission::create(['name' => 'view users']);
-        Permission::create(['name' => 'create users']);
-        Permission::create(['name' => 'update users']);
-        Permission::create(['name' => 'delete users']);
-
         // Create admin role and assign all permissions
         $allPermissions = Permission::all();
-        $adminRole = Role::create(['name' => 'super-admin']);
+        $adminRole = Role::create(['name' => 'Administrador']);
         $adminRole->givePermissionTo($allPermissions);
 
         $user = \App\Models\User::whereEmail('admin@admin.com')->first();
