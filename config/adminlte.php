@@ -249,6 +249,12 @@ return [
             // 'classes' => 'text-primary',
             'icon' => 'far fa-fw fa-file',
         ],
+        [
+            'text' => 'Filtrar por Area',
+            'route'  => 'area_select',
+            // 'classes' => 'text-primary',
+            'icon' => 'far fa-fw fa-file',
+        ],
         // [
         //     'text'        => 'pages',
         //     'url'         => 'admin/pages',
@@ -256,25 +262,29 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
+        ['header' => 'ADMINISTRACIÓN', 'can' => 'list users'],
         [
             'text' => 'Areas',
             'url'  => 'areas',
+            'can'  => 'list areas',
             'icon' => 'fa fa-sitemap',
         ],
         [
             'text' => 'Categorías',
             'url'  => 'categories',
+            'can'  => 'list categories',
             'icon' => 'fas fa-tag',
         ],
-        // ['header' => 'ADMINISTRACIÓN'],
         [
             'text' => 'Usuarios',
             'url'  => 'users',
+            'can'  => 'list users',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Roles',
             'url'  => 'roles',
+            'can'  => 'list roles',
             'icon' => 'fa fa-users'
         ],
         

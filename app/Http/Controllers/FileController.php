@@ -16,7 +16,7 @@ class FileController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('index','show');
+        $this->middleware('auth')->except('index','show','files_by_area');
     }
 
     /**
@@ -153,7 +153,6 @@ class FileController extends Controller
        $file =  File::findOrFail($id);
 
        if(!$file->file){ 
-
             return abort(404);     
        }
        
@@ -161,5 +160,12 @@ class FileController extends Controller
 
        return Storage::download($file->file,$file->name.'.'.$extension); 
        
+    }
+
+    public function files_by_area($area_id)
+    {
+        $files = File::where('area_id', $area_id)->get();
+
+        return view('app.files.index', compact('files'));
     }
 }

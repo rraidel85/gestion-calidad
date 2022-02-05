@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'GestionCalidad | Inicio')
+@section('title', 'Inicio')
 
 @section('content_header')
     @auth

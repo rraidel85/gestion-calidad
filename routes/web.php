@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TypeAreaController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MyHelperController;
 use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,8 +32,8 @@ Route::get('/register', function(){ return abort(404);});
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::resource('/files', FileController::class);
 
-Route::resource('files', FileController::class);
 Route::prefix('/')
     ->middleware('auth')
     ->group(function () {
@@ -47,8 +48,9 @@ Route::prefix('/')
 
 
 Route::get('/files/{id}/download', [FileController::class, 'download'])->name('files.download');
+Route::get('/files/{id}/files_by_area', [FileController::class, 'files_by_area'])->name('files.files_by_area');
 
-Route::get('/area_select', [TypeAreaController::class, 'area_select'])->name('area_select');
+Route::get('/area_select', [MyHelperController::class, 'area_select'])->name('area_select');
 
 
 
