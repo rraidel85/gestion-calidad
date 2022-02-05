@@ -26,6 +26,9 @@ Route::get('/', [FileController::class, 'index']);
 
 Auth::routes();
 
+// Disabling register route
+Route::get('/register', function(){ return abort(404);});
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 

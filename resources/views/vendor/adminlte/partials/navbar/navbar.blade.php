@@ -31,7 +31,6 @@
             @endif
         @else
             <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
-            {{-- <a href="{{ route('register') }}" class="btn btn-primary">Regístrate</a> --}}
         @endif
 
         {{-- Right sidebar toggler link --}}
