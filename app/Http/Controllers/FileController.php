@@ -29,7 +29,9 @@ class FileController extends Controller
 
         $files = File::all();
 
-        return view('app.files.index', compact('files'));
+        $categories = Category::all();
+
+        return view('app.files.index', compact('files', 'categories'));
     }
 
     /**
