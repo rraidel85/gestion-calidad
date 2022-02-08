@@ -9,3 +9,8 @@
 .login-logo a{
     color: #fff;
 }
+
+#empty-table{
+    text-align: center;
+    font-size: 18px;
+}

@@ -3,7 +3,7 @@
 @section('title', 'Documentos por Area')
 
 @section('content_header')
-    <h1>Documentos</h1>
+    <h1>Seleccione el area</h1>
 @stop
 
 @section('css')
