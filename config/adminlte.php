@@ -243,9 +243,14 @@ return [
         //     'text' => 'search',
         // ],
         [
+            'text' => 'Inicio',
+            'route'  => 'home',
+            // 'classes' => 'text-primary',
+            'icon' => 'fas fa-home',
+        ],
+        [
             'text' => 'Documentos',
             'url'  => 'files',
-            'can'  => 'list files',
             // 'classes' => 'text-primary',
             'icon' => 'far fa-fw fa-file',
         ],
@@ -253,7 +258,7 @@ return [
             'text' => 'Filtrar por Area',
             'route'  => 'area_select',
             // 'classes' => 'text-primary',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fa fa-sitemap',
         ],
         // [
         //     'text'        => 'pages',
@@ -267,7 +272,7 @@ return [
             'text' => 'Areas',
             'url'  => 'areas',
             'can'  => 'list areas',
-            'icon' => 'fa fa-sitemap',
+            'icon' => 'fas fa-layer-group',
         ],
         [
             'text' => 'Categorías',

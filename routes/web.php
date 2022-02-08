@@ -23,14 +23,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [FileController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-// Disabling register route
-Route::get('/register', function(){ return abort(404);});
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Auth::routes(['register' => false]);
 
 Route::resource('/files', FileController::class);
 
