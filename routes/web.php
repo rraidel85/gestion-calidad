@@ -46,7 +46,7 @@ Route::get('/files/{id}/download', [FileController::class, 'download'])->name('f
 Route::get('/files/{id}/files_by_area', [FileController::class, 'files_by_area'])->name('files.files_by_area');
 
 Route::get('/area_select', [MyHelperController::class, 'area_select'])->name('area_select');
-Route::get('/files_category_api', [MyHelperController::class, 'files_category_api'])->name('files_category_api');
+Route::post('/files_category_api', [MyHelperController::class, 'files_category_api'])->name('files_category_api');
 
 
 

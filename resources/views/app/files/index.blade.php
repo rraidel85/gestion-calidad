@@ -16,6 +16,17 @@
     <div class="card">
         <div class="card-body">
 
+            <div class="form-group">
+                <label>Selecciona las categorías a filtrar</label>
+                <div class="select2-purple">
+                    <select class="select2" id="categorySelect" onchange="get_files_by_category()" multiple="multiple" style="width: 70%;">
+                        @foreach ($categories as $category)
+                            <option value={{ $category->id }}>{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            
             <div class="mb-2">
                 <div class="row father-create">
                     <div class="text-right">
@@ -128,4 +139,13 @@
 
 @section('js')
     <script src="/js/admin_custom.js"></script>
+    <script>
+        let test = 15;
+        if ("{{Auth::user() && Auth::user()->can('update', App\Models\File::find(2))}}") {
+            console.log("{{ route('files.create') }}"); 
+        }
+        
+    
+    
+    </script>
 @stop
