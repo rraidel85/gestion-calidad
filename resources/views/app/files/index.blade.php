@@ -80,26 +80,34 @@
                             </td>
                             <td>{{ optional($file->area)->name ?? '-' }}</td>
                             <td>{{ optional($file->user)->name ?? '-' }}</td>
-                            <td class="text-center" style="width: 134px;">
+                            <td class="options-btn text-center" style="width: 134px;">
                                 <div
                                     role="group"
                                     aria-label="Row Actions"
                                     class="btn-group"
                                 >
+                                    <a href="{{ route('files.edit', $file) }}">
+                                        <button title="Descargar"
+                                            type="button"
+                                            class="btn btn-info download-btn my-btns"
+                                        >
+                                            <i class="fas fa-download"></i> 
+                                        </button>
+                                    </a>
                                     @can('update', $file)
                                     <a href="{{ route('files.edit', $file) }}">
-                                        <button
+                                        <button title="Editar"
                                             type="button"
-                                            class="btn btn-info"
+                                            class="btn btn-info edit-btn my-btns"
                                         >
                                             <i class="fas fa-edit"></i> 
                                         </button>
                                     </a>
                                     @endcan 
                                     <a href="{{ route('files.show', $file) }}">
-                                        <button
+                                        <button title="Mostrar"
                                             type="button"
-                                            class="btn btn-success"
+                                            class="btn btn-success show-btn my-btns"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
@@ -111,9 +119,9 @@
                                         onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
                                     >
                                         @csrf @method('DELETE')
-                                        <button
+                                        <button title="Eliminar"
                                             type="submit"
-                                            class="btn btn-danger"
+                                            class="btn btn-danger delete-btn my-btns"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
