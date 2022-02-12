@@ -18,9 +18,10 @@ class MyHelperController extends Controller
     }
 
     public function files_category_api(Request $request)
-    {
-        $categoriesToFilter = $request->selectedCategories;
-        $categories = Category::all();
+    {   
+        $categoriesToFilter = request()->selectedCategories;
+        $myResponseArray = [];
+        $hasPermission = false;
 
         if (!empty($categoriesToFilter)){
             $files = File::whereHas('categories', function (Builder $query) use($categoriesToFilter){
@@ -28,15 +29,20 @@ class MyHelperController extends Controller
                 ->groupBy('file_id')
                 ->havingRaw('COUNT(category_id) = ?', [count($categoriesToFilter)]);
             })->with(['area:id,name', 'user:id,name'])->get();
-
-            
         }
         else{
             $files = File::with(['area:id,name', 'user:id,name'])->get();
         }
-
-        // return response()->json($files);
-        // return $files;
-        return view('app.files.index',compact('files','categories'));
+        
+        foreach ($files as $file) {
+            if($request->user()){
+                $hasPermission = $request->user()->can('update', $file);   
+            }else{
+                $hasPermission = false;
+            }
+            $myResponseArray[] = ['file' => $file, 'hasPermission' => $hasPermission];
+        }
+        
+        return response()->json($myResponseArray);
     }
 }

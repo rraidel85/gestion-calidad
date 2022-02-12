@@ -139,13 +139,5 @@
 
 @section('js')
     <script src="/js/admin_custom.js"></script>
-    <script>
-        let test = 15;
-        if ("{{Auth::user() && Auth::user()->can('update', App\Models\File::find(2))}}") {
-            console.log("{{ route('files.create') }}"); 
-        }
-        
     
-    
-    </script>
 @stop
