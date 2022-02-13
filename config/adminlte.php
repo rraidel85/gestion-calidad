@@ -47,7 +47,7 @@ return [
     */
 
     'logo' => 'Gestion<b>Calidad</b>',
-    'logo_img' => '/images/c-image3.jpg',
+    'logo_img' => '/images/calidad3.jpg',
     'logo_img_class' => 'brand-image img-circle',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -249,16 +249,23 @@ return [
             'icon' => 'fas fa-home',
         ],
         [
-            'text' => 'Documentos',
-            'url'  => 'files',
-            // 'classes' => 'text-primary',
-            'icon' => 'far fa-fw fa-file',
-        ],
-        [
-            'text' => 'Filtrar por Area',
+            'text' => 'Buscar por area',
             'route'  => 'area_select',
             // 'classes' => 'text-primary',
             'icon' => 'fa fa-sitemap',
+        ],
+        [
+            'text' => 'Buscar por categorias',
+            'url'  => 'files',
+            // 'classes' => 'text-primary',
+            'icon' => 'fas fa-copy',
+        ],
+        [
+            'text' => 'Mis documentos',
+            'url'  => 'files',
+            'can'  => 'create files',
+            // 'classes' => 'text-primary',
+            'icon' => 'far fa-fw fa-file',
         ],
         // [
         //     'text'        => 'pages',
@@ -511,5 +518,5 @@ return [
     |
     */
 
-    'livewire' => true,
+    'livewire' => false,
 ];

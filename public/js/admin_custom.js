@@ -79,7 +79,7 @@ const get_files_by_category = () => {
 
         let table = `
                 <table id="table-file" class="table table-sm table-striped table-bordered">
-                    <thead class="thead-dark">
+                    <thead class="my-thead">
                         <tr>
                             <th class="text-left">
                                 Nombre
