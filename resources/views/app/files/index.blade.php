@@ -16,19 +16,18 @@
     <div class="card">
         <div class="card-body">
 
-            <div class="form-group">
-                <label>Selecciona las categorías a filtrar</label>
-                <div class="select2-purple">
-                    <select class="select2" id="categorySelect" onchange="get_files_by_category()" multiple="multiple" style="width: 70%;">
-                        @foreach ($categories as $category)
-                            <option value={{ $category->id }}>{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            
-            <div class="mb-2">
-                <div class="row father-create">
+            <div class="form-group category-filter-create-btn">
+                <div class="category-filter">
+                    <label>Selecciona las categorías a filtrar</label>
+                    <div class="select2-purple">
+                        <select class="select2" id="categorySelect" onchange="get_files_by_category()" multiple="multiple" style="width: 100%;">
+                            @foreach ($categories as $category)
+                                <option value={{ $category->id }}>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>   
+                <div class="create-btn">
                     <div class="text-right">
                         @can('create', App\Models\File::class)
                         <a
@@ -42,6 +41,8 @@
                     </div>
                 </div>
             </div>
+            
+           
 
             <div class="table-responsive">
                 <table id="table-file" class="table table-sm table-striped table-bordered">
@@ -144,6 +145,13 @@
     </div>
 </div>
 @endsection
+
+@section('footer')
+    <div class="text-center p-3">
+      © 2022 Copyright:
+      <a class="text-dark">Facultad de Informática y Ciencias Exactas, UNICA</a>
+    </div>
+@stop
 
 @section('js')
     <script src="/js/admin_custom.js"></script>

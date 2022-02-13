@@ -260,12 +260,20 @@ return [
             // 'classes' => 'text-primary',
             'icon' => 'fas fa-copy',
         ],
+        ['header' => 'PERSONAL', 'can' => 'list files'],
         [
             'text' => 'Mis documentos',
-            'url'  => 'files',
-            'can'  => 'create files',
+            'url'  => 'files/aaa',
+            'can'  => 'list files',
             // 'classes' => 'text-primary',
             'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Documentos de mi area',
+            'url'  => 'files/eee',
+            'can'  => 'list files',
+            // 'classes' => 'text-primary',
+            'icon' => 'fas fa-th',
         ],
         // [
         //     'text'        => 'pages',
@@ -292,12 +300,6 @@ return [
             'url'  => 'users',
             'can'  => 'list users',
             'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Roles',
-            'url'  => 'roles',
-            'can'  => 'list roles',
-            'icon' => 'fa fa-users'
         ],
         
         // [

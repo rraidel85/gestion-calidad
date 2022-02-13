@@ -32,8 +32,8 @@ Route::resource('/files', FileController::class);
 Route::prefix('/')
     ->middleware('auth')
     ->group(function () {
-        Route::resource('roles', RoleController::class);
-        Route::resource('permissions', PermissionController::class);
+        // Route::resource('roles', RoleController::class);
+        // Route::resource('permissions', PermissionController::class);
 
         Route::resource('type-areas', TypeAreaController::class);
         Route::resource('areas', AreaController::class);

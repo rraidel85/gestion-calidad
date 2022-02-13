@@ -19,15 +19,15 @@
     width: 42px;
 }
 .download-btn{
-    background: #b763da;
+    background: #25bd48;
     border: none;
 }
 .edit-btn{
-    background: #34b0c3;
+    background: #b763da;
     border: none;
 }
 .show-btn{
-    background: #25bd48;
+    background: #34b0c3;
     border: none;
 }
 .delete-btn{
@@ -63,9 +63,24 @@
     background: linear-gradient(315deg, #3d3cb7, #79a3e2, #d4d4d4);
     /* background: linear-gradient(315deg, #7046bf, #c0a8e6, #e2cae6); */
 }
+.category-filter-create-btn{
+    position: relative;
+}
+.category-filter{
+    width: 65%;
+}
+.create-btn{
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+}
 .my-thead{
     background: #4061c1;
     color: white;
+}
+.my-thead th{
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 table{
     margin-top: 9px !important;
@@ -78,4 +93,10 @@ table{
 }
 .nav-header{
     font-size: 17px !important;
+}
+.main-footer{
+    padding: 0;
+}
+.main-footer div{
+    background-color: #fff;
 }
