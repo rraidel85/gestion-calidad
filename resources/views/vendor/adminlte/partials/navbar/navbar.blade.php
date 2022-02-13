@@ -30,7 +30,7 @@
                 @include('adminlte::partials.navbar.menu-item-logout-link')
             @endif
         @else
-            <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
+            <a href="{{ route('login') }}" class="btn btn-primary login-btn">Iniciar Sesión</a>
         @endif
 
         {{-- Right sidebar toggler link --}}

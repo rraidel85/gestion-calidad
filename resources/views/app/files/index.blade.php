@@ -147,5 +147,4 @@
 
 @section('js')
     <script src="/js/admin_custom.js"></script>
-    
 @stop

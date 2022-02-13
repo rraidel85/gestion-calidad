@@ -41,3 +41,30 @@
     background: #f53345;
     border: none;
 }
+[class*=sidebar-dark] .brand-link{
+    border-bottom: 1px solid #6a95bb;
+}
+[class*=sidebar-dark] .brand-link, [class*=sidebar-dark] .brand-link .pushmenu{
+    color: #fff;
+}
+[class*=sidebar-dark-] .sidebar a{
+    color: #fff;
+}
+.main-sidebar{
+    background: #4061c1;
+}
+.nav {
+    font-size: 17px;
+}
+.sidebar-dark-info .nav-sidebar>.nav-item>.nav-link.active, 
+.sidebar-light-info .nav-sidebar>.nav-item>.nav-link.active{
+    background-color: #3cadbfa3;
+}
+.login-btn{
+    border-radius: 20px;
+    padding: 7px 17px;
+    background: linear-gradient(315deg, #5e458e, #A46DFF, #d8cbda);
+}
+.login-btn:hover{
+    background: linear-gradient(315deg, #7046bf, #c0a8e6, #e2cae6);
+}
