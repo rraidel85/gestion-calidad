@@ -76,3 +76,6 @@ table{
 .nav-link{
     font-size: 18px;
 }
+.nav-header{
+    font-size: 17px !important;
+}

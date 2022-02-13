@@ -40,6 +40,10 @@ class User extends Authenticatable
 
     public function isSuperAdmin()
     {
-        return $this->hasRole('super-admin');
+        return $this->hasRole('Administrador');
+    }
+
+    public function adminlte_image(){
+        return asset('images/my-user.png');
     }
 }
