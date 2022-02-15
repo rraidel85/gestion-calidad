@@ -18,13 +18,9 @@ class AreaController extends Controller
     {
         $this->authorize('view-any', Area::class);
 
-        $search = $request->get('search', '');
+        $areas = Area::all();
 
-        $areas = Area::search($search)
-            ->latest()
-            ->paginate(5);
-
-        return view('app.areas.index', compact('areas', 'search'));
+        return view('app.areas.index', compact('areas'));
     }
 
     /**

@@ -10,49 +10,23 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-
-            <div class="searchbar mt-4 mb-5">
                 <div class="row">
-                    <div class="col-md-6">
-                        <form>
-                            <div class="input-group">
-                                <input
-                                    id="indexSearch"
-                                    type="text"
-                                    name="search"
-                                    placeholder="{{ __('crud.common.search') }}"
-                                    value="{{ $search ?? '' }}"
-                                    class="form-control"
-                                    autocomplete="off"
-                                />
-                                <div class="input-group-append">
-                                    <button
-                                        type="submit"
-                                        class="btn btn-primary"
-                                    >
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-6 text-left create-btn">
                         @can('create', App\Models\User::class)
                         <a
                             href="{{ route('users.create') }}"
                             class="btn btn-primary"
                         >
-                            <i class="icon ion-md-add"></i>
+                            <i class="fas fa-plus"></i>
                             Nuevo Usuario
                         </a>
                         @endcan
                     </div>
                 </div>
-            </div>
 
             <div class="table-responsive">
-                <table class="table table-borderless table-hover">
-                    <thead>
+                <table id="table" class="table table-sm table-striped table-bordered">
+                    <thead class="my-thead">
                         <tr>
                             <th class="text-left">
                                 Nombre
@@ -84,7 +58,7 @@
                                     <a href="{{ route('users.edit', $user) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-primary"
+                                            class="btn btn-primary edit-btn my-btns"
                                         >
                                             <i class="fas fa-edit"></i>
                                         </button>
@@ -93,7 +67,7 @@
                                     <a href="{{ route('users.show', $user) }}">
                                         <button
                                             type="button"
-                                            class="btn btn-success"
+                                            class="btn btn-success show-btn my-btns"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
@@ -107,7 +81,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-danger"
+                                            class="btn btn-danger delete-btn my-btns"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -124,14 +98,10 @@
                         </tr>
                         @endforelse
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="4">{!! $users->render() !!}</td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
     </div>
 </div>
 @endsection
+

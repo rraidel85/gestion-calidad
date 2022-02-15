@@ -78,7 +78,7 @@ const get_files_by_category = () => {
         }
 
         let table = `
-                <table id="table-file" class="table table-sm table-striped table-bordered">
+                <table id="table" class="table table-sm table-striped table-bordered">
                     <thead class="my-thead">
                         <tr>
                             <th class="text-left">
@@ -105,7 +105,7 @@ const get_files_by_category = () => {
         `
 
         $(".table-responsive").html(table);
-        $('#table-file').DataTable( {language: {
+        $('#table').DataTable( {language: {
             "processing": "Procesando...",
             "lengthMenu": "Mostrar _MENU_ registros",
             "zeroRecords": "No se encontraron resultados",
@@ -347,7 +347,7 @@ const get_files_by_category = () => {
         $('.select2').select2();
 
 
-        $('#table-file').DataTable({
+        $('#table').DataTable({
             language: {
                 "processing": "Procesando...",
                 "lengthMenu": "Mostrar _MENU_ registros",

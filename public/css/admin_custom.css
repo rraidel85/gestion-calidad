@@ -69,10 +69,13 @@
 .category-filter{
     width: 65%;
 }
-.create-btn{
+.create-btn-files{
     position: absolute;
     right: 0;
     bottom: 1px;
+}
+.create-btn{
+    margin-bottom: 15px;
 }
 .my-thead{
     background: #4061c1;

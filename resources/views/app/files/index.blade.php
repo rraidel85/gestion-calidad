@@ -6,10 +6,6 @@
     <h1>Documentos</h1>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 
 @section('content')
 <div class="container">
@@ -27,14 +23,14 @@
                         </select>
                     </div>
                 </div>   
-                <div class="create-btn">
+                <div class="create-btn-files">
                     <div class="text-right">
                         @can('create', App\Models\File::class)
                         <a
                             href="{{ route('files.create') }}"
                             class="btn btn-primary create"
                         >
-                            <i class="icon ion-md-add"></i>
+                            <i class="fas fa-plus"></i>
                             Nuevo Documento
                         </a>
                         @endcan
@@ -45,7 +41,7 @@
            
 
             <div class="table-responsive">
-                <table id="table-file" class="table table-sm table-striped table-bordered">
+                <table id="table" class="table table-sm table-striped table-bordered">
                     <thead class="my-thead">
                         <tr>
                             <th class="text-left">
@@ -146,13 +142,4 @@
 </div>
 @endsection
 
-@section('footer')
-    <div class="text-center p-3">
-      © 2022 Copyright:
-      <a class="text-dark">Facultad de Informática y Ciencias Exactas, UNICA</a>
-    </div>
-@stop
 
-@section('js')
-    <script src="/js/admin_custom.js"></script>
-@stop

@@ -5,6 +5,7 @@
 @section('adminlte_css')
     @stack('css')
     @yield('css')
+    <link rel="stylesheet" href="/css/admin_custom.css"> <!--My css stylesheet -->
 @stop
 
 @section('classes_body', $layoutHelper->makeBodyClasses())
@@ -38,15 +39,26 @@
             @include('adminlte::partials.footer.footer')
         @endif
 
+<!--My footer -->
+<footer class="main-footer">
+    <div class="text-center p-3">
+        © 2022 Copyright:
+        <a class="text-dark">Facultad de Informática y Ciencias Exactas, UNICA</a>
+        </div>
+</footer>
+
         {{-- Right Control Sidebar --}}
         @if(config('adminlte.right_sidebar'))
             @include('adminlte::partials.sidebar.right-sidebar')
         @endif
 
     </div>
+
+    
 @stop
 
 @section('adminlte_js')
     @stack('js')
     @yield('js')
+    <script src="/js/admin_custom.js"></script> <!--My js script -->
 @stop

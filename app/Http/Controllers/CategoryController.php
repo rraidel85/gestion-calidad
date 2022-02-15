@@ -17,13 +17,9 @@ class CategoryController extends Controller
     {
         $this->authorize('view-any', Category::class);
 
-        $search = $request->get('search', '');
+        $categories = Category::all();
 
-        $categories = Category::search($search)
-            ->latest()
-            ->paginate(5);
-
-        return view('app.categories.index', compact('categories', 'search'));
+        return view('app.categories.index', compact('categories'));
     }
 
     /**
