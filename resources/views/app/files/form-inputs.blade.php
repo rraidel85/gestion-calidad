@@ -32,16 +32,6 @@
         @enderror
     </x-inputs.group>
 
-    <x-inputs.group class="col-sm-12"> 
-        {{-- Aqui tengo que poner un multi select --}}
-        <x-inputs.select name="category_id" label="Categoria" required>
-            @php $selected = old('category_id', ($editing ? $file->category_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione la categoria</option>
-            @foreach($categories as $value => $label)
-            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
-            @endforeach
-        </x-inputs.select>
-    </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
         <x-inputs.select name="area_id" label="Area" required>

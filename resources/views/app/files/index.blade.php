@@ -46,9 +46,6 @@
                                 Nombre
                             </th>
                             <th class="text-left">
-                                Archivo
-                            </th>
-                            <th class="text-left">
                                 Area
                             </th>
                             <th class="text-left">
@@ -63,16 +60,6 @@
                         @forelse($files as $file)
                         <tr>
                             <td>{{ $file->name ?? '-' }}</td>
-                            <td>
-                                @if($file->file)
-                                <a
-                                    href="{{ route('files.download', $file->id) }}"
-                                    target="blank"
-                                    ><i class="fa fa-download"></i
-                                    >&nbsp;Descargar</a 
-                                >
-                                @else - @endif
-                            </td>
                             <td>{{ optional($file->area)->name ?? '-' }}</td>
                             <td>{{ optional($file->user)->name ?? '-' }}</td>
                             <td class="options-btn text-center" style="width: 134px;">
@@ -81,7 +68,8 @@
                                     aria-label="Row Actions"
                                     class="btn-group"
                                 >
-                                    <a href="{{ route('files.edit', $file) }}">
+                                    <a class="anchor-download-btn" onclick="checkFileExists(event,'{{ $file->file }}')" 
+                                        href="{{ route('files.download', $file->id) }}">
                                         <button title="Descargar"
                                             type="button"
                                             class="btn btn-info download-btn my-btns"

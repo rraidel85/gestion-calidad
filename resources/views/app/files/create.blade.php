@@ -42,11 +42,6 @@
 
 @push('scripts')
     <script>
-        function changeNameInputValue(filePath) {
-            let file = document.getElementById("file").value;
-            let fileName = file.substr(file.lastIndexOf('\\') + 1).split('.')[0];
-
-            document.getElementById("name").value = fileName;
-        }
+        
     </script>
 @endpush

@@ -69,7 +69,7 @@ class FileController extends Controller
 
         return redirect()
             ->route('files.index')
-            ->withSuccess(__('crud.common.created'));
+            ->with('message', 'Se creó el documento correctamente');
     }
 
     /**
@@ -113,6 +113,7 @@ class FileController extends Controller
         $this->authorize('update', $file);
 
         $validated = $request->validated();
+
         if ($request->hasFile('file')) {
             if ($file->file) {
                 Storage::delete($file->file);
@@ -125,8 +126,8 @@ class FileController extends Controller
 
         return redirect()
             ->route('files.edit', $file)
-            ->withSuccess(__('crud.common.saved'));
-    }
+            ->with('message', 'Se actualizó el documento correctamente');
+    } 
 
     /**
      * @param \Illuminate\Http\Request $request

@@ -1,6 +1,50 @@
 
+// Get the csrfToken from the page 
 const csrfToken = document.head.querySelector('[name~=csrf-token][content]').content;
 
+// Check if file to download exists
+const checkFileExists = (e, fileExists) => {
+    if(!fileExists){
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Este documento no tiene ningún archivo asociado',
+          })
+          e.preventDefault();
+    }
+}
+
+// Confirm message for deleting a file
+// function eliminar(id) {
+//     swal({
+//         title: "¿Está seguro de eliminar?",
+//         text: "El pluviómetro será eliminado completamente del sistema.",
+//         type: "warning",
+//         showCancelButton: true,
+//         confirmButtonColor: "#DD6B55",
+//         confirmButtonText: "Eliminar",
+//         cancelButtonText: "Cancelar",
+//         closeOnConfirm: true,
+//         closeOnCancel: true
+//     },
+//         function (isConfirm) {
+//             if (isConfirm) {
+//                 let url = "{{=URL('pluviometer','remove_pluv')}}";
+//                 location.href = url + "/" + id;
+//             }
+//         });
+// }
+
+
+// Change $file->name value according to upload file name
+function changeNameInputValue(filePath) {
+    let file = document.getElementById("file").value;
+    let fileName = file.substr(file.lastIndexOf('\\') + 1).split('.')[0];
+
+    document.getElementById("name").value = fileName;
+}
+
+// Executed on selection in category select box 
 const get_files_by_category = (selectBox) => {
     console.log(selectBox.dataset.routeaction);
     let selectedCategories = $('#categorySelect').val();

@@ -60,5 +60,43 @@
 @section('adminlte_js')
     @stack('js')
     @yield('js')
-    <script src="/js/admin_custom.js"></script> <!--My js script -->
+    
+    <!--My js scripts -->
+    <script src="/js/admin_custom.js"></script> 
+    <script>
+        toastr.options ={
+            "timeOut": 4000,
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "500",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut",
+            "tapToDismiss": true
+            }
+
+
+        @if(Session::has('message'))
+            toastr.success("{{ session('message') }}");
+        @endif
+      
+        @if(Session::has('error'))
+            toastr.error("{{ session('error') }}");
+        @endif
+      
+        @if(Session::has('info'))
+            toastr.info("{{ session('info') }}");
+        @endif
+      
+        @if(Session::has('warning'))
+            toastr.warning("{{ session('warning') }}");
+        @endif
+      </script>
 @stop

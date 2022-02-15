@@ -22,6 +22,9 @@
     background: #25bd48;
     border: none;
 }
+.download-btn:focus{
+    background-color: #25bd48;
+}
 .edit-btn{
     background: #b763da;
     border: none;
@@ -45,6 +48,7 @@
 }
 .main-sidebar{
     background: #4061c1;
+    position: fixed !important;
 }
 .nav {
     font-size: 17px;
@@ -62,6 +66,9 @@
 .login-btn:hover{
     background: linear-gradient(315deg, #3d3cb7, #79a3e2, #d4d4d4);
     /* background: linear-gradient(315deg, #7046bf, #c0a8e6, #e2cae6); */
+}
+.card{
+    margin: 0;
 }
 .category-filter-create-btn{
     position: relative;
@@ -103,3 +110,7 @@ table{
 .main-footer div{
     background-color: #fff;
 }
+#toast-container .toast-message{
+    font-size: 17px;
+}
+
