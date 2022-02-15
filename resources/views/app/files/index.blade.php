@@ -16,7 +16,7 @@
                 <div class="category-filter">
                     <label>Selecciona las categorías a filtrar</label>
                     <div class="select2-purple">
-                        <select class="select2" id="categorySelect" onchange="get_files_by_category()" multiple="multiple" style="width: 100%;">
+                        <select class="select2" id="categorySelect" data-routeaction="{{ Route::currentRouteAction() }}" onchange="get_files_by_category(this)" multiple="multiple" style="width: 100%;">
                             @foreach ($categories as $category)
                                 <option value={{ $category->id }}>{{ $category->name }}</option>
                             @endforeach
@@ -37,8 +37,6 @@
                     </div>
                 </div>
             </div>
-            
-           
 
             <div class="table-responsive">
                 <table id="table" class="table table-sm table-striped table-bordered">

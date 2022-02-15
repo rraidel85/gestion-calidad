@@ -44,6 +44,8 @@ Route::prefix('/')
 
 Route::get('/files/{id}/download', [FileController::class, 'download'])->name('files.download');
 Route::get('/files/{id}/files_by_area', [FileController::class, 'files_by_area'])->name('files.files_by_area');
+Route::get('my_files', [MyHelperController::class, 'my_files'])->name('my_files');
+Route::get('my_area_files', [MyHelperController::class, 'my_area_files'])->name('my_area_files');
 
 Route::get('/area_select', [MyHelperController::class, 'area_select'])->name('area_select');
 Route::post('/files_category_api', [MyHelperController::class, 'files_category_api'])->name('files_category_api');
@@ -64,14 +66,14 @@ Route::post('/files_category_api', [MyHelperController::class, 'files_category_a
 // Route::get('/test', function(){
 //     //Route made just for testing database queries 
 
-//     $categoriesToFilter = [7,5,2];
+//     $categoriesToFilter = [3];
 
 //     //Returns each file that has associated all the categories listed by parameters
 //     $eloquent = File::whereHas('categories', function (Builder $query) use($categoriesToFilter){
 //         $query->whereIn('categories.id',$categoriesToFilter)
 //         ->groupBy('file_id')
 //         ->havingRaw('COUNT(category_id) = ?', [count($categoriesToFilter)]);
-//     })->get()->toArray();
+//     })->with(['area:id,name', 'user:id,name'])->where('user_id',3)->get();
     
 //     Debugbar::info($eloquent);
 //     // $q_builder = DB::table('areas')->get();

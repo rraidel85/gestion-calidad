@@ -263,14 +263,14 @@ return [
         ['header' => 'PERSONAL', 'can' => 'list files'],
         [
             'text' => 'Mis documentos',
-            'url'  => 'files/aaa',
+            'url'  => 'my_files',
             'can'  => 'list files',
             // 'classes' => 'text-primary',
             'icon' => 'far fa-fw fa-file',
         ],
         [
             'text' => 'Documentos de mi area',
-            'url'  => 'files/eee',
+            'url'  => 'my_area_files',
             'can'  => 'list files',
             // 'classes' => 'text-primary',
             'icon' => 'fas fa-th',

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FileStoreRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\FileUpdateRequest;
+use Illuminate\Support\Facades\Route;
 
 class FileController extends Controller
 {
@@ -26,7 +27,6 @@ class FileController extends Controller
     public function index(Request $request)
     {
     //    $this->authorize('view-any', File::class);
-
         $files = File::all();
 
         $categories = Category::all();
@@ -170,4 +170,6 @@ class FileController extends Controller
 
         return view('app.files.index', compact('files'));
     }
+
+    
 }

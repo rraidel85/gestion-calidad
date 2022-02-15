@@ -1,12 +1,15 @@
 
 const csrfToken = document.head.querySelector('[name~=csrf-token][content]').content;
 
-const get_files_by_category = () => {
-
+const get_files_by_category = (selectBox) => {
+    console.log(selectBox.dataset.routeaction);
     let selectedCategories = $('#categorySelect').val();
     fetch(`/files_category_api`, {
         method: 'POST',
-        body: JSON.stringify({selectedCategories: selectedCategories}),
+        body: JSON.stringify({
+            selectedCategories: selectedCategories,
+            routeAction: selectBox.dataset.routeaction
+        }),
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
