@@ -47,7 +47,7 @@ return [
     */
 
     'logo' => 'Gestion<b>Calidad</b>',
-    'logo_img' => '/images/calidad3.jpg',
+    'logo_img' => '/images/logo.svg',
     'logo_img_class' => 'brand-image img-circle',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',

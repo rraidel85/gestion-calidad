@@ -1,12 +1,12 @@
 .login-page, .register-page{
-    background-image: url('../images/fondo-auth.jpg');
+    background-image: url('../images/fondo-auth.svg');
     background-color: #cccccc;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .login-logo a{
-    color: #fff;
+    color: rgb(4, 6, 2);
 }
 #empty-table{
     text-align: center;
@@ -127,7 +127,7 @@ table{
     padding: 0;
 }
 .main-footer div{
-    background-color: #fff;
+    background-color: #f9f7f7;
 }
 #toast-container .toast-message{
     font-size: 17px;

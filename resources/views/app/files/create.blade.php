@@ -9,11 +9,6 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">
-                <a href="{{ route('files.index') }}" class="mr-4"
-                    ><i class="fas fa-arrow-left"></i 
-                ></a>
-            </h4>
 
             <x-form
                 method="POST"
