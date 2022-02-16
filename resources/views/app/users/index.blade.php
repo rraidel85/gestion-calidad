@@ -11,11 +11,11 @@
     <div class="card">
         <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6 text-left create-btn">
+                    <div class="col-md-6 text-left">
                         @can('create', App\Models\User::class)
                         <a
                             href="{{ route('users.create') }}"
-                            class="btn btn-primary"
+                            class="btn btn-primary create-btn"
                         >
                             <i class="fas fa-plus"></i>
                             Nuevo Usuario

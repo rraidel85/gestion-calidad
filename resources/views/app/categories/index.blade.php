@@ -12,11 +12,11 @@
         <div class="card-body">
 
             <div class="row">
-                <div class="col-md-6 text-left create-btn">
+                <div class="col-md-6 text-left">
                     @can('create', App\Models\Category::class)
                     <a
                         href="{{ route('categories.create') }}"
-                        class="btn btn-primary"
+                        class="btn btn-primary create-btn"
                     >
                         <i class="fas fa-plus"></i>
                         Nueva Categoría

@@ -14,7 +14,7 @@
 
             <div class="form-group category-filter-create-btn">
                 <div class="category-filter">
-                    <label>Selecciona las categorías a filtrar</label>
+                    <label>Selecciona las categorías a filtrar:</label>
                     <div class="select2-purple">
                         <select class="select2" id="categorySelect" data-routeaction="{{ Route::currentRouteAction() }}" onchange="get_files_by_category(this)" multiple="multiple" style="width: 100%;">
                             @foreach ($categories as $category)
@@ -23,12 +23,12 @@
                         </select>
                     </div>
                 </div>   
-                <div class="create-btn-files">
+                <div class="">
                     <div class="text-right">
                         @can('create', App\Models\File::class)
                         <a
                             href="{{ route('files.create') }}"
-                            class="btn btn-primary create"
+                            class="btn btn-primary create-btn-files"
                         >
                             <i class="fas fa-plus"></i>
                             Nuevo Documento

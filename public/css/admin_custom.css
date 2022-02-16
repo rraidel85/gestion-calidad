@@ -89,9 +89,19 @@
     position: absolute;
     right: 0;
     bottom: 1px;
+    background-color: #14bf68;
+    border: none;
+}
+.create-btn-files:hover{
+    background-color: #1b8b51;
 }
 .create-btn{
     margin-bottom: 15px;
+    background-color: #14bf68;
+    border: none;
+}
+.create-btn:hover{
+    background-color: #1b8b51;
 }
 .my-thead{
     background: #4061c1;
@@ -108,7 +118,7 @@ table{
     margin-bottom: 14px;
 }
 .nav-link{
-    font-size: 18px;
+    font-size: 17px;
 }
 .nav-header{
     font-size: 17px !important;
