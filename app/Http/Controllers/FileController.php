@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FileStoreRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\FileUpdateRequest;
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
 
 class FileController extends Controller
@@ -142,11 +143,10 @@ class FileController extends Controller
             Storage::delete($file->file);
         }
 
-        $file->delete();
+        // $file->delete();
 
-        return redirect()
-            ->route('files.index')
-            ->withSuccess(__('crud.common.removed'));
+        return redirect(url()->previous())
+            ->with('message', 'Se eliminó el documento correctamente');
     }
 
 

@@ -14,26 +14,24 @@ const checkFileExists = (e, fileExists) => {
     }
 }
 
-// Confirm message for deleting a file
-// function eliminar(id) {
-//     swal({
-//         title: "¿Está seguro de eliminar?",
-//         text: "El pluviómetro será eliminado completamente del sistema.",
-//         type: "warning",
-//         showCancelButton: true,
-//         confirmButtonColor: "#DD6B55",
-//         confirmButtonText: "Eliminar",
-//         cancelButtonText: "Cancelar",
-//         closeOnConfirm: true,
-//         closeOnCancel: true
-//     },
-//         function (isConfirm) {
-//             if (isConfirm) {
-//                 let url = "{{=URL('pluviometer','remove_pluv')}}";
-//                 location.href = url + "/" + id;
-//             }
-//         });
-// }
+// Alert to confirm deleting of an element
+const delete_element = (e) => {
+    e.preventDefault();
+    Swal.fire({
+        title: '¿Está seguro de eliminar?',
+        text: "El elemento será eliminado completamente del sistema.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#DD6B55',
+        cancelButtonColor: 'rgb(138, 138, 138)',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: "Cancelar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+          e.target.submit();
+        }
+    })
+}
 
 
 // Change $file->name value according to upload file name
@@ -46,7 +44,6 @@ function changeNameInputValue(filePath) {
 
 // Executed on selection in category select box 
 const get_files_by_category = (selectBox) => {
-    console.log(selectBox.dataset.routeaction);
     let selectedCategories = $('#categorySelect').val();
     fetch(`/files_category_api`, {
         method: 'POST',
@@ -63,22 +60,11 @@ const get_files_by_category = (selectBox) => {
     }).then(response => {
         return response.json()
     }).then(data => {
+        console.log(window.location.host)
         let rows = ``;
         for (let i in data) {
             rows += `<tr>
             <td>${data[i].file.name}</td>
-            <td>
-                ${
-                    data[i].file.file ? `
-                        <a
-                        href="{{ route('files.download', $file->id) }}"
-                        target="blank"
-                        ><i class="fa fa-download"></i
-                        >&nbsp;Descargar</a 
-                        >
-                    ` : '-'
-                }
-            </td>
             <td>${data[i].file.area.name}</td>
             <td>${data[i].file.user.name}</td>
             <td class="text-center" style="width: 134px;">
@@ -106,11 +92,12 @@ const get_files_by_category = (selectBox) => {
                         </button>
                     </a>
                     ${data[i].hasPermission ? `<form
-                    action=${window.location.href+'/files/'+data[i].file.id}
+                    action=${'/files/'+data[i].file.id}
                     method="POST"
-                    onsubmit="return confirm('Estas seguro?')"
+                    onsubmit="delete_element(event)"
                 >
-                    
+                    <input type="hidden" name="_token" value="${csrfToken}">
+                    <input type="hidden" name="_method" value="delete"/>
                     <button title="Eliminar"
                         type="submit"
                         class="btn btn-danger delete-btn my-btns"
@@ -130,9 +117,6 @@ const get_files_by_category = (selectBox) => {
                         <tr>
                             <th class="text-left">
                                 Nombre
-                            </th>
-                            <th class="text-left">
-                                Archivo
                             </th>
                             <th class="text-left">
                                 Area

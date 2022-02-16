@@ -96,10 +96,10 @@
                                         </button>
                                     </a>
                                     @can('delete', $file)
-                                    <form
+                                    <form 
                                         action="{{ route('files.destroy', $file) }}"
                                         method="POST"
-                                        onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                                        onsubmit="delete_element(event)"
                                     >
                                         @csrf @method('DELETE')
                                         <button title="Eliminar"

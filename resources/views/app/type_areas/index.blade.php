@@ -1,4 +1,11 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'Areas')
+
+@section('content_header')
+    <h1>Areas</h1>
+@stop
+
 
 @section('content')
 <div class="container">
@@ -10,29 +17,6 @@
 
             <div class="searchbar mt-4 mb-5">
                 <div class="row">
-                    <div class="col-md-6">
-                        <form>
-                            <div class="input-group">
-                                <input
-                                    id="indexSearch"
-                                    type="text"
-                                    name="search"
-                                    placeholder="{{ __('crud.common.search') }}"
-                                    value="{{ $search ?? '' }}"
-                                    class="form-control"
-                                    autocomplete="off"
-                                />
-                                <div class="input-group-append">
-                                    <button
-                                        type="submit"
-                                        class="btn btn-primary"
-                                    >
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                     <div class="col-md-6 text-right">
                         @can('create', App\Models\TypeArea::class)
                         <a
@@ -95,7 +79,7 @@
                                     <form
                                         action="{{ route('type-areas.destroy', $typeArea) }}"
                                         method="POST"
-                                        onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                                        onsubmit="delete_element(event)"
                                     >
                                         @csrf @method('DELETE')
                                         <button
@@ -117,11 +101,6 @@
                         </tr>
                         @endforelse
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">{!! $typeAreas->render() !!}</td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

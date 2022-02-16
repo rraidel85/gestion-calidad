@@ -74,7 +74,7 @@
                                     <form
                                         action="{{ route('categories.destroy', $category) }}"
                                         method="POST"
-                                        onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                                        onsubmit="delete_element(event)"
                                     >
                                         @csrf @method('DELETE')
                                         <button
