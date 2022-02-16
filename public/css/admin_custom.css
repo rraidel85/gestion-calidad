@@ -29,13 +29,22 @@
     background: #b763da;
     border: none;
 }
+.edit-btn:focus{
+    background-color: #b763da;
+}
 .show-btn{
     background: #34b0c3;
     border: none;
 }
+.show-btn:focus{
+    background-color: #34b0c3;
+}
 .delete-btn{
     background: #f53345;
     border: none;
+}
+.delete-btn:focus{
+    background-color: #f53345;
 }
 [class*=sidebar-dark] .brand-link{
     border-bottom: 1px solid #6a95bb;

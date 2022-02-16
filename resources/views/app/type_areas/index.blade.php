@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Areas')
+@section('title', 'Tipos de area')
 
 @section('content_header')
-    <h1>Areas</h1>
+    <h1>Tipos de area</h1>
 @stop
 
 
@@ -11,35 +11,30 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">@lang('crud.type_areas.index_title')</h4>
-            </div>
 
-            <div class="searchbar mt-4 mb-5">
                 <div class="row">
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-6 text-left create-btn">
                         @can('create', App\Models\TypeArea::class)
                         <a
                             href="{{ route('type-areas.create') }}"
                             class="btn btn-primary"
                         >
-                            <i class="icon ion-md-add"></i>
-                            @lang('crud.common.create')
+                            <i class="fas fa-plus"></i>
+                            Nuevo Tipo de Area
                         </a>
                         @endcan
                     </div>
                 </div>
-            </div>
 
             <div class="table-responsive">
-                <table class="table table-borderless table-hover">
-                    <thead>
+                <table id="table" class="table table-sm table-striped table-bordered">
+                    <thead class="my-thead">
                         <tr>
                             <th class="text-left">
-                                @lang('crud.type_areas.inputs.name')
+                                Nombre
                             </th>
                             <th class="text-center">
-                                @lang('crud.common.actions')
+                                Opciones
                             </th>
                         </tr>
                     </thead>
@@ -59,7 +54,7 @@
                                     >
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-info edit-btn my-btns"
                                         >
                                             <i class="fas fa-edit"></i>
                                         </button>
@@ -70,7 +65,7 @@
                                     >
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-success show-btn my-btns"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
@@ -84,7 +79,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-light text-danger"
+                                            class="btn btn-danger delete-btn my-btns"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -95,8 +90,8 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="2">
-                                @lang('crud.common.no_items_found')
+                            <td colspan="4">
+                                Ningún registro encontrado
                             </td>
                         </tr>
                         @endforelse

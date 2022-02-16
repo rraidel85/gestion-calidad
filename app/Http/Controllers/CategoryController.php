@@ -47,7 +47,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('categories.edit', $category)
-            ->withSuccess(__('crud.common.created'));
+            ->with('message', 'Se creó la categoría correctamente');
     }
 
     /**
@@ -89,7 +89,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('categories.edit', $category)
-            ->withSuccess(__('crud.common.saved'));
+            ->with('message', 'Se editó la categoría correctamente');
     }
 
     /**
@@ -105,6 +105,6 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('categories.index')
-            ->withSuccess(__('crud.common.removed'));
+            ->with('message', 'Se eliminó la categoría correctamente');
     }
 }

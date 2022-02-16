@@ -58,7 +58,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.edit', $user)
-            ->withSuccess(__('crud.common.created'));
+            ->with('message', 'Se creó el usuario correctamente');
     }
 
     /**
@@ -111,7 +111,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.edit', $user)
-            ->withSuccess(__('crud.common.saved'));
+            ->with('message', 'Se editó el usuario correctamente');
     }
 
     /**
@@ -127,6 +127,6 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.index')
-            ->withSuccess(__('crud.common.removed'));
+            ->with('message', 'Se eliminó el usuario correctamente');
     }
 }

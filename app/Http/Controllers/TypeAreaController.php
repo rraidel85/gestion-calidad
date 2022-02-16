@@ -17,13 +17,9 @@ class TypeAreaController extends Controller
     {
         $this->authorize('view-any', TypeArea::class);
 
-        $search = $request->get('search', '');
+        $typeAreas = TypeArea::all();
 
-        $typeAreas = TypeArea::search($search)
-            ->latest()
-            ->paginate(5);
-
-        return view('app.type_areas.index', compact('typeAreas', 'search'));
+        return view('app.type_areas.index', compact('typeAreas'));
     }
 
     /**
@@ -51,7 +47,7 @@ class TypeAreaController extends Controller
 
         return redirect()
             ->route('type-areas.edit', $typeArea)
-            ->withSuccess(__('crud.common.created'));
+            ->with('message', 'Se creó el tipo de area correctamente');
     }
 
     /**
@@ -93,7 +89,7 @@ class TypeAreaController extends Controller
 
         return redirect()
             ->route('type-areas.edit', $typeArea)
-            ->withSuccess(__('crud.common.saved'));
+            ->with('message', 'Se editó el tipo de area correctamente');
     }
 
     /**
@@ -109,7 +105,7 @@ class TypeAreaController extends Controller
 
         return redirect()
             ->route('type-areas.index')
-            ->withSuccess(__('crud.common.removed'));
+            ->with('message', 'Se eliminó el tipo de area correctamente');
     }
 
 }

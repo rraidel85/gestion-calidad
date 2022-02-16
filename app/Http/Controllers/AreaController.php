@@ -50,7 +50,7 @@ class AreaController extends Controller
 
         return redirect()
             ->route('areas.edit', $area)
-            ->withSuccess(__('crud.common.created'));
+            ->with('message', 'Se creó el area correctamente');
     }
 
     /**
@@ -94,7 +94,7 @@ class AreaController extends Controller
 
         return redirect()
             ->route('areas.edit', $area)
-            ->withSuccess(__('crud.common.saved'));
+            ->with('message', 'Se editó el area correctamente');
     }
 
     /**
@@ -110,7 +110,7 @@ class AreaController extends Controller
 
         return redirect()
             ->route('areas.index')
-            ->withSuccess(__('crud.common.removed'));
+            ->with('message', 'Se eliminó el area correctamente');
     }
 
 }

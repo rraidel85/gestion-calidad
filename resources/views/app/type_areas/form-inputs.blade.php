@@ -4,10 +4,10 @@
     <x-inputs.group class="col-sm-12">
         <x-inputs.text
             name="name"
-            label="Name"
+            label="Nombre"
             value="{{ old('name', ($editing ? $typeArea->name : '')) }}"
             maxlength="255"
-            placeholder="Name"
+            placeholder="Nombre"
             required
         ></x-inputs.text>
     </x-inputs.group>

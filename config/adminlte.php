@@ -255,7 +255,7 @@ return [
             'icon' => 'fa fa-sitemap',
         ],
         [
-            'text' => 'Buscar por categorias',
+            'text' => 'Todos los documentos',
             'url'  => 'files',
             // 'classes' => 'text-primary',
             'icon' => 'fas fa-copy',
@@ -283,6 +283,12 @@ return [
         //     'label_color' => 'success',
         // ],
         ['header' => 'ADMINISTRACIÓN', 'can' => 'list users'],
+        [
+            'text' => 'Tipos de area',
+            'url'  => 'type-areas',
+            'can'  => 'list typeareas',
+            'icon' => 'fas fa-table',
+        ],
         [
             'text' => 'Areas',
             'url'  => 'areas',
