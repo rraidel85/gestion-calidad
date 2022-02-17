@@ -166,10 +166,12 @@ class FileController extends Controller
     }
 
     public function files_by_area($area_id)
-    {
+    {   
+        $categories = Category::all();
+
         $files = File::where('area_id', $area_id)->get();
 
-        return view('app.files.index', compact('files'));
+        return view('app.files.index', compact('files','categories'));
     }
 
     

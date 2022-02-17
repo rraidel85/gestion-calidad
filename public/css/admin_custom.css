@@ -88,15 +88,14 @@
     margin: 0;
 }
 .category-filter-create-btn{
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row-reverse;
 }
 .category-filter{
     width: 65%;
 }
 .create-btn-files{
-    position: absolute;
-    right: 0;
-    bottom: 1px;
     background-color: #14bf68;
     border: none;
 }

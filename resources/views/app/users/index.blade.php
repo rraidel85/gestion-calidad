@@ -43,7 +43,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($users as $user)
+                        @foreach($users as $user)
                         <tr>
                             <td>{{ $user->name ?? '-' }}</td>
                             <td>{{ $user->email ?? '-' }}</td>
@@ -90,13 +90,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                        <tr>
-                            <td colspan="4">
-                                Ningún registro encontrado
-                            </td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>

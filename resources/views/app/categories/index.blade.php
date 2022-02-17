@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($categories as $category)
+                        @foreach($categories as $category)
                         <tr>
                             <td>{{ $category->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
@@ -88,13 +88,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                        <tr>
-                            <td colspan="2">
-                                Ningún registro encontrado
-                            </td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($typeAreas as $typeArea)
+                        @foreach($typeAreas as $typeArea)
                         <tr>
                             <td>{{ $typeArea->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
@@ -88,13 +88,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                        <tr>
-                            <td colspan="4">
-                                Ningún registro encontrado
-                            </td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>

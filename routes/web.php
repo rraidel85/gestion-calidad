@@ -39,18 +39,20 @@ Route::prefix('/')
         Route::resource('areas', AreaController::class);
         Route::resource('categories', CategoryController::class);
         Route::resource('users', UserController::class);
+        Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
+        Route::get('my_files', [MyHelperController::class, 'my_files'])->name('my_files');
+        Route::get('my_area_files', [MyHelperController::class, 'my_area_files'])->name('my_area_files');
     });
 
 
 Route::get('/files/{id}/download', [FileController::class, 'download'])->name('files.download');
-Route::get('/files/{id}/files_by_area', [FileController::class, 'files_by_area'])->name('files.files_by_area');
-Route::get('my_files', [MyHelperController::class, 'my_files'])->name('my_files');
-Route::get('my_area_files', [MyHelperController::class, 'my_area_files'])->name('my_area_files');
+Route::get('/files/files_by_area/{id}', [FileController::class, 'files_by_area'])->name('files.files_by_area');
+
 
 Route::get('/area_select', [MyHelperController::class, 'area_select'])->name('area_select');
 Route::post('/files_category_api', [MyHelperController::class, 'files_category_api'])->name('files_category_api');
 
-Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
+
 
 
 

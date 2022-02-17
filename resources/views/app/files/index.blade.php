@@ -11,20 +11,10 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-
+            
             <div class="form-group category-filter-create-btn">
-                <div class="category-filter">
-                    <label>Selecciona las categorías a filtrar:</label>
-                    <div class="select2-purple">
-                        <select class="select2" id="categorySelect" data-routeaction="{{ Route::currentRouteAction() }}" onchange="get_files_by_category(this)" multiple="multiple" style="width: 100%;">
-                            @foreach ($categories as $category)
-                                <option value={{ $category->id }}>{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>   
-                <div class="">
-                    <div class="text-right">
+                <div style="display: flex">
+                    <div class="text-right" style="align-self: flex-end;">
                         @can('create', App\Models\File::class)
                         <a
                             href="{{ route('files.create') }}"
@@ -36,6 +26,20 @@
                         @endcan
                     </div>
                 </div>
+
+                @if (count($files) != 0)
+                    <div class="category-filter">
+                        <label>Selecciona las categorías a filtrar:</label>
+                        <div class="select2-purple">
+                            <select class="select2" id="categorySelect" data-routeaction="{{ Route::currentRouteAction() }}" onchange="get_files_by_category(this)" multiple="multiple" style="width: 100%;">
+                                @foreach ($categories as $category)
+                                    <option value={{ $category->id }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>   
+                @endif
+                
             </div>
 
             <div class="table-responsive">
@@ -57,7 +61,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($files as $file)
+                        @foreach($files as $file)
                         <tr>
                             <td>{{ $file->name ?? '-' }}</td>
                             <td>{{ optional($file->area)->name ?? '-' }}</td>
@@ -113,13 +117,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                        <tr>
-                            <td id="empty-table" colspan="6">
-                                Ningún registro encontrado
-                            </td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -128,4 +126,11 @@
 </div>
 @endsection
 
-
+@section('js')
+    <script>
+        $(function() {
+            // Clearing category multi select
+            $("#categorySelect").prop('selectedIndex', -1);
+        });
+    </script>
+@endsection

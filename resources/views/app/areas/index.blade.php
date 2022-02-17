@@ -47,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($areas as $area)
+                        @foreach($areas as $area)
                         <tr>
                             <td>{{ $area->name ?? '-' }}</td>
                             <td>{{ $area->description ?? '-' }}</td>
@@ -96,13 +96,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                        <tr>
-                            <td colspan="4">
-                                Ningún registro encontrado
-                            </td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>

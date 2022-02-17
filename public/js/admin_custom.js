@@ -78,12 +78,12 @@ const get_files_by_category = (selectBox) => {
                     </button>
                 </a>
                 ${data[i].hasPermission ? 
-                `<a href=${window.location.href+'/files/'+data[i].file.id+'/edit'}>
+                `<a href=${'/files/'+data[i].file.id+'/edit'}>
                 <button title="Editar" type="button" class="btn btn-info edit-btn my-btns">
                             <i class="fas fa-edit"></i> 
                         </button>
                 </a>` : ''}
-                    <a href=${window.location.href+'/files/'+data[i].file.id}>
+                    <a href=${'/files/'+data[i].file.id}>
                         <button title="Mostrar"
                             type="button"
                             class="btn btn-success show-btn my-btns"

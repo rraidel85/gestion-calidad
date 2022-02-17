@@ -88,8 +88,20 @@ class MyHelperController extends Controller
                 ->where('area_id', $request->user()->area_id)->get();
             }
         }
+        elseif($routeAction == "App\Http\Controllers\FileController@files_by_area"){
 
+            $dividedUrl = explode('/', url()->previous());
+            $area_id = intval(end($dividedUrl));
 
+            if (!empty($categoriesToFilter) && $request->user()){
+                $files = $fileQuery->where('area_id', $area_id)->get();
+            }
+            else{
+                $files = File::with(['area:id,name', 'user:id,name'])
+                ->where('area_id', $area_id)->get();
+            }
+        }
+        
         foreach ($files as $file) {
             if($request->user()){
                 $hasPermission = $request->user()->can('update', $file);   
