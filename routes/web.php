@@ -50,6 +50,8 @@ Route::get('my_area_files', [MyHelperController::class, 'my_area_files'])->name(
 Route::get('/area_select', [MyHelperController::class, 'area_select'])->name('area_select');
 Route::post('/files_category_api', [MyHelperController::class, 'files_category_api'])->name('files_category_api');
 
+Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
+
 
 
 //---------Test Area------------ 

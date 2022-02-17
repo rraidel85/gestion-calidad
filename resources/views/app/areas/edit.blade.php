@@ -20,7 +20,7 @@
                 @include('app.areas.form-inputs')
 
                 <div class="mt-4">
-                    <a href="{{ route('areas.index') }}" class="btn btn-light">
+                    <a href="{{ url()->previous() }}" class="btn btn-light">
                         <i class="fas fa-arrow-left text-primary"></i>
                        Volver
                     </a>

@@ -19,7 +19,7 @@
             </div>
 
             <div class="mt-4">
-                <a href="{{ route('categories.index') }}" class="btn btn-light">
+                <a href="{{ url()->previous() }}" class="btn btn-light">
                     <i class="fas fa-arrow-left"></i>
                     Volver
                 </a>

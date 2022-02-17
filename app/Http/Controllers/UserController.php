@@ -129,4 +129,11 @@ class UserController extends Controller
             ->route('users.index')
             ->with('message', 'Se eliminó el usuario correctamente');
     }
+
+    public function profile(Request $request)
+    {   
+        $user = $request->user();
+
+        return view('app.users.profile', compact('user'));
+    }
 }

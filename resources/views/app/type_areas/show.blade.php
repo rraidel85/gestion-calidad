@@ -1,4 +1,10 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'Mostrar Tipo-Area')
+
+@section('content_header')
+    Mostrar Tipo de Area
+@stop
 
 @section('content')
 <div class="container">
@@ -13,25 +19,16 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>@lang('crud.type_areas.inputs.name')</h5>
+                    <h5>Nombre</h5>
                     <span>{{ $typeArea->name ?? '-' }}</span>
                 </div>
             </div>
 
             <div class="mt-4">
-                <a href="{{ route('type-areas.index') }}" class="btn btn-light">
+                <a href="{{ url()->previous() }}" class="btn btn-light">
                     <i class="fas fa-arrow-left"></i>
-                    @lang('crud.common.back')
+                    Volver
                 </a>
-
-                @can('create', App\Models\TypeArea::class)
-                <a
-                    href="{{ route('type-areas.create') }}"
-                    class="btn btn-light"
-                >
-                    <i class="icon ion-md-add"></i> @lang('crud.common.create')
-                </a>
-                @endcan
             </div>
         </div>
     </div>

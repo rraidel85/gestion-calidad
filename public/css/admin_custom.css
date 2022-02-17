@@ -8,6 +8,10 @@
 .login-logo a{
     color: rgb(4, 6, 2);
 }
+.login-error{
+    font-size: 15px;
+    color: red;
+}
 .auth-btn-submit:hover{
     background: #5058c5;
     color: white;

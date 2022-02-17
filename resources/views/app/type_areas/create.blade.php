@@ -20,7 +20,7 @@
 
                 <div class="mt-4">
                     <a
-                        href="{{ route('type-areas.index') }}"
+                        href="{{ url()->previous() }}"
                         class="btn btn-light"
                     >
                         <i class="fas fa-arrow-left text-primary"></i>
