@@ -12,8 +12,8 @@
     <div class="card">
         <div class="card-body">
 
-                <div class="row">
-                    <div class="col-md-6 text-left">
+                <div class="row create-row">
+                    <div class="col-md-6 text-left create-btn-father">
                         @can('create', App\Models\TypeArea::class)
                         <a
                             href="{{ route('type-areas.create') }}"

@@ -110,6 +110,13 @@
 .create-btn:hover{
     background-color: #1b8b51;
 }
+.create-row{
+    flex-direction: row-reverse;
+}
+.create-btn-father{
+    display: flex;
+    flex-direction: row-reverse;
+}
 .my-thead{
     background: #4061c1;
     color: white;

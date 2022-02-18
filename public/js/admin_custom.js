@@ -375,7 +375,9 @@ const get_files_by_category = (selectBox) => {
     $(function () {
 
         // Initialazing select2 library for multiple select
-        $('.select2').select2();
+        $('.select2').select2({
+            allowClear: true,
+        });
 
 
         $('#table').DataTable({

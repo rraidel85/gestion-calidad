@@ -129,7 +129,7 @@
 @section('js')
     <script>
         $(function() {
-            // Clearing category multi select
+            // Clearing category multi select on page load
             $("#categorySelect").prop('selectedIndex', -1);
         });
     </script>
