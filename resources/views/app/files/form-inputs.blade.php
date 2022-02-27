@@ -1,17 +1,6 @@
 @php $editing = isset($file) @endphp
 
 <div class="row">
-    <x-inputs.group class="col-sm-12">
-        <x-inputs.text
-            name="name"
-            label="Nombre"
-            value="{{ old('name', ($editing ? $file->name : '')) }}"
-            maxlength="255"
-            placeholder="Nombre"
-            id="name"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
         <x-inputs.partials.label
@@ -32,24 +21,29 @@
         @enderror
     </x-inputs.group>
 
-
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="area_id" label="Area" required>
-            @php $selected = old('area_id', ($editing ? $file->area_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el area</option>
-            @foreach($areas as $value => $label)
-            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
-            @endforeach
-        </x-inputs.select>
+        <x-inputs.text
+            name="name"
+            label="Nombre"
+            value="{{ old('name', ($editing ? $file->name : '')) }}"
+            maxlength="255"
+            placeholder="Nombre"
+            id="name"
+            required
+        ></x-inputs.text>
     </x-inputs.group>
 
-    <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="user_id" label="Usuario" required>
-            @php $selected = old('user_id', ($editing ? $file->user_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el usuario</option>
-            @foreach($users as $value => $label)
-            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
-            @endforeach
-        </x-inputs.select>
-    </x-inputs.group>
+    <div class="form-group col-sm-12 category-filter">
+        <label>Categoría(s)</label>
+        <div class="select2-purple">
+            <select name="categories[]" class="select2" id="categorySelect" multiple="multiple" style="width: 100%;">
+                @foreach ($categories as $category)
+                    <option value={{ $category->id }}>{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        @error('categories') @include('components.inputs.partials.error')
+        @enderror
+    </div>   
+    
 </div>

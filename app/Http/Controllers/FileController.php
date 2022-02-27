@@ -43,13 +43,11 @@ class FileController extends Controller
     {
         $this->authorize('create', File::class);
 
-        $categories = Category::pluck('name', 'id');
-        $areas = Area::pluck('name', 'id');
-        $users = User::pluck('name', 'id');
+        $categories = Category::all();
 
         return view(
             'app.files.create',
-            compact('categories', 'areas', 'users')
+            compact('categories')
         );
     }
 
@@ -62,11 +60,25 @@ class FileController extends Controller
         $this->authorize('create', File::class);
 
         $validated = $request->validated();
-        if ($request->hasFile('file')) {
-            $validated['file'] = $request->file('file')->store('public');
-        }
+        
+        $file = new File;
+        
+        
+        $file->name = $validated['name'];
+        $file->area_id = $request->user()->area_id;
+        $file->user_id = $request->user()->id;
 
-        File::create($validated);
+        if ($request->hasFile('file')) {
+            $file->file = $request->file('file')->store('public');
+        }
+        
+        
+        $file->save();
+
+        if(!empty($validated['categories'])){
+            $file->categories()->attach($validated['categories']);
+        }
+        // File::create($validated);
 
         return redirect()
             ->route('files.index')

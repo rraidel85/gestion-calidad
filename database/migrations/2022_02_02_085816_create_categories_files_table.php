@@ -29,7 +29,7 @@ class CreateCategoriesFilesTable extends Migration
                 ->references('id')
                 ->on('files')
                 ->onDelete('CASCADE')
-                ->onUpdate('CASCADE');;
+                ->onUpdate('CASCADE');
         });
     }
 

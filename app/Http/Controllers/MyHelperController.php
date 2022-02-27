@@ -8,7 +8,7 @@ use App\Models\TypeArea;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-use Barryvdh\Debugbar\Facades\Debugbar;
+// use Barryvdh\Debugbar\Facades\Debugbar;
 
 class MyHelperController extends Controller
 {
