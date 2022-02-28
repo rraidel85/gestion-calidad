@@ -2,6 +2,8 @@
 // Get the csrfToken from the page 
 const csrfToken = document.head.querySelector('[name~=csrf-token][content]').content;
 
+  
+   
 // Check if file to download exists
 const checkFileExists = (e, fileExists) => {
     if(!fileExists){
@@ -610,4 +612,11 @@ const get_files_by_category = (selectBox) => {
 
             },
         });
+
+        
+        /*================================
+        Preloader
+        ==================================*/
+        $('#preloader').fadeOut('slow', function() { $(this).remove(); });
+        
 });

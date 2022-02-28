@@ -78,7 +78,6 @@ class FileController extends Controller
         if(!empty($validated['categories'])){
             $file->categories()->attach($validated['categories']);
         }
-        // File::create($validated);
 
         return redirect()
             ->route('files.index')
