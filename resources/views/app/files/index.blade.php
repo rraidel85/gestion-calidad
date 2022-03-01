@@ -52,9 +52,6 @@
                             <th class="text-left">
                                 Area
                             </th>
-                            <th class="text-left">
-                                Creado por
-                            </th>
                             <th class="text-center">
                                 Opciones
                             </th>
@@ -65,7 +62,6 @@
                         <tr>
                             <td>{{ $file->name ?? '-' }}</td>
                             <td>{{ optional($file->area)->name ?? '-' }}</td>
-                            <td>{{ optional($file->user)->name ?? '-' }}</td>
                             <td class="options-btn text-center" style="width: 134px;">
                                 <div
                                     role="group"

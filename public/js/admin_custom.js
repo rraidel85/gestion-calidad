@@ -68,7 +68,6 @@ const get_files_by_category = (selectBox) => {
             rows += `<tr>
             <td>${data[i].file.name}</td>
             <td>${data[i].file.area.name}</td>
-            <td>${data[i].file.user.name}</td>
             <td class="text-center" style="width: 134px;">
                 <div role="group" aria-label="Row Actions" class="btn-group">
                 <a href="{{ route('files.edit', $file) }}">
@@ -122,9 +121,6 @@ const get_files_by_category = (selectBox) => {
                             </th>
                             <th class="text-left">
                                 Area
-                            </th>
-                            <th class="text-left">
-                                Creado por
                             </th>
                             <th class="text-center">
                                 Opciones
