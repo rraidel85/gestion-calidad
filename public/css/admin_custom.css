@@ -75,6 +75,12 @@
     background: #5058c5;
     color: white;
 }
+#my-logo{
+    max-height: 43px;
+    width: 190px;
+    float: none;
+    border-radius: 10px;
+}
 #empty-table{
     text-align: center;
     font-size: 18px;
