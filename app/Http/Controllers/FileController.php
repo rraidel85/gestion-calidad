@@ -10,8 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FileStoreRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\FileUpdateRequest;
-use Barryvdh\Debugbar\Facades\Debugbar;
-use Illuminate\Support\Facades\Route;
+// use Barryvdh\Debugbar\Facades\Debugbar;
 
 class FileController extends Controller
 {
@@ -31,7 +30,7 @@ class FileController extends Controller
         $files = File::all();
 
         $categories = Category::all();
-
+        
         return view('app.files.index', compact('files', 'categories'));
     }
 
@@ -105,7 +104,7 @@ class FileController extends Controller
     {
         $this->authorize('update', $file);
 
-        $categories = Category::pluck('name', 'id');
+        $categories = Category::all();
         $areas = Area::pluck('name', 'id');
         $users = User::pluck('name', 'id');
 
@@ -154,7 +153,7 @@ class FileController extends Controller
             Storage::delete($file->file);
         }
 
-        // $file->delete();
+        $file->delete();
 
         return redirect(url()->previous())
             ->with('message', 'Se eliminó el documento correctamente');

@@ -79,7 +79,9 @@
     <!--My js scripts -->
     <script src="/js/admin_custom.js"></script> 
     <script>
-        toastr.options ={
+        if (!$.loadedFromBrowserCache) {
+            // If page is loaded from server and not from browser cache
+            toastr.options ={
             "timeOut": 4000,
             "closeButton": true,
             "debug": false,
@@ -113,5 +115,6 @@
         @if(Session::has('warning'))
             toastr.warning("{{ session('warning') }}");
         @endif
+        }
       </script>
 @stop

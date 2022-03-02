@@ -2,8 +2,15 @@
 // Get the csrfToken from the page 
 const csrfToken = document.head.querySelector('[name~=csrf-token][content]').content;
 
-  
+
+// Detect whether or not we are loading this page from the browser cache
+// Set the value $.loadedFromBrowserCache, which other scripts can use
+(function(){
+    jQuery.loadedFromBrowserCache = getCookie('loadedFromBrowserCache') == 'true';
+    setCookie('loadedFromBrowserCache', 'true');   
+})();
    
+
 // Check if file to download exists
 const checkFileExists = (e, fileExists) => {
     if(!fileExists){
@@ -62,7 +69,7 @@ const get_files_by_category = (selectBox) => {
     }).then(response => {
         return response.json()
     }).then(data => {
-        console.log(window.location.host)
+        // console.log(data)
         let rows = ``;
         for (let i in data) {
             rows += `<tr>
@@ -70,7 +77,7 @@ const get_files_by_category = (selectBox) => {
             <td>${data[i].file.area.name}</td>
             <td class="text-center" style="width: 134px;">
                 <div role="group" aria-label="Row Actions" class="btn-group">
-                <a href="{{ route('files.edit', $file) }}">
+                <a href="{{ route('files.edit', $file) }}" onclick="checkFileExists(event, ${data[i].file.file})">
                     <button title="Descargar"
                         type="button"
                         class="btn btn-info download-btn my-btns"
@@ -375,6 +382,7 @@ const get_files_by_category = (selectBox) => {
         // Initialazing select2 library for multiple select
         $('.select2').select2({
             allowClear: true,
+            placeholder: 'Selecciona las categorías',
         });
 
 
@@ -610,9 +618,31 @@ const get_files_by_category = (selectBox) => {
         });
 
         
+
         /*================================
         Preloader
         ==================================*/
         $('#preloader').fadeOut('slow', function() { $(this).remove(); });
         
+        
 });
+
+// Set a Cookie
+function setCookie(cName, cValue, expDays = 1825) {
+    let date = new Date();
+    date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+}
+
+//Get a specific cookie
+function getCookie(cName) {
+    const name = cName + "=";
+    const cDecoded = decodeURIComponent(document.cookie); //to be careful
+    const cArr = cDecoded .split('; ');
+    let res;
+    cArr.forEach(val => {
+        if (val.indexOf(name) === 0) res = val.substring(name.length);
+    })
+    return res;
+}
