@@ -78,6 +78,19 @@
     {{-- Body Content --}}
     @yield('body')
 
+    @if (Route::currentRouteName() != "login")
+        <!--My footer -->
+        <footer id="main-footer">
+            <div class="text-center">
+                <p>
+                    © 2022 Copyright:
+                    <a class="text-dark">Facultad de Informática y Ciencias Exactas, UNICA</a>
+                </p>
+            </div>
+        </footer>
+    @endif
+    
+
     {{-- Base Scripts --}}
     @if(!config('adminlte.enabled_laravel_mix'))
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>

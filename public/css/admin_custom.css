@@ -80,6 +80,10 @@
     width: 190px;
     float: none;
     border-radius: 10px;
+    margin-left: 19px;
+}
+.content{
+    padding: 0 !important; 
 }
 #empty-table{
     text-align: center;
@@ -202,11 +206,14 @@ table{
 .nav-header{
     font-size: 17px !important;
 }
-.main-footer{
-    padding: 0;
+#main-footer div{
+    padding: 16px 16px 16px 120px;
 }
-.main-footer div{
-    background-color: #f9f7f7;
+#main-footer p{
+    margin: 0;
+}
+#main-footer div{
+    background-color: #e2e5e8;
 }
 #toast-container .toast-message{
     font-size: 17px;

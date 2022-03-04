@@ -53,22 +53,16 @@
         @hasSection('footer')
             @include('adminlte::partials.footer.footer')
         @endif
-
-<!--My footer -->
-<footer class="main-footer">
-    <div class="text-center p-3">
-        © 2022 Copyright:
-        <a class="text-dark">Facultad de Informática y Ciencias Exactas, UNICA</a>
-        </div>
-</footer>
+        
 
         {{-- Right Control Sidebar --}}
         @if(config('adminlte.right_sidebar'))
             @include('adminlte::partials.sidebar.right-sidebar')
         @endif
-
+        
     </div>
 
+    
     
 @stop
 

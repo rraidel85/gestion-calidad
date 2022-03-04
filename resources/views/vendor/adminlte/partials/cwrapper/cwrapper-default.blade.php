@@ -19,10 +19,11 @@
     @endif
 
     {{-- Main Content --}}
-    <div class="content">
+    <div class="content" style="min-height: 568px">
         <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}">
             @yield('content')
         </div>
     </div>
 
 </div>
+ 
