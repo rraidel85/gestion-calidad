@@ -49,8 +49,8 @@ class AreaController extends Controller
         $area = Area::create($validated);
 
         return redirect()
-            ->route('areas.edit', $area)
-            ->with('message', 'Se creó el area correctamente');
+            ->route('areas.index')
+            ->with('message', 'Se creó el área correctamente');
     }
 
     /**
@@ -93,8 +93,8 @@ class AreaController extends Controller
         $area->update($validated);
 
         return redirect()
-            ->route('areas.edit', $area)
-            ->with('message', 'Se editó el area correctamente');
+            ->route('areas.index')
+            ->with('message', 'Se editó el área correctamente');
     }
 
     /**
@@ -110,7 +110,7 @@ class AreaController extends Controller
 
         return redirect()
             ->route('areas.index')
-            ->with('message', 'Se eliminó el area correctamente');
+            ->with('message', 'Se eliminó el área correctamente');
     }
 
 }

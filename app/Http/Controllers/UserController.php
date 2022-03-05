@@ -57,7 +57,7 @@ class UserController extends Controller
         $user->syncRoles($request->roles);
 
         return redirect()
-            ->route('users.edit', $user)
+            ->route('users.index')
             ->with('message', 'Se creó el usuario correctamente');
     }
 
@@ -110,7 +110,7 @@ class UserController extends Controller
         $user->syncRoles($request->roles);
 
         return redirect()
-            ->route('users.edit', $user)
+            ->route('users.index')
             ->with('message', 'Se editó el usuario correctamente');
     }
 

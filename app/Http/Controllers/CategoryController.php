@@ -46,7 +46,7 @@ class CategoryController extends Controller
         $category = Category::create($validated);
 
         return redirect()
-            ->route('categories.edit', $category)
+            ->route('categories.index')
             ->with('message', 'Se creó la categoría correctamente');
     }
 
@@ -88,7 +88,7 @@ class CategoryController extends Controller
         $category->update($validated);
 
         return redirect()
-            ->route('categories.edit', $category)
+            ->route('categories.index')
             ->with('message', 'Se editó la categoría correctamente');
     }
 

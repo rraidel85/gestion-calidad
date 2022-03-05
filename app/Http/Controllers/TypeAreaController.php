@@ -46,8 +46,8 @@ class TypeAreaController extends Controller
         $typeArea = TypeArea::create($validated);
 
         return redirect()
-            ->route('type-areas.edit', $typeArea)
-            ->with('message', 'Se creó el tipo de area correctamente');
+            ->route('type-areas.index')
+            ->with('message', 'Se creó el tipo de área correctamente');
     }
 
     /**
@@ -88,8 +88,8 @@ class TypeAreaController extends Controller
         $typeArea->update($validated);
 
         return redirect()
-            ->route('type-areas.edit', $typeArea)
-            ->with('message', 'Se editó el tipo de area correctamente');
+            ->route('type-areas.index')
+            ->with('message', 'Se editó el tipo de área correctamente');
     }
 
     /**
@@ -105,7 +105,7 @@ class TypeAreaController extends Controller
 
         return redirect()
             ->route('type-areas.index')
-            ->with('message', 'Se eliminó el tipo de area correctamente');
+            ->with('message', 'Se eliminó el tipo de área correctamente');
     }
 
 }

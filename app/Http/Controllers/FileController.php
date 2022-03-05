@@ -136,7 +136,7 @@ class FileController extends Controller
         $file->update($validated);
 
         return redirect()
-            ->route('files.edit', $file)
+            ->route('files.index')
             ->with('message', 'Se actualizó el documento correctamente');
     } 
 
