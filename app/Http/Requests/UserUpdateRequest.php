@@ -31,7 +31,7 @@ class UserUpdateRequest extends FormRequest
                 'email',
             ],
             'area_id' => ['required', 'exists:areas,id'],
-            'roles' => 'array',
+            'rol_id' => ['required', 'exists:roles,id'],
         ];
     }
 }

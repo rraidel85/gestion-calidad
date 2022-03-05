@@ -38,16 +38,23 @@ class User extends Authenticatable
         return $this->belongsTo(Area::class);
     }
 
-    public function isSuperAdmin()
+    public function isAdmin()
     {
         return $this->hasRole('Administrador');
     }
 
-    public function adminlte_image(){
+    public function isJefeArea()
+    {
+        return $this->hasRole('Jefe de Area');
+    }
+
+    public function adminlte_image()
+    {
         return asset('images/my-user.png');
     }
 
-    public function adminlte_profile_url(){
+    public function adminlte_profile_url()
+    {
         return asset('user/profile');
     }
 }

@@ -23,8 +23,16 @@ class UserController extends Controller
     {
         $this->authorize('view-any', User::class);
 
-        $users = User::all();
+        $user_role_name = $request->user()->roles->pluck('name')->first();
+        $users = [];
 
+        if ($user_role_name == 'Administrador') {
+            $users = User::all();
+        }
+        elseif($user_role_name == 'Jefe de Area'){
+            $users = User::where('area_id', $request->user()->area->id)->get();
+        }
+        
         return view('app.users.index', compact('users'));
     }
 
@@ -36,10 +44,18 @@ class UserController extends Controller
     {
         $this->authorize('create', User::class);
 
-        $areas = Area::pluck('name', 'id');
-
-        $roles = Role::get();
-
+        $user_role_name = $request->user()->roles->pluck('name')->first();
+        $areas = [];
+        $roles = [];
+        
+        if ($user_role_name == 'Administrador') {
+            $areas = Area::pluck('name', 'id');
+            $roles = Role::pluck('name', 'id');
+        }
+        elseif($user_role_name == 'Jefe de Area'){
+            $roles = Role::where('name','!=','Administrador')->pluck('name', 'id');
+        }
+    
         return view('app.users.create', compact('areas', 'roles'));
     }
 
@@ -52,12 +68,13 @@ class UserController extends Controller
         $this->authorize('create', User::class);
 
         $validated = $request->validated();
+        $defaultPassword = "password";
 
-        $validated['password'] = Hash::make($validated['password']);
+        $validated['password'] = Hash::make($defaultPassword);
 
         $user = User::create($validated);
 
-        $user->syncRoles($request->roles);
+        $user->syncRoles($request->rol_id);
 
         return redirect()
             ->route('users.index')
@@ -85,9 +102,17 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
 
-        $areas = Area::pluck('name', 'id');
-
-        $roles = Role::get();
+        $user_role_name = $request->user()->roles->pluck('name')->first();
+        $areas = [];
+        $roles = [];
+        
+        if ($user_role_name == 'Administrador') {
+            $areas = Area::pluck('name', 'id');
+            $roles = Role::pluck('name', 'id');
+        }
+        elseif($user_role_name == 'Jefe de Area'){
+            $roles = Role::where('name','!=','Administrador')->pluck('name', 'id');
+        }
 
         return view('app.users.edit', compact('user', 'areas', 'roles'));
     }
