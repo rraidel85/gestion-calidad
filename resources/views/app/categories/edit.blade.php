@@ -28,7 +28,7 @@
                         Volver
                     </a>
 
-                    <button type="submit" class="btn btn-primary float-right">
+                    <button type="submit" class="btn btn-primary float-right save-btn">
                         <i class="fas fa-save"></i>
                         Actualizar
                     </button>

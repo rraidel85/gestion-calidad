@@ -143,11 +143,11 @@
 .sidebar-light-info .nav-sidebar>.nav-item>.nav-link.active{
     background-color: #3cadbfa3;
 }
-button[type=submit]{
+.save-btn{
     background-color: rgb(10, 165, 10);
     border: none;
 }
-button[type=submit]:hover{
+.save-btn:hover{
     background-color: rgb(68, 183, 68);
 }
 .login-btn{
