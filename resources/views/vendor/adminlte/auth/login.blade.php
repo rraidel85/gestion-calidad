@@ -75,7 +75,7 @@
             </div>
 
             <div class="col-5">
-                <button type=submit class="auth-btn-submit btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
+                <button id="auth-btn-submit" type=submit class="auth-btn-submit btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
                     <span class="fas fa-sign-in-alt"></span>
                     {{ __('adminlte::adminlte.sign_in') }}
                 </button>

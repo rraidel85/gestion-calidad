@@ -38,6 +38,9 @@
                 </div>
             </div>
 
+            <a href="{{ route('user.change_password') }}" class="btn btn-primary">
+                Cambiar contraseña
+            </a>
             <div class="mt-4">
                 <a href="{{ url()->previous() }}" class="btn btn-light">
                     <i class="fas fa-arrow-left"></i>

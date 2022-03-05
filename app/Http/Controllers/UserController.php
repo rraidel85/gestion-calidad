@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStorePasswordRequest;
 use App\Models\User;
 use App\Models\Area;
 use Illuminate\Http\Request;
@@ -9,6 +10,8 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use Illuminate\Support\Facades\Auth;
+// use Barryvdh\Debugbar\Facades\Debugbar;
 
 class UserController extends Controller
 {
@@ -135,5 +138,32 @@ class UserController extends Controller
         $user = $request->user();
 
         return view('app.users.profile', compact('user'));
+    }
+
+    public function change_password(Request $request)
+    {   
+        $user = $request->user();
+
+        return view('app.users.change_password', compact('user'));
+    }
+
+    public function store_password(UserStorePasswordRequest $request)
+    {
+
+        $validated = $request->validated();
+        $user = $request->user();
+
+        $hashedPassword = $user->password;
+
+        if (Hash::check($validated['oldpassword'], $hashedPassword)) {
+            $user->password = Hash::make($validated['password']);
+            $user->save();
+            return redirect()->route('home')
+                    ->with('message', 'Se actualizó la contraseña correctamente');
+        }
+
+        return redirect()
+            ->back()
+            ->with('error', 'No se pudo actualizar la contraseña');
     }
 }
