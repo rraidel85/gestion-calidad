@@ -47,7 +47,7 @@
     @if (Auth::user()->isAdmin())
         <x-inputs.group class="col-sm-12">
             <x-inputs.select name="rol_id" label="Rol" required>
-                @php $selected = old('rol_id', ($editing ? $user->area_id : '')) @endphp
+                @php $selected = old('rol_id', ($editing ? $user->roles->pluck('id')->first() : '')) @endphp
                 <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el rol</option>
                 @foreach($roles as $value => $label)
                     <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
@@ -57,7 +57,7 @@
     @elseif (Auth::user()->isJefeArea())
         <x-inputs.group class="col-sm-12">
             <x-inputs.select name="rol_id" label="Rol" required>
-                @php $selected = old('rol_id', ($editing ? $user->area_id : '')) @endphp
+                @php $selected = old('rol_id', ($editing ? $user->roles->pluck('id')->first() : '')) @endphp
                 <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el rol</option>
                 @foreach($roles as $value => $label)
                     <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>

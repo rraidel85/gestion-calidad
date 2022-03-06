@@ -127,15 +127,15 @@ class UserController extends Controller
         $this->authorize('update', $user);
 
         $validated = $request->validated();
-        if (empty($validated['password'])) {
-            unset($validated['password']);
-        } else {
-            $validated['password'] = Hash::make($validated['password']);
-        }
+        // if (empty($validated['password'])) {
+        //     unset($validated['password']);
+        // } else {
+        //     $validated['password'] = Hash::make($validated['password']);
+        // }
 
         $user->update($validated);
 
-        $user->syncRoles($request->roles);
+        $user->syncRoles($request->rol_id);
 
         return redirect()
             ->route('users.index')
@@ -189,6 +189,6 @@ class UserController extends Controller
 
         return redirect()
             ->back()
-            ->with('error', 'No se pudo actualizar la contraseña');
+            ->with('error', 'Contraseña incorrecta');
     }
 }
