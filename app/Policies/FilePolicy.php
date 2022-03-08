@@ -119,4 +119,14 @@ class FilePolicy
     {
         return false;
     }
+
+    public function seeOwner(User $user, File $model)
+    {
+        if ($user->area_id == $model->area_id) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

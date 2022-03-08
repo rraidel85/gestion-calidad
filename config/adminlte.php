@@ -243,22 +243,16 @@ return [
         //     'text' => 'search',
         // ],
         [
-            'text' => 'Inicio',
-            'route'  => 'home',
+            'text' => 'Todos los documentos',
+            'url'  => 'files',
             // 'classes' => 'text-primary',
-            'icon' => 'fas fa-home',
+            'icon' => 'fas fa-copy',
         ],
         [
             'text' => 'Buscar por area',
             'route'  => 'area_select',
             // 'classes' => 'text-primary',
             'icon' => 'fa fa-sitemap',
-        ],
-        [
-            'text' => 'Todos los documentos',
-            'url'  => 'files',
-            // 'classes' => 'text-primary',
-            'icon' => 'fas fa-copy',
         ],
         ['header' => 'PERSONAL', 'can' => 'list files'],
         [

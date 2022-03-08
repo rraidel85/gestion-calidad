@@ -28,7 +28,7 @@
         <x-inputs.group class="col-sm-12">
             <x-inputs.select name="area_id" label="Area" required>
                 @php $selected = old('area_id', ($editing ? $user->area_id : '')) @endphp
-                <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el área</option>
+                <option disabled {{ empty($selected) ? 'selected' : '' }}>Seleccione el área</option>
                 @foreach($areas as $value => $label)
                     <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                 @endforeach
@@ -48,7 +48,7 @@
         <x-inputs.group class="col-sm-12">
             <x-inputs.select name="rol_id" label="Rol" required>
                 @php $selected = old('rol_id', ($editing ? $user->roles->pluck('id')->first() : '')) @endphp
-                <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el rol</option>
+                <option disabled {{ empty($selected) ? 'selected' : '' }}>Seleccione el rol</option>
                 @foreach($roles as $value => $label)
                     <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                 @endforeach
@@ -58,7 +58,7 @@
         <x-inputs.group class="col-sm-12">
             <x-inputs.select name="rol_id" label="Rol" required>
                 @php $selected = old('rol_id', ($editing ? $user->roles->pluck('id')->first() : '')) @endphp
-                <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor seleccione el rol</option>
+                <option disabled {{ empty($selected) ? 'selected' : '' }}>Seleccione el rol</option>
                 @foreach($roles as $value => $label)
                     <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                 @endforeach

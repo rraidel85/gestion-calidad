@@ -17,7 +17,7 @@ class FileController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('index','show','files_by_area');
+        $this->middleware('auth')->except('index','show','files_by_area','download');
     }
 
     /**

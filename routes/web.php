@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [FileController::class, 'index']);
 
 Auth::routes(['register' => false]);
 

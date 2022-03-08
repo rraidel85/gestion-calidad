@@ -13,42 +13,19 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>Nombre</h5>
+                    <h5>Nombre:</h5>
                     <span>{{ $file->name ?? '-' }}</span>
                 </div>
+                
                 <div class="mb-4">
-                    <h5>Documento</h5>
-                    @if($file->file)
-                    <a href="{{ \Storage::url($file->file) }}" target="blank"
-                        ><i class="fa fa-download"></i>&nbsp;Download</a
-                    >
-                    @else - @endif
-                {{-- Aqui irian todas las categorias del archivo --}}
-                {{-- </div>
-                <div class="mb-4">
-                    <h5>Categoria</h5>
-                    <span>{{ optional($file->category)->name ?? '-' }}</span>
-                </div> --}}
-                <div class="mb-4">
-                    <h5>Area</h5>
+                    <h5>Area:</h5>
                     <span>{{ optional($file->area)->name ?? '-' }}</span>
                 </div>
+                @can('seeOwner', $file)
                 <div class="mb-4">
-                    <h5>Usuario</h5>
+                    <h5>Subido por:</h5>
                     <span>{{ optional($file->user)->name ?? '-' }}</span>
                 </div>
-            </div>
-
-            <div class="mt-4">
-                <a href="{{ url()->previous() }}" class="btn btn-light">
-                    <i class="fas fa-arrow-left"></i>
-                    Volver
-                </a>
-
-                @can('create', App\Models\File::class)
-                <a href="{{ route('files.create') }}" class="btn btn-primary">
-                    <i class="icon ion-md-add"></i> Nuevo
-                </a>
                 @endcan
             </div>
         </div>
