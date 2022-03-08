@@ -3,7 +3,7 @@
 @section('title', 'Editar Roles')
 
 @section('content_header')
-    Editar Roles
+    <h1>Editar Roles</h1>
 @stop
 
 @section('content')
@@ -19,11 +19,6 @@
                 @include('app.roles.form-inputs')
 
                 <div class="mt-4">
-                    <a href="{{ route('roles.index') }}" class="btn btn-light">
-                        <i class="fas fa-arrow-left text-primary"></i>
-                        Volver
-                    </a>
-
                     <button type="submit" class="btn btn-primary float-right">
                         <i class="fas fa-save"></i>
                         Actualizar

@@ -3,7 +3,7 @@
 @section('title', 'Crear Area')
 
 @section('content_header')
-    Crear Area
+    <h1>Crear Area</h1>
 @stop
 
 @section('content')
@@ -20,10 +20,6 @@
                 @include('app.areas.form-inputs')
 
                 <div class="mt-4">
-                    <a href="{{ url()->previous() }}" class="btn btn-light">
-                        <i class="fas fa-arrow-left text-primary"></i>
-                        Volver
-                    </a>
 
                     <button type="submit" class="btn btn-primary float-right save-btn">
                         <i class="fas fa-save"></i>

@@ -3,7 +3,7 @@
 @section('title', 'Editar Tipo-Area')
 
 @section('content_header')
-    Editar Tipo de Area
+    <h1>Editar Tipo de Area</h1>
 @stop
 
 @section('content')
@@ -19,14 +19,6 @@
                 @include('app.type_areas.form-inputs')
 
                 <div class="mt-4">
-                    <a
-                        href="{{ url()->previous() }}"
-                        class="btn btn-light"
-                    >
-                        <i class="fas fa-arrow-left text-primary"></i>
-                        Volver
-                    </a>
-
                     <a
                         href="{{ route('type-areas.create') }}"
                         class="btn btn-light"

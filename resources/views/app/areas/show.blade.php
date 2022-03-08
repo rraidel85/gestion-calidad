@@ -3,7 +3,7 @@
 @section('title', 'Mostrar Area')
 
 @section('content_header')
-    Mostrar Area
+    <h1>Mostrar Area</h1>
 @stop
 
 @section('content')
@@ -13,25 +13,20 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>Nombre</h5>
+                    <h4>Nombre</h4>
                     <span>{{ $area->name ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h5>Descripcion</h5>
+                    <h4>Descripcion</h4>
                     <span>{{ $area->description ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h5>Tipo de Area</h5>
+                    <h4>Tipo de Area</h4>
                     <span>{{ optional($area->typeArea)->name ?? '-' }}</span>
                 </div>
             </div>
 
             <div class="mt-4">
-                <a href="{{ url()->previous() }}" class="btn btn-light">
-                    <i class="fas fa-arrow-left"></i>
-                    Volver
-                </a>
-
                 @can('create', App\Models\Area::class)
                 <a href="{{ route('areas.create') }}" class="btn btn-primary">
                     <i class="icon ion-md-add"></i> Nuevo

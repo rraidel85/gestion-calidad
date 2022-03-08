@@ -3,7 +3,7 @@
 @section('title', 'Perfil')
 
 @section('content_header')
-    Perfil
+    <h1>Perfil</h1>
 @stop
 
 @section('content')
@@ -13,25 +13,25 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>Nombre:</h5>
+                    <h4>Nombre:</h4>
                     <span>{{ $user->name ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h5>Correo:</h5>
+                    <h4>Correo:</h4>
                     <span>{{ $user->email ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h5>Area:</h5>
+                    <h4>Area:</h4>
                     <span>{{ optional($user->area)->name ?? '-' }}</span>
                 </div>
             </div>
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>Rol:</h5>
+                    <h4>Rol:</h4>
                     <div>
                         @forelse ($user->roles as $role)
-                        <div class="badge badge-primary">{{ $role->name }}</div>
+                        <div class="rol badge badge-primary">{{ $role->name }}</div>
                         <br />
                         @empty - @endforelse
                     </div>
@@ -41,12 +41,6 @@
             <a href="{{ route('user.change_password') }}" class="btn btn-primary">
                 Cambiar contraseña
             </a>
-            <div class="mt-4">
-                <a href="{{ url()->previous() }}" class="btn btn-light">
-                    <i class="fas fa-arrow-left"></i>
-                    Volver
-                </a>
-            </div>
         </div>
     </div>
 </div>

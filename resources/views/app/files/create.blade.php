@@ -3,7 +3,7 @@
 @section('title', 'Crear Documento')
 
 @section('content_header')
-    Crear documento
+    <h1>Subir documento</h1>
 @stop
 @section('content')
 <div class="container">
@@ -19,11 +19,6 @@
                 @include('app.files.form-inputs')
 
                 <div class="mt-4">
-                    <a href="{{ url()->previous() }}" class="btn btn-light">
-                        <i class="fas fa-arrow-left text-primary"></i>
-                        Volver
-                    </a>
-
                     <button type="submit" class="btn btn-primary float-right save-btn">
                         <i class="fas fa-save"></i>
                         Guardar

@@ -3,7 +3,7 @@
 @section('title', 'Editar Documento')
 
 @section('content_header')
-    Editar documento
+    <h1>Editar documento</h1>
 @stop
 
 @section('content')
@@ -20,11 +20,6 @@
                 @include('app.files.form-inputs')
 
                 <div class="mt-4">
-                    <a href="{{ url()->previous() }}" class="btn btn-light">
-                        <i class="fas fa-arrow-left text-primary"></i>
-                        Volver
-                    </a>
-
                     <button type="submit" class="btn btn-primary float-right save-btn">
                         <i class="fas fa-save"></i>
                         Actualizar

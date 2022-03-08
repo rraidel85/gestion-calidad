@@ -19,7 +19,7 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h5>@lang('crud.permissions.inputs.name')</h5>
+                    <h4>@lang('crud.permissions.inputs.name')</h4>
                     <span>{{ $permission->name ?? '-' }}</span>
                 </div>
             </div>

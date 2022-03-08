@@ -3,7 +3,7 @@
 @section('title', 'Editar Area')
 
 @section('content_header')
-    Editar Area
+<h1>Editar Area</h1>
 @stop
 
 @section('content')
@@ -20,11 +20,6 @@
                 @include('app.areas.form-inputs')
 
                 <div class="mt-4">
-                    <a href="{{ url()->previous() }}" class="btn btn-light">
-                        <i class="fas fa-arrow-left text-primary"></i>
-                       Volver
-                    </a>
-
                     <button type="submit" class="btn btn-primary float-right save-btn">
                         <i class="fas fa-save"></i>
                         Actualizar

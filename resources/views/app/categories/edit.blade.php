@@ -3,7 +3,7 @@
 @section('title', 'Editar Categoría')
 
 @section('content_header')
-    Editar Categoría
+    <h1>Editar Categoría</h1>
 @stop
 
 @section('content')
@@ -20,13 +20,6 @@
                 @include('app.categories.form-inputs')
 
                 <div class="mt-4">
-                    <a
-                        href="{{ url()->previous() }}"
-                        class="btn btn-light"
-                    >
-                        <i class="fas fa-arrow-left text-primary"></i>
-                        Volver
-                    </a>
 
                     <button type="submit" class="btn btn-primary float-right save-btn">
                         <i class="fas fa-save"></i>
