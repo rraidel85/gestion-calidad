@@ -25,26 +25,47 @@
                     
                     <x-inputs.group class="col-sm-12">
                         <x-inputs.password
+                            id="oldpassword"
                             name="oldpassword"
                             label="Contraseña vieja"
                             required
                         ></x-inputs.password>
+                        <div style="margin-top:5px" class="form-check">
+                            <input onclick="showPassword('oldpassword')" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Mostrar contraseña
+                            </label>
+                        </div>
                     </x-inputs.group>
 
                     <x-inputs.group class="col-sm-12">
                         <x-inputs.password
+                            id="password"
                             name="password"
                             label="Nueva contraseña"
                             required
                         ></x-inputs.password>
+                        <div style="margin-top:5px" class="form-check">
+                            <input onclick="showPassword('password')" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Mostrar contraseña
+                            </label>
+                        </div>
                     </x-inputs.group>
 
                     <x-inputs.group class="col-sm-12">
                         <x-inputs.password
+                            id="password_confirmation"
                             name="password_confirmation"
                             label="Confirmar contraseña"
                             required
                         ></x-inputs.password>
+                        <div style="margin-top:5px" class="form-check">
+                            <input onclick="showPassword('password_confirmation')" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Mostrar contraseña
+                            </label>
+                        </div>
                     </x-inputs.group>
 
                     <div class="mt-4">
@@ -58,3 +79,17 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        function showPassword(element) {
+        var checkb = document.getElementById(element);
+        if (checkb.type === "password") {
+            checkb.type = "text";
+        }
+        else {
+            checkb.type = "password";
+        }
+    }
+    </script>
+@stop
