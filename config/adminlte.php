@@ -249,7 +249,7 @@ return [
             'icon' => 'fas fa-copy',
         ],
         [
-            'text' => 'Buscar por area',
+            'text' => 'Buscar por área',
             'route'  => 'area_select',
             // 'classes' => 'text-primary',
             'icon' => 'fa fa-sitemap',
@@ -257,7 +257,7 @@ return [
         [
             'text' => 'Dpto de Calidad',
             'route'  => 'calidad_files',
-            // 'classes' => 'text-primary',
+            'can' => 'create files',
             'icon' => 'fa fa-star',
         ],
         ['header' => 'PERSONAL', 'can' => 'list files'],
@@ -269,7 +269,7 @@ return [
             'icon' => 'far fa-fw fa-file',
         ],
         [
-            'text' => 'Documentos de mi area',
+            'text' => 'Documentos de mi área',
             'url'  => 'my_area_files',
             'can'  => 'list files',
             // 'classes' => 'text-primary',
@@ -284,13 +284,13 @@ return [
         // ],
         ['header' => 'ADMINISTRACIÓN', 'can' => 'list users'],
         [
-            'text' => 'Tipos de area',
+            'text' => 'Tipos de área',
             'url'  => 'type-areas',
             'can'  => 'list typeareas',
             'icon' => 'fas fa-table',
         ],
         [
-            'text' => 'Areas',
+            'text' => 'Áreas',
             'url'  => 'areas',
             'can'  => 'list areas',
             'icon' => 'fas fa-layer-group',

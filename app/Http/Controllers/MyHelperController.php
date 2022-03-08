@@ -107,9 +107,9 @@ class MyHelperController extends Controller
         elseif($routeAction == "App\Http\Controllers\FileController@files_by_area"){
 
             $dividedUrl = explode('/', url()->previous());
-            $area_id = intval(end($dividedUrl));
+            $area_id = intval(end($dividedUrl)); //Get the area id from url
 
-            if (!empty($categoriesToFilter) && $request->user()){
+            if (!empty($categoriesToFilter)){
                 $files = $fileQuery->where('area_id', $area_id)->get();
             }
             else{
