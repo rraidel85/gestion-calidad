@@ -19,8 +19,8 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h4>@lang('crud.permissions.inputs.name')</h4>
-                    <span>{{ $permission->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">@lang('crud.permissions.inputs.name')</h4>
+                    <span style="font-size: 18px;">{{ $permission->name ?? '-' }}</span>
                 </div>
             </div>
 

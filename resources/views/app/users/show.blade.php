@@ -13,22 +13,22 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h4>Nombre</h4>
-                    <span>{{ $user->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Nombre</h4>
+                    <span style="font-size: 18px;">{{ $user->name ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h4>Correo</h4>
-                    <span>{{ $user->email ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Correo</h4>
+                    <span style="font-size: 18px;">{{ $user->email ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h4>Area</h4>
-                    <span>{{ optional($user->area)->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Area</h4>
+                    <span style="font-size: 18px;">{{ optional($user->area)->name ?? '-' }}</span>
                 </div>
             </div>
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h4>Roles</h4>
+                    <h4 style="font-weight: 600;">Roles</h4>
                     <div>
                         @forelse ($user->roles as $role)
                         <div class="badge badge-primary">{{ $role->name }}</div>

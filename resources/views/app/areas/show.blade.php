@@ -13,25 +13,17 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h4>Nombre</h4>
-                    <span>{{ $area->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Nombre:</h4>
+                    <span style="font-size: 18px;">{{ $area->name ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h4>Descripcion</h4>
-                    <span>{{ $area->description ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Descripción:</h4>
+                    <span style="font-size: 18px;">{{ $area->description ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h4>Tipo de Area</h4>
-                    <span>{{ optional($area->typeArea)->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Tipo de área:</h4>
+                    <span style="font-size: 18px;">{{ optional($area->typeArea)->name ?? '-' }}</span>
                 </div>
-            </div>
-
-            <div class="mt-4">
-                @can('create', App\Models\Area::class)
-                <a href="{{ route('areas.create') }}" class="btn btn-primary">
-                    <i class="icon ion-md-add"></i> Nuevo
-                </a>
-                @endcan
             </div>
         </div>
     </div>

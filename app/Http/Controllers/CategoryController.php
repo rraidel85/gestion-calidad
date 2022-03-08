@@ -58,8 +58,8 @@ class CategoryController extends Controller
     public function show(Request $request, Category $category)
     {
         $this->authorize('view', $category);
-
-        return view('app.categories.show', compact('category'));
+        $category_files = $category->files;
+        return view('app.categories.show', compact('category', 'category_files'));
     }
 
     /**

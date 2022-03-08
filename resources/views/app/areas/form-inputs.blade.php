@@ -24,7 +24,7 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="type_area_id" label="Tipo de Área" required>
+        <x-inputs.select name="type_area_id" label="Tipo de área" required>
             @php $selected = old('type_area_id', ($editing ? $area->type_area_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Por favor selecciona el tipo de area</option>
             @foreach($typeAreas as $value => $label)

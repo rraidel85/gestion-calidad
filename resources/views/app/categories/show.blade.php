@@ -13,20 +13,16 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h4>Nombre</h4>
-                    <span>{{ $category->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Nombre:</h4>
+                    <span style="font-size: 18px;">{{ $category->name ?? '-' }}</span>
                 </div>
             </div>
 
-            <div class="mt-4">
-                @can('create', App\Models\Category::class)
-                <a
-                    href="{{ route('categories.create') }}"
-                    class="btn btn-primary"
-                >
-                    <i class="icon ion-md-add"></i> Nuevo
-                </a>
-                @endcan
+            <div class="mb-4">
+                <h4 style="font-weight: 600;">Documentos:</h4>
+                @foreach ($category_files as $file)
+                    <span style="font-size: 18px;display: block;">-{{ $file->name ?? '-' }}</span>
+                @endforeach
             </div>
         </div>
     </div>

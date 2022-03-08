@@ -13,24 +13,24 @@
 
             <div class="mt-4">
                 <div class="mb-4">
-                    <h4>Nombre:</h4>
-                    <span>{{ $file->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Nombre:</h4>
+                    <span style="font-size: 18px;">{{ $file->name ?? '-' }}</span>
                 </div>
                 
                 <div class="mb-4">
-                    <h4>Área:</h4>
-                    <span>{{ optional($file->area)->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Área:</h4>
+                    <span style="font-size: 18px;">{{ optional($file->area)->name ?? '-' }}</span>
                 </div>
                 @can('seeOwner', $file)
                 <div class="mb-4">
-                    <h4>Subido por:</h4>
-                    <span>{{ optional($file->user)->name ?? '-' }}</span>
+                    <h4 style="font-weight: 600;">Subido por:</h4>
+                    <span style="font-size: 18px;">{{ optional($file->user)->name ?? '-' }}</span>
                 </div>
                 @endcan
                 <div class="mb-4">
-                    <h4>Categorías:</h4>
+                    <h4 style="font-weight: 600;">Categorías:</h4>
                     @foreach ($file_categories as $category)
-                        <span style="display: block;">-{{ $category->name ?? '-' }}</span>
+                        <span style="font-size: 18px;display: block;">-{{ $category->name ?? '-' }}</span>
                     @endforeach
                 </div>
             </div>

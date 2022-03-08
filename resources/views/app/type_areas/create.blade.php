@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear Tipo-Area')
+@section('title', 'Crear Tipo-área')
 
 @section('content_header')
-    <h1>Crear Tipo de Area</h1>
+    <h1>Crear Tipo de área</h1>
 @stop
 
 @section('content')

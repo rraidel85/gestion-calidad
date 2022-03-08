@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Tipo-Area')
+@section('title', 'Editar Tipo-área')
 
 @section('content_header')
-    <h1>Editar Tipo de Area</h1>
+    <h1>Editar Tipo de área</h1>
 @stop
 
 @section('content')
@@ -19,14 +19,6 @@
                 @include('app.type_areas.form-inputs')
 
                 <div class="mt-4">
-                    <a
-                        href="{{ route('type-areas.create') }}"
-                        class="btn btn-light"
-                    >
-                        <i class="icon ion-md-add text-primary"></i>
-                        @lang('crud.common.create')
-                    </a>
-
                     <button type="submit" class="btn btn-primary float-right save-btn">
                         <i class="fas fa-save"></i>
                         Actualizar
