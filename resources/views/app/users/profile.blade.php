@@ -21,7 +21,7 @@
                     <span>{{ $user->email ?? '-' }}</span>
                 </div>
                 <div class="mb-4">
-                    <h4>Area:</h4>
+                    <h4>Área:</h4>
                     <span>{{ optional($user->area)->name ?? '-' }}</span>
                 </div>
             </div>
@@ -37,8 +37,9 @@
                     </div>
                 </div>
             </div>
-
-            <a href="{{ route('user.change_password') }}" class="btn btn-primary">
+            
+            <a href="{{ route('user.change_password') }}" class="change-password btn btn-success">
+                <i class="fa fa-lock" aria-hidden="true"></i>
                 Cambiar contraseña
             </a>
         </div>

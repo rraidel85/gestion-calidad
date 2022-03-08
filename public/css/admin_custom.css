@@ -237,3 +237,7 @@ table{
 .rol{
     font-size: 14px;
 }
+.change-password{
+    margin-top: 22px;
+    border-radius: 8px;
+}

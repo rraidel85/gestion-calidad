@@ -26,7 +26,7 @@
     {{-- Area --}}
     @if (Auth::user()->isAdmin())
         <x-inputs.group class="col-sm-12">
-            <x-inputs.select name="area_id" label="Area" required>
+            <x-inputs.select name="area_id" label="Área" required>
                 @php $selected = old('area_id', ($editing ? $user->area_id : '')) @endphp
                 <option disabled {{ empty($selected) ? 'selected' : '' }}>Seleccione el área</option>
                 @foreach($areas as $value => $label)
@@ -36,7 +36,7 @@
         </x-inputs.group>
     @elseif (Auth::user()->isJefeArea())
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="area_id" label="Area" required>
+        <x-inputs.select name="area_id" label="Área" required>
             @php $selected = old('area_id', ($editing ? $user->area_id : '')) @endphp
             <option value="{{ Auth::user()->area->id }}" selected >{{ Auth::user()->area->name }}</option>
         </x-inputs.select>

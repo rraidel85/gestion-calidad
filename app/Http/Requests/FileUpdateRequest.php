@@ -24,8 +24,8 @@ class FileUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255', 'string'],
-            'file' => ['required', 'file', 'mimes:doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip'],
-            'categories' => ['required', 'array', 'exists:categories,id'],
+            'file' => ['file', 'mimes:doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip'],
+            'categories' => ['array', 'exists:categories,id'],
         ];
     }
 }

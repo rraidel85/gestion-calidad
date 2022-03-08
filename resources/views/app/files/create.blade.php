@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear Documento')
+@section('title', 'Subir Documento')
 
 @section('content_header')
     <h1>Subir documento</h1>

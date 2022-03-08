@@ -92,7 +92,8 @@ class FileController extends Controller
     {
         // $this->authorize('view', $file);
 
-        return view('app.files.show', compact('file'));
+        $file_categories = $file->categories;
+        return view('app.files.show', compact('file', 'file_categories'));
     }
 
     /**
