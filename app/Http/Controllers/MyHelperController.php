@@ -59,7 +59,7 @@ class MyHelperController extends Controller
         return view('app.files.index', compact('files','categories'));
     }
 
-
+    //Asynchronous method that returns files filtered by the selected categories
     public function files_category_api(Request $request)
     {   
         $categoriesToFilter = request()->selectedCategories;

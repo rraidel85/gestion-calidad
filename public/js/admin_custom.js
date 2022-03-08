@@ -77,7 +77,7 @@ const get_files_by_category = (selectBox) => {
             <td>${data[i].file.area.name}</td>
             <td class="text-center" style="width: 134px;">
                 <div role="group" aria-label="Row Actions" class="btn-group">
-                <a href="{{ route('files.edit', $file) }}" onclick="checkFileExists(event, ${data[i].file.file})">
+                <a href="/files/${data[i].file.id}/download" onclick="checkFileExists(event, ${data[i].file.file})">
                     <button title="Descargar"
                         type="button"
                         class="btn btn-info download-btn my-btns"
