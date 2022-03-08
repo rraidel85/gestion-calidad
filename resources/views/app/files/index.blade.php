@@ -50,7 +50,7 @@
                                 Nombre
                             </th>
                             <th class="text-left">
-                                Area
+                                Área
                             </th>
                             <th class="text-center">
                                 Opciones

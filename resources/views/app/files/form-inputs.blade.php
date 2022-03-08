@@ -5,26 +5,20 @@
     <x-inputs.group class="col-sm-12">
         <x-inputs.partials.label
             name="file"
-            label="Archivo"
+            label="{{ $editing ? 'Cambiar documento:' : 'Documento:'}}"
         ></x-inputs.partials.label
         ><br />
 
         <input type="file" onChange='changeNameInputValue()' name="file" id="file" class="form-control-file" />
 
-        @if($editing && $file->file)
-        <div class="mt-2">
-            <a href="{{ \Storage::url($file->file) }}" target="_blank"
-                ><i class="fa fa-download"></i>&nbsp;Download</a
-            >
-        </div>
-        @endif @error('file') @include('components.inputs.partials.error')
+       @error('file') @include('components.inputs.partials.error')
         @enderror
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
         <x-inputs.text
             name="name"
-            label="Nombre"
+            label="Nombre:"
             value="{{ old('name', ($editing ? $file->name : '')) }}"
             maxlength="255"
             placeholder="Nombre"
@@ -34,7 +28,7 @@
     </x-inputs.group>
 
     <div class="form-group col-sm-12 category-filter">
-        <label>Categoría(s)</label>
+        <label>Categoría(s):</label>
         <div class="select2-purple">
             <select name="categories[]" class="select2" id="categorySelect" multiple="multiple" style="width: 100%;">
                 @foreach ($categories as $category)

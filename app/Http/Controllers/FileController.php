@@ -107,10 +107,10 @@ class FileController extends Controller
         $categories = Category::all();
         $areas = Area::pluck('name', 'id');
         $users = User::pluck('name', 'id');
-
+        $file_categories = $file->categories->pluck('id');
         return view(
             'app.files.edit',
-            compact('file', 'categories', 'areas', 'users')
+            compact('file', 'categories', 'areas', 'users', 'file_categories')
         );
     }
 

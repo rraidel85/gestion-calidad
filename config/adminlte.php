@@ -254,6 +254,12 @@ return [
             // 'classes' => 'text-primary',
             'icon' => 'fa fa-sitemap',
         ],
+        [
+            'text' => 'Dpto de Calidad',
+            'route'  => 'calidad_files',
+            // 'classes' => 'text-primary',
+            'icon' => 'fa fa-star',
+        ],
         ['header' => 'PERSONAL', 'can' => 'list files'],
         [
             'text' => 'Mis documentos',

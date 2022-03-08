@@ -44,6 +44,7 @@ Route::prefix('/')
         Route::post('user/store_password', [UserController::class, 'store_password'])->name('user.store_password');
         Route::get('my_files', [MyHelperController::class, 'my_files'])->name('my_files');
         Route::get('my_area_files', [MyHelperController::class, 'my_area_files'])->name('my_area_files');
+        Route::get('calidad', [MyHelperController::class, 'calidad_files'])->name('calidad_files');
     });
 
 

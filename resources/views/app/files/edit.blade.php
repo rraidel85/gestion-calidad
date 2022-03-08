@@ -30,3 +30,11 @@
     </div>
 </div>
 @endsection
+
+@section('js')
+    <script>
+        let fileCategories = @json($file_categories);
+        $('#categorySelect').val(fileCategories); 
+        $('#categorySelect').trigger('change');
+    </script>
+@stop

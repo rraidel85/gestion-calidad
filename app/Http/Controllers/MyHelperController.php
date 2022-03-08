@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\Category;
 use App\Models\File;
 use App\Models\TypeArea;
@@ -39,6 +40,21 @@ class MyHelperController extends Controller
 
         $categories = Category::all();
         $files = File::where('area_id', $loggedUserAreaId)->get();
+
+        return view('app.files.index', compact('files','categories'));
+    }
+
+
+    public function calidad_files(){
+        $this->authorize('create', File::class);
+
+        $calidad_id = Area::where('name', 'like', 'Departamento de Calidad')
+                    ->first();
+        if($calidad_id){
+            $calidad_id = $calidad_id->id;
+        }
+        $categories = Category::all();
+        $files = File::where('area_id', $calidad_id)->get();
 
         return view('app.files.index', compact('files','categories'));
     }
@@ -113,4 +129,5 @@ class MyHelperController extends Controller
         
         return response()->json($myResponseArray);
     }
+
 }
