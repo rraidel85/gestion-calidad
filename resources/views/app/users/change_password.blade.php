@@ -27,7 +27,7 @@
                         <x-inputs.password
                             id="oldpassword"
                             name="oldpassword"
-                            label="Contraseña vieja"
+                            label="Contraseña antigua"
                             required
                         ></x-inputs.password>
                         <div style="margin-top:5px" class="form-check">

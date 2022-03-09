@@ -136,6 +136,10 @@ class FileController extends Controller
 
         $file->update($validated);
 
+        if(!empty($validated['categories'])){
+            $file->categories()->sync($validated['categories']);
+        }
+
         return redirect()
             ->route('files.index')
             ->with('message', 'Se actualizó el documento correctamente');

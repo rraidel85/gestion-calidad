@@ -189,6 +189,6 @@ class UserController extends Controller
 
         return redirect()
             ->back()
-            ->with('error', 'Contraseña incorrecta');
+            ->with('error', 'Contraseña antigua incorrecta');
     }
 }
