@@ -34,9 +34,9 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update users']);
         Permission::create(['name' => 'delete users']);
 
-        // Create 'Jefe de Area' role and assign existing permissions
+        // Create 'Jefe de Área' role and assign existing permissions
         $currentPermissions = Permission::all();
-        $userRole = Role::create(['name' => 'Jefe de Area']);
+        $userRole = Role::create(['name' => 'Jefe de Área']);
         $userRole->givePermissionTo($currentPermissions);
 
 

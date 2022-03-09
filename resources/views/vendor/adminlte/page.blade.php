@@ -73,6 +73,7 @@
     <!--My js scripts -->
     <script src="/js/admin_custom.js"></script> 
     <script>
+        $('.text-danger').delay(5000).fadeOut(); //Errors fade out after 5 seconds
         if (!$.loadedFromBrowserCache) {
             // If page is loaded from server and not from browser cache
             toastr.options ={

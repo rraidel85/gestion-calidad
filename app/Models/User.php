@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function isJefeArea()
     {
-        return $this->hasRole('Jefe de Area');
+        return $this->hasRole('Jefe de Área');
     }
 
     public function adminlte_image()

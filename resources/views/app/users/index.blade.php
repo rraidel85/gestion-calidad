@@ -37,6 +37,9 @@
                             <th class="text-left">
                                 Área
                             </th>
+                            <th class="text-left">
+                                Rol
+                            </th>
                             <th class="text-center">
                                 Opciones
                             </th>
@@ -48,6 +51,7 @@
                             <td>{{ $user->name ?? '-' }}</td>
                             <td>{{ $user->email ?? '-' }}</td>
                             <td>{{ optional($user->area)->name ?? '-' }}</td>
+                            <td>{{ $user->roles->first->name->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"

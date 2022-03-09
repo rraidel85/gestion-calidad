@@ -37,11 +37,13 @@
                     </div>
                 </div>
             </div>
-
-            <a href="{{ route('user.change_password') }}" class="change-password btn btn-success">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                Cambiar contraseña
-            </a>
+            <div class="mb-4">
+                <h4 style="font-weight: 600;">Opciones:</h4>
+                <a href="{{ route('user.change_password') }}" class="change-password btn btn-success">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    Cambiar contraseña
+                </a>
+            </div>
         </div>
     </div>
 </div>

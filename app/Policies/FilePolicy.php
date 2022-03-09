@@ -53,7 +53,7 @@ class FilePolicy
      */
     public function update(User $user, File $model)
     {
-        if($user->hasRole('Jefe de Area') && $user->area_id == $model->area_id){
+        if($user->hasRole('Jefe de Área') && $user->area_id == $model->area_id){
             return true;
         }
         elseif($user->hasRole('Usuario General') && $user->id == $model->user_id){
@@ -73,7 +73,7 @@ class FilePolicy
      */
     public function delete(User $user, File $model)
     {
-        if($user->hasRole('Jefe de Area') && $user->area_id == $model->area_id){
+        if($user->hasRole('Jefe de Área') && $user->area_id == $model->area_id){
             return true;
         }
         elseif($user->hasRole('Usuario General') && $user->id == $model->user_id){

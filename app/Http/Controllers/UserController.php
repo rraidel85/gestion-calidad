@@ -29,7 +29,7 @@ class UserController extends Controller
         if ($user_role_name == 'Administrador') {
             $users = User::all();
         }
-        elseif($user_role_name == 'Jefe de Area'){
+        elseif($user_role_name == 'Jefe de Área'){
             $users = User::where('area_id', $request->user()->area->id)->get();
         }
         
@@ -52,7 +52,7 @@ class UserController extends Controller
             $areas = Area::pluck('name', 'id');
             $roles = Role::pluck('name', 'id');
         }
-        elseif($user_role_name == 'Jefe de Area'){
+        elseif($user_role_name == 'Jefe de Área'){
             $roles = Role::where('name','!=','Administrador')->pluck('name', 'id');
         }
     
@@ -110,7 +110,7 @@ class UserController extends Controller
             $areas = Area::pluck('name', 'id');
             $roles = Role::pluck('name', 'id');
         }
-        elseif($user_role_name == 'Jefe de Area'){
+        elseif($user_role_name == 'Jefe de Área'){
             $roles = Role::where('name','!=','Administrador')->pluck('name', 'id');
         }
 
