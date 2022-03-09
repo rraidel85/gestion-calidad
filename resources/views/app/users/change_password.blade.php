@@ -27,7 +27,7 @@
                         <x-inputs.password
                             id="oldpassword"
                             name="oldpassword"
-                            label="Contraseña antigua"
+                            label="Contraseña actual"
                             required
                         ></x-inputs.password>
                         <div style="margin-top:5px" class="form-check">
@@ -69,7 +69,7 @@
                     </x-inputs.group>
 
                     <div class="mt-4">
-                        <button type="submit" class="btn btn-primary float-right">
+                        <button type="submit" class="btn btn-primary float-right save-btn">
                             <i class="fas fa-save"></i>
                             Guardar
                         </button>
