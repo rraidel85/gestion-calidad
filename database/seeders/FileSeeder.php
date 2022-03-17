@@ -15,13 +15,13 @@ class FileSeeder extends Seeder
     public function run()
     {
 
-        File::factory()
-            ->count(25)
-            ->create();
+        // File::factory()
+        //     ->count(25)
+        //     ->create();
 
-        foreach (File::all() as $file) {
-            $file->area_id = $file->user->area->id;
-            $file->save();
-        }
+        // foreach (File::all() as $file) {
+        //     $file->area_id = $file->user->area->id;
+        //     $file->save();
+        // }
     }
 }

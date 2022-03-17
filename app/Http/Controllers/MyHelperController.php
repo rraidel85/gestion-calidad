@@ -48,7 +48,7 @@ class MyHelperController extends Controller
     public function calidad_files(){
         $this->authorize('create', File::class);
 
-        $calidad_id = Area::where('name', 'like', 'Departamento de Calidad')
+        $calidad_id = Area::where('name', 'like', 'Dirección de Calidad')
                     ->first();
         if($calidad_id){
             $calidad_id = $calidad_id->id;

@@ -255,7 +255,7 @@ return [
             'icon' => 'fa fa-sitemap',
         ],
         [
-            'text' => 'Dpto de Calidad',
+            'text' => 'Dirección de Calidad',
             'route'  => 'calidad_files',
             'can' => 'crear documentos',
             'icon' => 'fa fa-star',

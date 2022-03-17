@@ -16,17 +16,22 @@ class AreaSeeder extends Seeder
     {
         Area::create([
             'name' => 'Area de Administración',
-            'description' => 'Esta es el area del administrador del sistema',
+            'description' => 'Área del administrador del sistema',
             'type_area_id' => 1,
         ]);
         Area::create([
             'name' => 'General',
-            'description' => 'Esta es el area general, la que se usa por defecto',
+            'description' => 'Área general, la que se usa por defecto',
+            'type_area_id' => 1,
+        ]);
+        Area::create([
+            'name' => 'Dirección de Calidad',
+            'description' => 'Área de la dirección de calidad',
             'type_area_id' => 1,
         ]);
 
-        Area::factory()
-            ->count(20)
-            ->create();
+        // Area::factory()
+        //     ->count(20)
+        //     ->create();
     }
 }

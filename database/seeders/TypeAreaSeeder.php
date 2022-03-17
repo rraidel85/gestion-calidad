@@ -18,8 +18,12 @@ class TypeAreaSeeder extends Seeder
             'name' => 'Administracion'
         ]);
 
-        TypeArea::factory()
-            ->count(5)
-            ->create();
+        TypeArea::create([
+            'name' => 'Dirección de calidad'
+        ]);
+
+        // TypeArea::factory()
+        //     ->count(5)
+        //     ->create();
     }
 }

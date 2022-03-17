@@ -16,8 +16,8 @@ class UserRoleSeeder extends Seeder
     public function run()
     {   
         //Assign to each user except Admin a role between 'Usuario General' and 'Jefe de Área'
-        User::where('email','!=','admin@admin.com')->each(function ($user, $key) {
-            $user->assignRole(rand(1, 2));
-        });
+        // User::where('email','!=','admin@admin.com')->each(function ($user, $key) {
+        //     $user->assignRole(rand(1, 2));
+        // });
     }
 }

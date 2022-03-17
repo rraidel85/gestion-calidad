@@ -4,13 +4,13 @@
     <x-inputs.group class="col-sm-12">
         <x-inputs.text
             name="name"
-            label="Nombre"
+            label="Nombre:"
             value="{{ old('name', ($editing ? $role->name : '')) }}"
         ></x-inputs.text>
     </x-inputs.group>
 
     <div class="form-group col-sm-12 mt-4">
-        <h4>Asignar Permisos</h4>
+        <h5>Asignar Permisos:</h5>
 
         @foreach ($permissions as $permission)
         <div>
