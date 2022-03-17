@@ -21,7 +21,7 @@
                         class="btn btn-primary create-btn"
                     >
                         <i class="fas fa-plus"></i>
-                        Nueva Area
+                        Nueva Área
                     </a>
                     @endcan
                 </div>
