@@ -18,7 +18,7 @@ class CategoryPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('list categories');
+        return $user->hasPermissionTo('listar categorías');
     }
 
     /**
@@ -30,7 +30,7 @@ class CategoryPolicy
      */
     public function view(User $user, Category $model)
     {
-        return $user->hasPermissionTo('view categories');
+        return $user->hasPermissionTo('ver categorías');
     }
 
     /**
@@ -41,7 +41,7 @@ class CategoryPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create categories');
+        return $user->hasPermissionTo('crear categorías');
     }
 
     /**
@@ -53,7 +53,7 @@ class CategoryPolicy
      */
     public function update(User $user, Category $model)
     {
-        return $user->hasPermissionTo('update categories');
+        return $user->hasPermissionTo('editar categorías');
     }
 
     /**
@@ -65,7 +65,7 @@ class CategoryPolicy
      */
     public function delete(User $user, Category $model)
     {
-        return $user->hasPermissionTo('delete categories');
+        return $user->hasPermissionTo('eliminar categorías');
     }
 
     /**
@@ -77,7 +77,7 @@ class CategoryPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete categories');
+        return $user->hasPermissionTo('eliminar categorías');
     }
 
     /**

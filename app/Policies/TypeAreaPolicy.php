@@ -18,7 +18,7 @@ class TypeAreaPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('list typeareas');
+        return $user->hasPermissionTo('listar tipos de área');
     }
 
     /**
@@ -30,7 +30,7 @@ class TypeAreaPolicy
      */
     public function view(User $user, TypeArea $model)
     {
-        return $user->hasPermissionTo('view typeareas');
+        return $user->hasPermissionTo('ver tipos de área');
     }
 
     /**
@@ -41,7 +41,7 @@ class TypeAreaPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create typeareas');
+        return $user->hasPermissionTo('crear tipos de área');
     }
 
     /**
@@ -53,7 +53,7 @@ class TypeAreaPolicy
      */
     public function update(User $user, TypeArea $model)
     {
-        return $user->hasPermissionTo('update typeareas');
+        return $user->hasPermissionTo('editar tipos de área');
     }
 
     /**
@@ -65,7 +65,7 @@ class TypeAreaPolicy
      */
     public function delete(User $user, TypeArea $model)
     {
-        return $user->hasPermissionTo('delete typeareas');
+        return $user->hasPermissionTo('eliminar tipos de área');
     }
 
     /**
@@ -77,7 +77,7 @@ class TypeAreaPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete typeareas');
+        return $user->hasPermissionTo('eliminar tipos de área');
     }
 
     /**

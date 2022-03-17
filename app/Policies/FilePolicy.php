@@ -18,7 +18,7 @@ class FilePolicy
      */
     public function viewAny(?User $user)
     {
-        return optional($user)->hasPermissionTo('list files');
+        return optional($user)->hasPermissionTo('listar documentos');
     }
 
     /**
@@ -30,7 +30,7 @@ class FilePolicy
      */
     public function view(User $user, File $model)
     {
-        return $user->hasPermissionTo('view files');
+        return $user->hasPermissionTo('ver documentos');
     }
 
     /**
@@ -41,7 +41,7 @@ class FilePolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create files');
+        return $user->hasPermissionTo('crear documentos');
     }
 
     /**

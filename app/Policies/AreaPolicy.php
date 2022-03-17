@@ -18,7 +18,7 @@ class AreaPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('list areas');
+        return $user->hasPermissionTo('listar áreas');
     }
 
     /**
@@ -30,7 +30,7 @@ class AreaPolicy
      */
     public function view(User $user, Area $model)
     {
-        return $user->hasPermissionTo('view areas');
+        return $user->hasPermissionTo('ver áreas');
     }
 
     /**
@@ -41,7 +41,7 @@ class AreaPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create areas');
+        return $user->hasPermissionTo('crear áreas');
     }
 
     /**
@@ -53,7 +53,7 @@ class AreaPolicy
      */
     public function update(User $user, Area $model)
     {
-        return $user->hasPermissionTo('update areas');
+        return $user->hasPermissionTo('editar áreas');
     }
 
     /**
@@ -65,7 +65,7 @@ class AreaPolicy
      */
     public function delete(User $user, Area $model)
     {
-        return $user->hasPermissionTo('delete areas');
+        return $user->hasPermissionTo('eliminar áreas');
     }
 
     /**
@@ -77,7 +77,7 @@ class AreaPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->hasPermissionTo('delete areas');
+        return $user->hasPermissionTo('eliminar áreas');
     }
 
     /**
