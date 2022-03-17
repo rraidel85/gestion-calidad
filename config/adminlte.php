@@ -307,6 +307,12 @@ return [
             'can'  => 'list users',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'Roles',
+            'url'  => 'roles',
+            'can'  => 'list users',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         
         // [
         //     'text'    => 'multilevel',
