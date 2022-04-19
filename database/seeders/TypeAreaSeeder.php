@@ -15,7 +15,7 @@ class TypeAreaSeeder extends Seeder
     public function run()
     {
         TypeArea::create([
-            'name' => 'Administracion'
+            'name' => 'Administración'
         ]);
 
         TypeArea::create([

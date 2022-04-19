@@ -183,7 +183,7 @@ class UserController extends Controller
         if (Hash::check($validated['oldpassword'], $hashedPassword)) {
             $user->password = Hash::make($validated['password']);
             $user->save();
-            return redirect()->route('home')
+            return redirect()->route('files.index')
                     ->with('message', 'Se actualizó la contraseña correctamente');
         }
 

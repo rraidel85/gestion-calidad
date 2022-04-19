@@ -310,8 +310,8 @@ return [
         [
             'text' => 'Roles',
             'url'  => 'roles',
-            'can'  => 'listar usuarios',
-            'icon' => 'fas fa-fw fa-user',
+            'can'  => 'listar roles',
+            'icon' => 'fa fa-users',
         ],
         
         // [

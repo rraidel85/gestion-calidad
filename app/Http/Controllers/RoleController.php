@@ -15,14 +15,12 @@ class RoleController extends Controller {
      */
     public function index(Request $request) 
     {
-        $this->authorize('list', Role::class);
+        $this->authorize('listar roles', Role::class);
 
-        $search = $request->get('search', '');
-        $roles = Role::where('name', 'like', "%{$search}%")->paginate(10);
+        $roles = Role::all();
 
         return view('app.roles.index')
-            ->with('roles', $roles)
-            ->with('search', $search);
+            ->with('roles', $roles);
     }
 
     /**
@@ -32,7 +30,7 @@ class RoleController extends Controller {
      */
     public function create() 
     {
-        $this->authorize('create', Role::class);
+        $this->authorize('crear roles', Role::class);
 
         $permissions = Permission::all();
 
@@ -48,7 +46,7 @@ class RoleController extends Controller {
     public function store(Request $request) 
     {
 
-        $this->authorize('create', Role::class);
+        $this->authorize('crear roles', Role::class);
 
         $data = $this->validate($request, [
             'name' => 'required|unique:roles|max:32',
@@ -61,8 +59,8 @@ class RoleController extends Controller {
         $role->syncPermissions($permissions);
 
         return redirect()
-            ->route('roles.edit', $role->id)
-            ->withSuccess(__('crud.common.created'));
+            ->route('roles.index', $role->id)
+            ->with('message', 'Se creó el rol correctamente');
     }
 
     /**
@@ -73,9 +71,10 @@ class RoleController extends Controller {
      */
     public function show(Role $role) 
     {
-        $this->authorize('view', Role::class);
+        $this->authorize('ver roles', Role::class);
 
-        return view('app.roles.show')->with('role', $role);
+        $permissions = $role->permissions;
+        return view('app.roles.show',compact('role', 'permissions'));
     }
 
     /**
@@ -86,7 +85,7 @@ class RoleController extends Controller {
      */
     public function edit(Role $role) 
     {
-        $this->authorize('update', $role);
+        $this->authorize('editar roles', $role);
 
         $permissions = Permission::all();
 
@@ -104,7 +103,7 @@ class RoleController extends Controller {
      */
     public function update(Request $request, Role $role) 
     {
-        $this->authorize('update', $role);
+        $this->authorize('editar roles', $role);
 
         $data = $this->validate($request, [
             'name' => 'required|max:32|unique:roles,name,'.$role->id,
@@ -117,8 +116,8 @@ class RoleController extends Controller {
         $role->syncPermissions($permissions);
 
         return redirect()
-            ->route('roles.edit', $role->id)
-            ->withSuccess(__('crud.common.saved'));
+            ->route('roles.index')
+            ->with('message', 'Se actualizó el rol correctamente');
     }
 
     /**
@@ -129,12 +128,12 @@ class RoleController extends Controller {
      */
     public function destroy(Role $role)
     {
-        $this->authorize('delete', $role);
+        $this->authorize('eliminar roles', $role);
 
         $role->delete();
 
         return redirect()
             ->route('roles.index')
-            ->withSuccess(__('crud.common.removed'));
+            ->with('message', 'Se eliminó el rol correctamente');
     }
 }
